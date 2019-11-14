@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\csuser\\Documents\\ImageSandbox\\GroupKStegafy.csproj": {}
+    "C:\\Users\\csuser\\Desktop\\ImageSandbox\\GroupKStegafy.csproj": {}
   },
   "projects": {
-    "C:\\Users\\csuser\\Documents\\ImageSandbox\\GroupKStegafy.csproj": {
+    "C:\\Users\\csuser\\Desktop\\ImageSandbox\\GroupKStegafy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\csuser\\Documents\\ImageSandbox\\GroupKStegafy.csproj",
+        "projectUniqueName": "C:\\Users\\csuser\\Desktop\\ImageSandbox\\GroupKStegafy.csproj",
         "projectName": "GroupKStegafy",
-        "projectPath": "C:\\Users\\csuser\\Documents\\ImageSandbox\\GroupKStegafy.csproj",
+        "projectPath": "C:\\Users\\csuser\\Desktop\\ImageSandbox\\GroupKStegafy.csproj",
         "packagesPath": "C:\\Users\\csuser\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\csuser\\Documents\\ImageSandbox\\obj\\",
+        "outputPath": "C:\\Users\\csuser\\Desktop\\ImageSandbox\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [

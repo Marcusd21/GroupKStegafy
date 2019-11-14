@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>CS1117W14</Machine>
+    <Machine>CS1211W25</Machine>
     <WindowsUser>csuser</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>81d861b7-0db4-4dbd-a465-a86dc393a7bb</PackageIdentityName>
     <PackageIdentityPublisher>CN=dyoder</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\csuser\Documents\ImageSandbox\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\csuser\Desktop\ImageSandbox\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\csuser\Documents\ImageSandbox\bin\x64\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>0138A07B67B705977D33B61447155EBB9F71299465794CABD3522977F5401634</RegisteredManifestChecksum>
+    <LayoutDir>C:\Users\csuser\Desktop\ImageSandbox\bin\x64\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>E726E9ABE345A1399CD26F639C4DFE593CAF62C006E5AF75D0203B28504D4C1A</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>81d861b7-0db4-4dbd-a465-a86dc393a7bb_1.0.0.0_x64__vpktpzvxd0r0j</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>81d861b7-0db4-4dbd-a465-a86dc393a7bb_vpktpzvxd0r0j!App</RegisteredUserModeAppID>
     <RegisteredPackageID>81d861b7-0db4-4dbd-a465-a86dc393a7bb</RegisteredPackageID>
@@ -27,16 +27,16 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\csuser\Documents\ImageSandbox\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\csuser\Desktop\ImageSandbox\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-14T18:40:14.227</Modified>
+      <Modified>2019-11-14T19:30:33.897</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\csuser\Documents\ImageSandbox\bin\x64\Debug\ImageSandbox.exe">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\ImageSandbox\bin\x64\Debug\ImageSandbox.exe">
       <PackagePath>entrypoint\ImageSandbox.exe</PackagePath>
-      <Modified>2019-11-14T18:39:03.176</Modified>
+      <Modified>2019-11-14T19:30:33.491</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.8\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -46,67 +46,67 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2019-03-18T22:36:56.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Documents\ImageSandbox\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\ImageSandbox\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2019-11-14T18:32:27.748</Modified>
+      <Modified>2019-11-14T18:58:34.030</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Documents\ImageSandbox\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\ImageSandbox\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2019-11-14T18:32:27.102</Modified>
+      <Modified>2019-11-14T18:58:32.546</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Documents\ImageSandbox\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\ImageSandbox\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-14T18:32:27.108</Modified>
+      <Modified>2019-11-14T18:58:32.561</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Documents\ImageSandbox\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\ImageSandbox\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-14T18:32:27.121</Modified>
+      <Modified>2019-11-14T18:58:32.577</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Documents\ImageSandbox\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\ImageSandbox\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-14T18:32:27.127</Modified>
+      <Modified>2019-11-14T18:58:32.577</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Documents\ImageSandbox\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\ImageSandbox\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-14T18:32:27.133</Modified>
+      <Modified>2019-11-14T18:58:32.592</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Documents\ImageSandbox\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\ImageSandbox\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-14T18:32:27.147</Modified>
+      <Modified>2019-11-14T18:58:32.608</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Documents\ImageSandbox\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\ImageSandbox\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-14T18:32:27.153</Modified>
+      <Modified>2019-11-14T18:58:32.608</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Documents\ImageSandbox\bin\x64\Debug\ImageSandbox.xr.xml">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\ImageSandbox\bin\x64\Debug\ImageSandbox.xr.xml">
       <PackagePath>ImageSandbox.xr.xml</PackagePath>
-      <Modified>2019-11-14T18:36:33.817</Modified>
+      <Modified>2019-11-14T19:27:17.829</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Documents\ImageSandbox\bin\x64\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\ImageSandbox\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-11-14T18:40:13.883</Modified>
+      <Modified>2019-11-14T19:30:33.351</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Documents\ImageSandbox\bin\x64\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\ImageSandbox\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2019-11-14T18:40:13.883</Modified>
+      <Modified>2019-11-14T19:30:33.351</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2019-03-18T21:33:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Documents\ImageSandbox\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\ImageSandbox\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-11-14T18:39:03.268</Modified>
+      <Modified>2019-11-14T19:27:19.158</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Documents\ImageSandbox\bin\x64\Debug\Core\ImageSandbox.exe">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\ImageSandbox\bin\x64\Debug\Core\ImageSandbox.exe">
       <PackagePath>ImageSandbox.exe</PackagePath>
-      <Modified>2019-11-14T18:40:14.211</Modified>
+      <Modified>2019-11-14T19:30:33.897</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

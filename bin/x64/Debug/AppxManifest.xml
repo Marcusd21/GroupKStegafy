@@ -7,11 +7,11 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="81d861b7-0db4-4dbd-a465-a86dc393a7bb" Publisher="CN=Douglas and Williams" Version="1.0.0.0" ProcessorArchitecture="x64" />
+  <Identity Name="81d861b7-0db4-4dbd-a465-a86dc393a7bb" Publisher="CN=dyoder" Version="1.0.0.0" ProcessorArchitecture="x64" />
   <mp:PhoneIdentity PhoneProductId="81d861b7-0db4-4dbd-a465-a86dc393a7bb" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>ImageSandbox</DisplayName>
-    <PublisherDisplayName>Douglas and Williams</PublisherDisplayName>
+    <PublisherDisplayName>dyoder</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
@@ -24,7 +24,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="ImageSandbox.exe" EntryPoint="ImageSandbox.App">
-      <uap:VisualElements DisplayName="GroupKStegafy by Douglas and Williams" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" BackgroundColor="transparent" Description="GroupKStegafy">
+      <uap:VisualElements DisplayName="GroupKStegafy by Douglas and Williams" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" BackgroundColor="transparent" Description="group">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
