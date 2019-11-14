@@ -70,8 +70,8 @@
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\ImageSandbox\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Desktop\ImageSandbox\bin\x64\Debug\MainPage.xbf">
-      <PackagePath>MainPage.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\ImageSandbox\bin\x64\Debug\View\MainPage.xbf">
+      <PackagePath>View\MainPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
