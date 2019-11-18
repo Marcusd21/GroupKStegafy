@@ -8156,11 +8156,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Marcus\\PC(1)\\A6\\ImageSandbox\\GroupKStegafy.csproj",
+      "projectUniqueName": "C:\\Users\\Marcus\\PC(1)\\GroupKStegafy\\ImageSandbox\\GroupKStegafy.csproj",
       "projectName": "GroupKStegafy",
-      "projectPath": "C:\\Users\\Marcus\\PC(1)\\A6\\ImageSandbox\\GroupKStegafy.csproj",
+      "projectPath": "C:\\Users\\Marcus\\PC(1)\\GroupKStegafy\\ImageSandbox\\GroupKStegafy.csproj",
       "packagesPath": "C:\\Users\\Marcus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Marcus\\PC(1)\\A6\\ImageSandbox\\obj\\",
+      "outputPath": "C:\\Users\\Marcus\\PC(1)\\GroupKStegafy\\ImageSandbox\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

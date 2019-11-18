@@ -37,6 +37,6 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="FontFamily" />
     </RootType>
-    <RootType FullName="ImageSandbox.MainPage" />
+    <RootType FullName="GroupKStegafy.View.MainPage" />
   </Roots.RootTypes>
 </Roots>

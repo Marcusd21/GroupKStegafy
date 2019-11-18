@@ -58,26 +58,6 @@
             GetXmlnsDefinitions()
             </summary>
         </member>
-        <member name="T:ImageSandbox.MainPage">
-            <summary>
-            An empty page that can be used on its own or navigated to within a Frame.
-            </summary>
-        </member>
-        <member name="M:ImageSandbox.MainPage.InitializeComponent">
-            <summary>
-            InitializeComponent()
-            </summary>
-        </member>
-        <member name="M:ImageSandbox.MainPage.Connect(System.Int32,System.Object)">
-            <summary>
-            Connect()
-            </summary>
-        </member>
-        <member name="M:ImageSandbox.MainPage.GetBindingConnector(System.Int32,System.Object)">
-            <summary>
-            GetBindingConnector(int connectionId, object target)
-            </summary>
-        </member>
         <member name="T:ImageSandbox.Program">
             <summary>
             Program class
@@ -110,6 +90,26 @@
                 Saves the writable bitmap.
             </summary>
             <param name="image">The modified image.</param>
+        </member>
+        <member name="T:GroupKStegafy.View.MainPage">
+            <summary>
+            An empty page that can be used on its own or navigated to within a Frame.
+            </summary>
+        </member>
+        <member name="M:GroupKStegafy.View.MainPage.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:GroupKStegafy.View.MainPage.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="M:GroupKStegafy.View.MainPage.GetBindingConnector(System.Int32,System.Object)">
+            <summary>
+            GetBindingConnector(int connectionId, object target)
+            </summary>
         </member>
         <member name="T:GroupKStegafy.Model.Image">
             <summary>
