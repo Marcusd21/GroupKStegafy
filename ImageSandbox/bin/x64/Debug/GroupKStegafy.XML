@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GroupKStegafy</name>
+    </assembly>
+    <members>
+        <member name="T:ImageSandbox.App">
+            <summary>
+            Provides application-specific behavior to supplement the default Application class.
+            </summary>
+        </member>
+        <member name="M:ImageSandbox.App.#ctor">
+            <summary>
+            Initializes the singleton application object.  This is the first line of authored code
+            executed, and as such is the logical equivalent of main() or WinMain().
+            </summary>
+        </member>
+        <member name="M:ImageSandbox.App.OnLaunched(Windows.ApplicationModel.Activation.LaunchActivatedEventArgs)">
+            <summary>
+            Invoked when the application is launched normally by the end user.  Other entry points
+            will be used such as when the application is launched to open a specific file.
+            </summary>
+            <param name="e">Details about the launch request and process.</param>
+        </member>
+        <member name="M:ImageSandbox.App.OnNavigationFailed(System.Object,Windows.UI.Xaml.Navigation.NavigationFailedEventArgs)">
+            <summary>
+            Invoked when Navigation to a certain page fails
+            </summary>
+            <param name="sender">The Frame which failed navigation</param>
+            <param name="e">Details about the navigation failure</param>
+        </member>
+        <member name="M:ImageSandbox.App.OnSuspending(System.Object,Windows.ApplicationModel.SuspendingEventArgs)">
+            <summary>
+            Invoked when application execution is being suspended.  Application state is saved
+            without knowing whether the application will be terminated or resumed with the contents
+            of memory still intact.
+            </summary>
+            <param name="sender">The source of the suspend request.</param>
+            <param name="e">Details about the suspend request.</param>
+        </member>
+        <member name="M:ImageSandbox.App.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:ImageSandbox.App.GetXamlType(System.Type)">
+            <summary>
+            GetXamlType(Type)
+            </summary>
+        </member>
+        <member name="M:ImageSandbox.App.GetXamlType(System.String)">
+            <summary>
+            GetXamlType(String)
+            </summary>
+        </member>
+        <member name="M:ImageSandbox.App.GetXmlnsDefinitions">
+            <summary>
+            GetXmlnsDefinitions()
+            </summary>
+        </member>
+        <member name="T:ImageSandbox.MainPage">
+            <summary>
+            An empty page that can be used on its own or navigated to within a Frame.
+            </summary>
+        </member>
+        <member name="M:ImageSandbox.MainPage.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:ImageSandbox.MainPage.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="M:ImageSandbox.MainPage.GetBindingConnector(System.Int32,System.Object)">
+            <summary>
+            GetBindingConnector(int connectionId, object target)
+            </summary>
+        </member>
+        <member name="T:ImageSandbox.Program">
+            <summary>
+            Program class
+            </summary>
+        </member>
+        <member name="T:GroupKStegafy.DataTier.FileReader">
+            <summary>Creates instance of a file reader</summary>
+        </member>
+        <member name="M:GroupKStegafy.DataTier.FileReader.SelectSourceImageFile">
+            <summary>
+                Selects the source image file.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GroupKStegafy.DataTier.FileReader.MakeACopyOfTheFileToWorkOn(Windows.Storage.StorageFile)">
+            <summary>
+                Makes a copy of the file to work on.
+            </summary>
+            <param name="imageFile">The image file.</param>
+            <returns></returns>
+        </member>
+        <member name="T:GroupKStegafy.DataTier.SaveFileWriter">
+            <summary>Instance of saving to a file</summary>
+        </member>
+        <member name="M:GroupKStegafy.DataTier.SaveFileWriter.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:GroupKStegafy.DataTier.SaveFileWriter"/> class.</summary>
+        </member>
+        <member name="M:GroupKStegafy.DataTier.SaveFileWriter.SaveWritableBitmap(Windows.UI.Xaml.Media.Imaging.WriteableBitmap)">
+            <summary>
+                Saves the writable bitmap.
+            </summary>
+            <param name="image">The modified image.</param>
+        </member>
+        <member name="T:GroupKStegafy.Model.Image">
+            <summary>
+            Creates an instance of an Image
+            </summary>
+        </member>
+        <member name="F:GroupKStegafy.Model.Image.RedBytes">
+            <summary>
+            Represents red bytes
+            </summary>
+        </member>
+        <member name="F:GroupKStegafy.Model.Image.BlueBytes">
+            <summary>
+            Represents blue bytes
+            </summary>
+        </member>
+        <member name="F:GroupKStegafy.Model.Image.GreenBytes">
+            <summary>
+            Represents green bytes
+            </summary>
+        </member>
+        <member name="F:GroupKStegafy.Model.Image.dpiX">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:GroupKStegafy.Model.Image.dpiY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GroupKStegafy.Model.Image.Pixels">
+            <summary>
+            Gets the pixels.
+            </summary>
+            <value>
+            The pixels.
+            </value>
+        </member>
+        <member name="P:GroupKStegafy.Model.Image.BitImage">
+            <summary>
+            Gets or sets the bit image.
+            </summary>
+            <value>
+            The bit image.
+            </value>
+        </member>
+        <member name="P:GroupKStegafy.Model.Image.Decoder">
+            <summary>
+            Gets or sets the decoder.
+            </summary>
+            <value>
+            The decoder.
+            </value>
+        </member>
+        <member name="P:GroupKStegafy.Model.Image.ImageHeight">
+            <summary>
+            Gets or sets the height of the image.
+            </summary>
+            <value>
+            The height of the image.
+            </value>
+        </member>
+        <member name="P:GroupKStegafy.Model.Image.ImageWidth">
+            <summary>
+            Gets or sets the width of the image.
+            </summary>
+            <value>
+            The width of the image.
+            </value>
+        </member>
+        <member name="M:GroupKStegafy.Model.Image.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GroupKStegafy.Model.Image"/> class.
+            </summary>
+        </member>
+        <member name="M:GroupKStegafy.Model.Image.SetSourceImage(Windows.Storage.Streams.IRandomAccessStream)">
+            <summary>
+            Sets the source image.
+            </summary>
+            <param name="stream">The stream.</param>
+            <returns></returns>
+        </member>
+        <member name="T:GroupKStegafy.Model.ImagePalette">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:GroupKStegafy.GroupKStegafy_XamlTypeInfo.XamlMetaDataProvider">
+            <summary>
+            Main class for providing metadata for the app or library
+            </summary>
+        </member>
+        <member name="M:GroupKStegafy.GroupKStegafy_XamlTypeInfo.XamlMetaDataProvider.GetXamlType(System.Type)">
+            <summary>
+            GetXamlType(Type)
+            </summary>
+        </member>
+        <member name="M:GroupKStegafy.GroupKStegafy_XamlTypeInfo.XamlMetaDataProvider.GetXamlType(System.String)">
+            <summary>
+            GetXamlType(String)
+            </summary>
+        </member>
+        <member name="M:GroupKStegafy.GroupKStegafy_XamlTypeInfo.XamlMetaDataProvider.GetXmlnsDefinitions">
+            <summary>
+            GetXmlnsDefinitions()
+            </summary>
+        </member>
+    </members>
+</doc>
