@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-18T01:53:22.955</Modified>
+      <Modified>2019-11-18T23:22:43.190</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\GroupKStegafy.exe">
       <PackagePath>entrypoint\GroupKStegafy.exe</PackagePath>
-      <Modified>2019-11-18T01:53:22.383</Modified>
+      <Modified>2019-11-18T23:22:42.630</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.8\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -86,15 +86,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\GroupKStegafy.xr.xml">
       <PackagePath>GroupKStegafy.xr.xml</PackagePath>
-      <Modified>2019-11-18T01:34:22.598</Modified>
+      <Modified>2019-11-18T23:20:43.494</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-11-18T01:53:22.146</Modified>
+      <Modified>2019-11-18T23:22:42.333</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
-      <Modified>2019-11-18T01:53:22.147</Modified>
+      <Modified>2019-11-18T23:22:42.334</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -106,7 +106,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\Core\GroupKStegafy.exe">
       <PackagePath>GroupKStegafy.exe</PackagePath>
-      <Modified>2019-11-18T01:53:22.949</Modified>
+      <Modified>2019-11-18T23:22:43.184</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

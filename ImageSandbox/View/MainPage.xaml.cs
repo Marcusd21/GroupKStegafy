@@ -1,24 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 using Windows.UI;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
-using Windows.UI.Xaml.Navigation;
+using GroupKStegafy.DataTier;
+using GroupKStegafy.ViewModel;
+using GroupKStegafy.Model;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -27,22 +20,26 @@ namespace GroupKStegafy.View
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage
     {
         #region Data members
 
         private double dpiX;
         private double dpiY;
         private WriteableBitmap modifiedImage;
+        private MainPageViewModel viewModel;
+        private FileReader reader;
 
         #endregion
 
         #region Constructors
 
+        /// <summary>Initializes a new instance of the <see cref="MainPage"/> class.</summary>
         public MainPage()
         {
             this.InitializeComponent();
-
+            this.viewModel = new MainPageViewModel();
+            this.reader = new FileReader();
             this.modifiedImage = null;
             this.dpiX = 0;
             this.dpiY = 0;
@@ -54,40 +51,11 @@ namespace GroupKStegafy.View
 
         private async void openButton_Click(object sender, RoutedEventArgs e)
         {
-            var sourceImageFile = await this.selectSourceImageFile();
-            var copyBitmapImage = await this.MakeACopyOfTheFileToWorkOn(sourceImageFile);
+            var result = await this.reader.SelectSourceImageFile();
+            var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
+            var sourceImage = await this.reader.CreateImage(result, bitImage);
 
-            using (var fileStream = await sourceImageFile.OpenAsync(FileAccessMode.Read))
-            {
-                var decoder = await BitmapDecoder.CreateAsync(fileStream);
-                var transform = new BitmapTransform
-                {
-                    ScaledWidth = Convert.ToUInt32(copyBitmapImage.PixelWidth),
-                    ScaledHeight = Convert.ToUInt32(copyBitmapImage.PixelHeight)
-                };
-
-                this.dpiX = decoder.DpiX;
-                this.dpiY = decoder.DpiY;
-
-                var pixelData = await decoder.GetPixelDataAsync(
-                    BitmapPixelFormat.Bgra8,
-                    BitmapAlphaMode.Straight,
-                    transform,
-                    ExifOrientationMode.IgnoreExifOrientation,
-                    ColorManagementMode.DoNotColorManage
-                    );
-
-                var sourcePixels = pixelData.DetachPixelData();
-
-                this.giveImageRedTint(sourcePixels, decoder.PixelWidth, decoder.PixelHeight);
-
-                this.modifiedImage = new WriteableBitmap((int)decoder.PixelWidth, (int)decoder.PixelHeight);
-                using (var writeStream = this.modifiedImage.PixelBuffer.AsStream())
-                {
-                    await writeStream.WriteAsync(sourcePixels, 0, sourcePixels.Length);
-                    this.sourceImageDisplay.Source = this.modifiedImage;
-                }
-            }
+            this.sourceImageDisplay.Source = sourceImage.BitImage;
         }
 
         private void giveImageRedTint(byte[] sourcePixels, uint imageWidth, uint imageHeight)
@@ -112,7 +80,6 @@ namespace GroupKStegafy.View
                 ViewMode = PickerViewMode.Thumbnail,
                 SuggestedStartLocation = PickerLocationId.PicturesLibrary
             };
-            openPicker.FileTypeFilter.Add(".jpg");
             openPicker.FileTypeFilter.Add(".png");
             openPicker.FileTypeFilter.Add(".bmp");
 
@@ -180,5 +147,23 @@ namespace GroupKStegafy.View
         }
 
         #endregion
+
+        private async void LoadMonoImageButton_Click(object sender, RoutedEventArgs e)
+        {
+          var result = await  this.reader.SelectSourceImageFile();
+          var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
+          var monoImage = await this.reader.CreateImage(result,bitImage );
+
+          this.monoImageDisplay.Source = monoImage.BitImage;
+        }
+
+        private async void LoadHiddenImageButton_Click(object sender, RoutedEventArgs e)
+        {
+            var result = await this.reader.SelectSourceImageFile();
+            var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
+            var hiddenImage = await this.reader.CreateImage(result, bitImage);
+
+            this.hiddenImageDisplay.Source = hiddenImage.BitImage;
+        }
     }
 }

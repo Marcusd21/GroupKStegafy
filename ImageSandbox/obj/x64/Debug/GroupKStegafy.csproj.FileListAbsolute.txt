@@ -88,3 +88,4 @@ C:\Users\Marcus\PC(1)\GroupKStegafy\ImageSandbox\obj\x64\Debug\qualifiers.txt.in
 C:\Users\Marcus\PC(1)\GroupKStegafy\ImageSandbox\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Marcus\PC(1)\GroupKStegafy\ImageSandbox\obj\x64\Debug\ProjectArchitectures.txt
 C:\Users\Marcus\PC(1)\GroupKStegafy\ImageSandbox\obj\x64\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636885454160000000.json
+C:\Users\Marcus\PC(1)\GroupKStegafy\ImageSandbox\obj\x64\Debug\GroupKStegafy.csprojAssemblyReference.cache

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GroupKStegafy.Model;
+using System;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Pickers;
@@ -42,6 +43,21 @@ namespace GroupKStegafy.DataTier
             return newImage;
         }
 
-        #endregion
+        /// <summary>Creates the image.</summary>
+        /// <param name="file">The file.</param>
+        /// <returns></returns>
+        public async Task<Image> CreateImage(StorageFile file, BitmapImage bitImage)
+        {
+            var image = new Image();
+
+            using (var fileStream = await file.OpenAsync(FileAccessMode.Read))
+            {
+                await image.SetSourceImage(file, bitImage);
+            }
+
+            return image;
+
+            #endregion
+        }
     }
 }

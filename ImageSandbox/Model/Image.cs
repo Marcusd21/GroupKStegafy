@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.Graphics.Imaging;
+using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Media.Imaging;
 
@@ -93,18 +94,19 @@ namespace GroupKStegafy.Model
 
         #region Methods
 
-        /// <summary>
-        /// Sets the source image.
-        /// </summary>
+
+        /// <summary>Sets the source image.</summary>
         /// <param name="stream">The stream.</param>
-        /// <returns></returns>
-        public async Task SetSourceImage(IRandomAccessStream stream)
+        /// <param name="storageFile">The storage file.</param>
+        /// <param name="bitImage">The bit image.</param>
+        public async Task SetSourceImage( StorageFile storageFile, BitmapImage bitImage)
         {
-            this.Decoder = await BitmapDecoder.CreateAsync(stream);
+            IRandomAccessStream inputStream = await storageFile.OpenReadAsync();
+            this.Decoder = await BitmapDecoder.CreateAsync(inputStream);
             var transform = new BitmapTransform
             {
-                ScaledWidth = Convert.ToUInt32(this.ImageWidth),
-                ScaledHeight = Convert.ToUInt32(this.ImageHeight)
+                ScaledWidth = Convert.ToUInt32(bitImage.PixelWidth),
+                ScaledHeight = Convert.ToUInt32(bitImage.PixelHeight)
             };
 
             var pixelData = await this.Decoder.GetPixelDataAsync(
@@ -123,6 +125,8 @@ namespace GroupKStegafy.Model
             this.ImageWidth = (int)this.Decoder.PixelWidth;
 
             this.BitImage = new WriteableBitmap((int)this.Decoder.PixelWidth, (int)this.Decoder.PixelHeight);
+            this.BitImage.SetSource(inputStream);
+            
         }
 
         #endregion
