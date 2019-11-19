@@ -69,15 +69,13 @@ namespace GroupKStegafy.Controller
                             Convert.ToUInt32(this.MonoImage.ImageWidth), Convert.ToUInt32(this.MonoImage.ImageHeight));
                         if (monoColor.R == 0)
                         {
-                            var result = pixelColor.R & ~1;
-                            pixelColor.R = Convert.ToByte(result);
+                            pixelColor.B  &= 0xfe;
 
                             this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
                         }
                         else
                         {
-                            var result = pixelColor.R | 1;
-                            pixelColor.R = Convert.ToByte(result);
+                            pixelColor.B |= 1;
 
                             this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
                         }
