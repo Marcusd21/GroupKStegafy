@@ -1,8 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
   <Roots.PropertyPathNames>
-    <RootPropertyPathName Name="SourceImage" />
+    <RootPropertyPathName Name="SecretImage" />
     <RootPropertyPathName Name="BitImage" />
+    <RootPropertyPathName Name="HiddenImage" />
+    <RootPropertyPathName Name="MonochromeImage" />
+    <RootPropertyPathName Name="SourceImage" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />

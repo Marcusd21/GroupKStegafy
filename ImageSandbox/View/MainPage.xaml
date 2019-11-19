@@ -12,11 +12,11 @@
     </Page.DataContext>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="981" VerticalAlignment="Center">
         <Image x:Name="sourceImageDisplay" Source="{Binding SourceImage.BitImage, Mode=TwoWay}" Margin="213,119,987,562"/>
-        <Button x:Name="embedButton" Content="Embed" Margin="689,386,0,0" VerticalAlignment="Top" />
+        <Button x:Name="embedButton" Content="Embed" Margin="689,386,0,0" VerticalAlignment="Top" Click="EmbedButton_Click" />
         <Button x:Name="extractButton" Content="Extract" Margin="683,752,0,0" VerticalAlignment="Top" Height="41" Width="67"/>
-        <Image x:Name="monoImageDisplay" Margin="1006,119,194,562"/>
-        <Image x:Name="hiddenImageDisplay" Margin="213,507,987,174"/>
-        <Image x:Name="secretImageDisplay" Margin="1006,522,194,159"/>
+        <Image x:Name="monoImageDisplay" Source="{Binding MonochromeImage.BitImage, Mode=TwoWay}" Margin="1006,119,194,562"/>
+        <Image x:Name="hiddenImageDisplay" Source="{Binding HiddenImage.BitImage, Mode=TwoWay}" Margin="213,507,987,174"/>
+        <Image x:Name="secretImageDisplay" Source="{Binding SecretImage.BitImage, Mode=TwoWay}" Margin="1006,522,194,159"/>
         <Button x:Name="loadHiddenImageButton" Content="Image" Margin="120,712,0,0" VerticalAlignment="Top"  Height="41" Width="67" Click="LoadHiddenImageButton_Click"/>
         <Button x:Name="saveButton" Content="Save" Margin="689,467,0,0" VerticalAlignment="Top" Click="saveButton_Click"/>
         <Button x:Name="loadSourceImageButton" Content="Image" Margin="125,369,0,0" VerticalAlignment="Top" Click="openButton_Click" Height="41" Width="67"/>

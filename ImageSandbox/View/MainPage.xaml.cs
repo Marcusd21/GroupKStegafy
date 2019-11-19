@@ -9,6 +9,7 @@ using Windows.Storage.Streams;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media.Imaging;
+using GroupKStegafy.Controller;
 using GroupKStegafy.DataTier;
 using GroupKStegafy.ViewModel;
 using GroupKStegafy.Model;
@@ -29,6 +30,11 @@ namespace GroupKStegafy.View
         private WriteableBitmap modifiedImage;
         private MainPageViewModel viewModel;
         private FileReader reader;
+        private Image sourceImage;
+        private Image monoImage;
+        private Image hiddenImage;
+        private Image secretImage;
+        private ImageManager imageManager;
 
         #endregion
 
@@ -40,6 +46,11 @@ namespace GroupKStegafy.View
             this.InitializeComponent();
             this.viewModel = new MainPageViewModel();
             this.reader = new FileReader();
+            this.sourceImage = new Image();
+            this.monoImage = new Image();
+            this.hiddenImage = new Image();
+            this.secretImage = new Image();
+            this.imageManager = new ImageManager();
             this.modifiedImage = null;
             this.dpiX = 0;
             this.dpiY = 0;
@@ -55,22 +66,10 @@ namespace GroupKStegafy.View
             var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
             var sourceImage = await this.reader.CreateImage(result, bitImage);
 
+            this.sourceImage = sourceImage;
+            this.hiddenImage = sourceImage;
             this.sourceImageDisplay.Source = sourceImage.BitImage;
-        }
-
-        private void giveImageRedTint(byte[] sourcePixels, uint imageWidth, uint imageHeight)
-        {
-            for (var i = 0; i < imageHeight; i++)
-            {
-                for (var j = 0; j < imageWidth; j++)
-                {
-                    var pixelColor = this.GetPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
-
-                    pixelColor.R = 255;
-
-                    this.SetPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
-                }
-            }
+            
         }
 
         private async Task<StorageFile> selectSourceImageFile()
@@ -86,31 +85,6 @@ namespace GroupKStegafy.View
             var file = await openPicker.PickSingleFileAsync();
 
             return file;
-        }
-
-        private async Task<BitmapImage> MakeACopyOfTheFileToWorkOn(StorageFile imageFile)
-        {
-            IRandomAccessStream inputstream = await imageFile.OpenReadAsync();
-            var newImage = new BitmapImage();
-            newImage.SetSource(inputstream);
-            return newImage;
-        }
-
-        public Color GetPixelBgra8(byte[] pixels, int x, int y, uint width, uint height)
-        {
-            var offset = (x * (int)width + y) * 4;
-            var r = pixels[offset + 2];
-            var g = pixels[offset + 1];
-            var b = pixels[offset + 0];
-            return Color.FromArgb(0, r, g, b);
-        }
-
-        public void SetPixelBgra8(byte[] pixels, int x, int y, Color color, uint width, uint height)
-        {
-            var offset = (x * (int)width + y) * 4;
-            pixels[offset + 2] = color.R;
-            pixels[offset + 1] = color.G;
-            pixels[offset + 0] = color.B;
         }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
@@ -154,6 +128,8 @@ namespace GroupKStegafy.View
           var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
           var monoImage = await this.reader.CreateImage(result,bitImage );
 
+          this.monoImage = monoImage;
+          this.imageManager.MonoImage = monoImage;
           this.monoImageDisplay.Source = monoImage.BitImage;
         }
 
@@ -163,7 +139,14 @@ namespace GroupKStegafy.View
             var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
             var hiddenImage = await this.reader.CreateImage(result, bitImage);
 
+            this.hiddenImage = hiddenImage;
             this.hiddenImageDisplay.Source = hiddenImage.BitImage;
+        }
+
+        private void EmbedButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.imageManager.getImageValues(this.hiddenImage.Pixels, Convert.ToUInt32(this.hiddenImage.ImageWidth), Convert.ToUInt32(this.hiddenImage.ImageHeight));
+
         }
     }
 }
