@@ -22,7 +22,7 @@ namespace GroupKStegafy.DataTier
             var openPicker = new FileOpenPicker {
                 ViewMode = PickerViewMode.Thumbnail,
                 SuggestedStartLocation = PickerLocationId.PicturesLibrary,
-                FileTypeFilter = {".png", ".bmp"}
+                FileTypeFilter = {".png", ".bmp", ".jpg"}
             };
 
             var file = await openPicker.PickSingleFileAsync();

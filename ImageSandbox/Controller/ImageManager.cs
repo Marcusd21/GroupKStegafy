@@ -35,6 +35,12 @@ namespace GroupKStegafy.Controller
         private Color getPixelBgra8(byte[] pixels, int x, int y, uint width, uint height)
         {
             var offset = (x * (int) width + y) * 4;
+
+            if (offset >= (width * height * 4))
+            {
+                return Color.FromArgb(0, 255, 255, 255);
+            }
+
             var r = pixels[offset + 2];
             var g = pixels[offset + 1];
             var b = pixels[offset + 0];
@@ -56,30 +62,71 @@ namespace GroupKStegafy.Controller
             pixels[offset + 0] = color.B;
         }
 
-        public void getImageValues(byte[] sourcePixels, uint imageWidth, uint imageHeight)
+        public void embedImage(byte[] sourcePixels, uint imageWidth, uint imageHeight)
         {
             for (var i = 0; i < imageHeight; i++)
             {
                 for (var j = 0; j < imageWidth; j++)
                 {
-                    if (i <= this.MonoImage.ImageHeight && j <= this.MonoImage.ImageWidth)
+
+                    var pixelColor = this.getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
+                    var monoColor = this.getPixelBgra8(this.MonoImage.Pixels, i, j,
+                        Convert.ToUInt32(this.MonoImage.ImageWidth), Convert.ToUInt32(this.MonoImage.ImageHeight));
+
+                    if (j == 0 && i == 0)
                     {
-                        var pixelColor = this.getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
-                        var monoColor = this.getPixelBgra8(this.MonoImage.Pixels, i, j,
-                            Convert.ToUInt32(this.MonoImage.ImageWidth), Convert.ToUInt32(this.MonoImage.ImageHeight));
-                        if (monoColor.R == 0)
-                        {
-                            pixelColor.B  &= 0xfe;
-
-                            this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
-                        }
-                        else
-                        {
-                            pixelColor.B |= 1;
-
-                            this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
-                        }
+                        //set header to 212 values for R,G,B
                     }
+                    else if (j == 1 && i == 0)
+                    {
+                        pixelColor.R &= 0xfe;
+                    } else if (monoColor.R == 0)
+                    {
+                        pixelColor.B &= 0xfe;
+                    }
+                    else
+                    {
+                        pixelColor.B |= 1;
+                    }
+
+                    this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
+                }
+            }
+        }
+
+        public void extractSecretImage(byte[] sourcePixels, uint imageWidth, uint imageHeight)
+        {
+            for (var i = 0; i < imageHeight; i++)
+            {
+                for (var j = 0; j < imageWidth; j++)
+                {
+                    var pixelColor = this.getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
+
+                    if (j == 0 && i == 0)
+                    {
+                        continue;
+                    }
+
+                    if (j == 1 && i == 0)
+                    {
+                        continue;
+                    }
+
+                    if (pixelColor.B % 2 == 0)
+                    {
+                        
+                        pixelColor.B = 0;
+                        pixelColor.R = 0;
+                        pixelColor.G = 0;
+                    }
+                    else
+                    {
+                        pixelColor.B = 255;
+                        pixelColor.R = 255;
+                        pixelColor.G = 255;
+                    }
+
+                    this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
                 }
             }
         }
