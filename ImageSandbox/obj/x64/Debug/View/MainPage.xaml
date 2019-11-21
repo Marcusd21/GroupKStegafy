@@ -13,7 +13,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="981" VerticalAlignment="Center">
         <Image x:ConnectionId='2' x:Name="sourceImageDisplay" Source="{Binding SourceImage.BitImage, Mode=TwoWay}" Margin="213,119,987,562"/>
         <Button x:ConnectionId='3' x:Name="embedButton" Content="Embed" Margin="689,386,0,0" VerticalAlignment="Top"                           />
-        <Button x:ConnectionId='4' x:Name="extractButton" Content="Extract" Margin="683,752,0,0" VerticalAlignment="Top" Height="41" Width="67"/>
+        <Button x:ConnectionId='4' x:Name="extractButton" Content="Extract" Margin="683,752,0,0" VerticalAlignment="Top" Height="41" Width="67"                            />
         <Image x:ConnectionId='5' x:Name="monoImageDisplay" Source="{Binding MonochromeImage.BitImage, Mode=TwoWay}" Margin="1006,119,194,562"/>
         <Image x:ConnectionId='6' x:Name="hiddenImageDisplay" Source="{Binding HiddenImage.BitImage, Mode=TwoWay}" Margin="213,507,987,174"/>
         <Image x:ConnectionId='7' x:Name="secretImageDisplay" Source="{Binding SecretImage.BitImage, Mode=TwoWay}" Margin="1006,522,194,159"/>

@@ -15,18 +15,6 @@ namespace GroupKStegafy.Model
     {
         #region Data members
 
-        /// <summary>
-        /// Represents red bytes
-        /// </summary>
-        public List<double> RedBytes = new List<double>();
-        /// <summary>
-        /// Represents blue bytes
-        /// </summary>
-        public List<double> BlueBytes = new List<double>();
-        /// <summary>
-        /// Represents green bytes
-        /// </summary>
-        public List<double> GreenBytes = new List<double>();
 
         /// <summary>
         /// 
@@ -127,6 +115,36 @@ namespace GroupKStegafy.Model
             this.BitImage = new WriteableBitmap((int)this.Decoder.PixelWidth, (int)this.Decoder.PixelHeight);
             this.BitImage.SetSource(inputStream);
             
+        }
+
+        public async Task SetSourceImageFromImage(StorageFile storageFile, BitmapImage bitImage)
+        {
+            IRandomAccessStream inputStream = await storageFile.OpenReadAsync();
+            this.Decoder = await BitmapDecoder.CreateAsync(inputStream);
+            var transform = new BitmapTransform
+            {
+                ScaledWidth = Convert.ToUInt32(bitImage.PixelWidth),
+                ScaledHeight = Convert.ToUInt32(bitImage.PixelHeight)
+            };
+
+            var pixelData = await this.Decoder.GetPixelDataAsync(
+                BitmapPixelFormat.Bgra8,
+                BitmapAlphaMode.Straight,
+                transform,
+                ExifOrientationMode.IgnoreExifOrientation,
+                ColorManagementMode.DoNotColorManage
+            );
+
+            this.dpiX = this.Decoder.DpiX;
+            this.dpiY = this.Decoder.DpiY;
+            this.Pixels = pixelData.DetachPixelData();
+
+            this.ImageHeight = (int)this.Decoder.PixelHeight;
+            this.ImageWidth = (int)this.Decoder.PixelWidth;
+
+            this.BitImage = new WriteableBitmap((int)this.Decoder.PixelWidth, (int)this.Decoder.PixelHeight);
+            this.BitImage.SetSource(inputStream);
+
         }
 
         #endregion

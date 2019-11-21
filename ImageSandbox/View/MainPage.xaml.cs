@@ -28,13 +28,14 @@ namespace GroupKStegafy.View
         private double dpiX;
         private double dpiY;
         private WriteableBitmap modifiedImage;
+        private WriteableBitmap secretImage;
         private MainPageViewModel viewModel;
         private FileReader reader;
         private Image sourceImage;
         private Image monoImage;
         private Image hiddenImage;
-        private Image secretImage;
         private ImageManager imageManager;
+        private SaveFileWriter writer;
 
         #endregion
 
@@ -49,9 +50,10 @@ namespace GroupKStegafy.View
             this.sourceImage = new Image();
             this.monoImage = new Image();
             this.hiddenImage = new Image();
-            this.secretImage = new Image();
             this.imageManager = new ImageManager();
+            this.writer = new SaveFileWriter();
             this.modifiedImage = null;
+            this.secretImage = null;
             this.dpiX = 0;
             this.dpiY = 0;
         }
@@ -67,7 +69,6 @@ namespace GroupKStegafy.View
             var sourceImage = await this.reader.CreateImage(result, bitImage);
 
             this.sourceImage = sourceImage;
-            this.hiddenImage = sourceImage;
             this.sourceImageDisplay.Source = sourceImage.BitImage;
 
         }
@@ -93,29 +94,7 @@ namespace GroupKStegafy.View
 
         private async void saveWritableBitmap()
         {
-            var fileSavePicker = new FileSavePicker {
-                SuggestedStartLocation = PickerLocationId.PicturesLibrary,
-                SuggestedFileName = "image"
-            };
-            fileSavePicker.FileTypeChoices.Add("PNG files", new List<string> {".png"});
-            var savefile = await fileSavePicker.PickSaveFileAsync();
-
-            if (savefile != null)
-            {
-                var stream = await savefile.OpenAsync(FileAccessMode.ReadWrite);
-                var encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.PngEncoderId, stream);
-
-                var pixelStream = this.modifiedImage.PixelBuffer.AsStream();
-                var pixels = new byte[pixelStream.Length];
-                await pixelStream.ReadAsync(pixels, 0, pixels.Length);
-
-                encoder.SetPixelData(BitmapPixelFormat.Bgra8, BitmapAlphaMode.Ignore,
-                    (uint) this.modifiedImage.PixelWidth,
-                    (uint) this.modifiedImage.PixelHeight, this.dpiX, this.dpiY, pixels);
-                await encoder.FlushAsync();
-
-                stream.Dispose();
-            }
+           this.writer.SaveWritableBitmap(this.modifiedImage);
         }
 
         #endregion
@@ -143,13 +122,32 @@ namespace GroupKStegafy.View
 
         private async void EmbedButton_Click(object sender, RoutedEventArgs e)
         {
-            this.imageManager.getImageValues(this.sourceImage.Pixels, Convert.ToUInt32(this.sourceImage.ImageWidth),
-                Convert.ToUInt32(this.sourceImage.ImageHeight));
 
-            using (var writeStream = this.hiddenImage.BitImage.PixelBuffer.AsStream())
+         
+            this.imageManager.embedImage(this.sourceImage.Pixels, Convert.ToUInt32(this.sourceImage.ImageWidth), Convert.ToUInt32(this.sourceImage.ImageHeight));
+
+            
+            this.modifiedImage = new WriteableBitmap(this.sourceImage.ImageWidth, this.sourceImage.ImageHeight);
+
+            using (var writeStream = this.modifiedImage.PixelBuffer.AsStream())
             {
                 await writeStream.WriteAsync(this.sourceImage.Pixels, 0, this.sourceImage.Pixels.Length);
-                this.hiddenImageDisplay.Source = this.hiddenImage.BitImage;
+            }
+
+            this.hiddenImageDisplay.Source = this.modifiedImage;
+            this.hiddenImage.BitImage = this.modifiedImage;
+        }
+
+        private async void ExtractButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.imageManager.extractSecretImage(this.hiddenImage.Pixels, Convert.ToUInt32(this.hiddenImage.ImageWidth), Convert.ToUInt32(this.hiddenImage.ImageHeight));
+
+            this.secretImage = new WriteableBitmap(this.hiddenImage.ImageWidth, this.hiddenImage.ImageHeight);
+
+            using (var writeStream = this.secretImage.PixelBuffer.AsStream())
+            {
+                await writeStream.WriteAsync(this.hiddenImage.Pixels, 0, this.hiddenImage.Pixels.Length);
+                this.secretImageDisplay.Source = this.secretImage;
             }
         }
     }

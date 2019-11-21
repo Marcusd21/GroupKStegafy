@@ -36,8 +36,8 @@ namespace GroupKStegafy.DataTier
                 SuggestedStartLocation = PickerLocationId.PicturesLibrary,
                 SuggestedFileName = "image"
             };
-            fileSavePicker.FileTypeChoices.Add("JPG", new List<string> { ".jpg" });
             fileSavePicker.FileTypeChoices.Add("BMP", new List<string> { ".bmp" });
+            fileSavePicker.FileTypeChoices.Add("PNG", new List<string> { ".png" });
 
             var savefile = await fileSavePicker.PickSaveFileAsync();
 

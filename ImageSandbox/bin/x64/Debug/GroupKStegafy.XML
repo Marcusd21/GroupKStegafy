@@ -867,21 +867,6 @@
             Creates an instance of an Image
             </summary>
         </member>
-        <member name="F:GroupKStegafy.Model.Image.RedBytes">
-            <summary>
-            Represents red bytes
-            </summary>
-        </member>
-        <member name="F:GroupKStegafy.Model.Image.BlueBytes">
-            <summary>
-            Represents blue bytes
-            </summary>
-        </member>
-        <member name="F:GroupKStegafy.Model.Image.GreenBytes">
-            <summary>
-            Represents green bytes
-            </summary>
-        </member>
         <member name="F:GroupKStegafy.Model.Image.dpiX">
             <summary>
             
