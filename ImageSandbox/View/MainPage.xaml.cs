@@ -69,13 +69,12 @@ namespace GroupKStegafy.View
             this.sourceImage = sourceImage;
             this.hiddenImage = sourceImage;
             this.sourceImageDisplay.Source = sourceImage.BitImage;
-            
+
         }
 
         private async Task<StorageFile> selectSourceImageFile()
         {
-            var openPicker = new FileOpenPicker
-            {
+            var openPicker = new FileOpenPicker {
                 ViewMode = PickerViewMode.Thumbnail,
                 SuggestedStartLocation = PickerLocationId.PicturesLibrary
             };
@@ -94,12 +93,11 @@ namespace GroupKStegafy.View
 
         private async void saveWritableBitmap()
         {
-            var fileSavePicker = new FileSavePicker
-            {
+            var fileSavePicker = new FileSavePicker {
                 SuggestedStartLocation = PickerLocationId.PicturesLibrary,
                 SuggestedFileName = "image"
             };
-            fileSavePicker.FileTypeChoices.Add("PNG files", new List<string> { ".png" });
+            fileSavePicker.FileTypeChoices.Add("PNG files", new List<string> {".png"});
             var savefile = await fileSavePicker.PickSaveFileAsync();
 
             if (savefile != null)
@@ -112,8 +110,8 @@ namespace GroupKStegafy.View
                 await pixelStream.ReadAsync(pixels, 0, pixels.Length);
 
                 encoder.SetPixelData(BitmapPixelFormat.Bgra8, BitmapAlphaMode.Ignore,
-                    (uint)this.modifiedImage.PixelWidth,
-                    (uint)this.modifiedImage.PixelHeight, this.dpiX, this.dpiY, pixels);
+                    (uint) this.modifiedImage.PixelWidth,
+                    (uint) this.modifiedImage.PixelHeight, this.dpiX, this.dpiY, pixels);
                 await encoder.FlushAsync();
 
                 stream.Dispose();
@@ -124,13 +122,13 @@ namespace GroupKStegafy.View
 
         private async void LoadMonoImageButton_Click(object sender, RoutedEventArgs e)
         {
-          var result = await  this.reader.SelectSourceImageFile();
-          var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
-          var monoImage = await this.reader.CreateImage(result,bitImage );
+            var result = await this.reader.SelectSourceImageFile();
+            var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
+            var monoImage = await this.reader.CreateImage(result, bitImage);
 
-          this.monoImage = monoImage;
-          this.imageManager.MonoImage = monoImage;
-          this.monoImageDisplay.Source = monoImage.BitImage;
+            this.monoImage = monoImage;
+            this.imageManager.MonoImage = monoImage;
+            this.monoImageDisplay.Source = monoImage.BitImage;
         }
 
         private async void LoadHiddenImageButton_Click(object sender, RoutedEventArgs e)
@@ -143,10 +141,16 @@ namespace GroupKStegafy.View
             this.hiddenImageDisplay.Source = hiddenImage.BitImage;
         }
 
-        private void EmbedButton_Click(object sender, RoutedEventArgs e)
+        private async void EmbedButton_Click(object sender, RoutedEventArgs e)
         {
-            this.imageManager.getImageValues(this.hiddenImage.Pixels, Convert.ToUInt32(this.hiddenImage.ImageWidth), Convert.ToUInt32(this.hiddenImage.ImageHeight));
+            this.imageManager.getImageValues(this.sourceImage.Pixels, Convert.ToUInt32(this.sourceImage.ImageWidth),
+                Convert.ToUInt32(this.sourceImage.ImageHeight));
 
+            using (var writeStream = this.hiddenImage.BitImage.PixelBuffer.AsStream())
+            {
+                await writeStream.WriteAsync(this.sourceImage.Pixels, 0, this.sourceImage.Pixels.Length);
+                this.hiddenImageDisplay.Source = this.hiddenImage.BitImage;
+            }
         }
     }
 }

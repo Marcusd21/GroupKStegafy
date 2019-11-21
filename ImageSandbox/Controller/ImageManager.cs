@@ -62,14 +62,14 @@ namespace GroupKStegafy.Controller
             {
                 for (var j = 0; j < imageWidth; j++)
                 {
-                    if (i <= this.MonoImage.ImageHeight && j <= this.MonoImage.ImageWidth)
+                    if (i < this.MonoImage.ImageHeight && j < this.MonoImage.ImageWidth)
                     {
                         var pixelColor = this.getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
                         var monoColor = this.getPixelBgra8(this.MonoImage.Pixels, i, j,
                             Convert.ToUInt32(this.MonoImage.ImageWidth), Convert.ToUInt32(this.MonoImage.ImageHeight));
                         if (monoColor.R == 0)
                         {
-                            pixelColor.B  &= 0xfe;
+                            pixelColor.B  &= 0;
 
                             this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
                         }
