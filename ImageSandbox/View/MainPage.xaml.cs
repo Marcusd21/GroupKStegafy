@@ -73,28 +73,10 @@ namespace GroupKStegafy.View
 
         }
 
-        private async Task<StorageFile> selectSourceImageFile()
-        {
-            var openPicker = new FileOpenPicker {
-                ViewMode = PickerViewMode.Thumbnail,
-                SuggestedStartLocation = PickerLocationId.PicturesLibrary
-            };
-            openPicker.FileTypeFilter.Add(".png");
-            openPicker.FileTypeFilter.Add(".bmp");
-
-            var file = await openPicker.PickSingleFileAsync();
-
-            return file;
-        }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            this.saveWritableBitmap();
-        }
-
-        private async void saveWritableBitmap()
-        {
-           this.writer.SaveWritableBitmap(this.modifiedImage);
+            this.writer.SaveWritableBitmap(this.modifiedImage);
         }
 
         #endregion
@@ -124,7 +106,7 @@ namespace GroupKStegafy.View
         {
 
          
-            this.imageManager.embedImage(this.sourceImage.Pixels, Convert.ToUInt32(this.sourceImage.ImageWidth), Convert.ToUInt32(this.sourceImage.ImageHeight));
+            this.imageManager.EmbedImage(this.sourceImage.Pixels, Convert.ToUInt32(this.sourceImage.ImageWidth), Convert.ToUInt32(this.sourceImage.ImageHeight));
 
             
             this.modifiedImage = new WriteableBitmap(this.sourceImage.ImageWidth, this.sourceImage.ImageHeight);
@@ -134,13 +116,12 @@ namespace GroupKStegafy.View
                 await writeStream.WriteAsync(this.sourceImage.Pixels, 0, this.sourceImage.Pixels.Length);
             }
 
-            this.hiddenImageDisplay.Source = this.modifiedImage;
-            this.hiddenImage.BitImage = this.modifiedImage;
+            
         }
 
         private async void ExtractButton_Click(object sender, RoutedEventArgs e)
         {
-            this.imageManager.extractSecretImage(this.hiddenImage.Pixels, Convert.ToUInt32(this.hiddenImage.ImageWidth), Convert.ToUInt32(this.hiddenImage.ImageHeight));
+            this.imageManager.ExtractSecretImage(this.hiddenImage.Pixels, Convert.ToUInt32(this.hiddenImage.ImageWidth), Convert.ToUInt32(this.hiddenImage.ImageHeight));
 
             this.secretImage = new WriteableBitmap(this.hiddenImage.ImageWidth, this.hiddenImage.ImageHeight);
 

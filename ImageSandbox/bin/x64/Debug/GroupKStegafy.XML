@@ -63,6 +63,11 @@
             Program class
             </summary>
         </member>
+        <member name="T:GroupKStegafy.Controller.ImageManager">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="F:GroupKStegafy.Controller.ImageManager.MonoImage">
             <summary>The mono image</summary>
         </member>
@@ -86,6 +91,22 @@
             <param name="color">The color.</param>
             <param name="width">The width.</param>
             <param name="height">The height.</param>
+        </member>
+        <member name="M:GroupKStegafy.Controller.ImageManager.EmbedImage(System.Byte[],System.UInt32,System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="sourcePixels"></param>
+            <param name="imageWidth"></param>
+            <param name="imageHeight"></param>
+        </member>
+        <member name="M:GroupKStegafy.Controller.ImageManager.ExtractSecretImage(System.Byte[],System.UInt32,System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="sourcePixels"></param>
+            <param name="imageWidth"></param>
+            <param name="imageHeight"></param>
         </member>
         <member name="T:GroupKStegafy.DataTier.FileReader">
             <summary>Creates instance of a file reader</summary>

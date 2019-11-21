@@ -117,35 +117,7 @@ namespace GroupKStegafy.Model
             
         }
 
-        public async Task SetSourceImageFromImage(StorageFile storageFile, BitmapImage bitImage)
-        {
-            IRandomAccessStream inputStream = await storageFile.OpenReadAsync();
-            this.Decoder = await BitmapDecoder.CreateAsync(inputStream);
-            var transform = new BitmapTransform
-            {
-                ScaledWidth = Convert.ToUInt32(bitImage.PixelWidth),
-                ScaledHeight = Convert.ToUInt32(bitImage.PixelHeight)
-            };
-
-            var pixelData = await this.Decoder.GetPixelDataAsync(
-                BitmapPixelFormat.Bgra8,
-                BitmapAlphaMode.Straight,
-                transform,
-                ExifOrientationMode.IgnoreExifOrientation,
-                ColorManagementMode.DoNotColorManage
-            );
-
-            this.dpiX = this.Decoder.DpiX;
-            this.dpiY = this.Decoder.DpiY;
-            this.Pixels = pixelData.DetachPixelData();
-
-            this.ImageHeight = (int)this.Decoder.PixelHeight;
-            this.ImageWidth = (int)this.Decoder.PixelWidth;
-
-            this.BitImage = new WriteableBitmap((int)this.Decoder.PixelWidth, (int)this.Decoder.PixelHeight);
-            this.BitImage.SetSource(inputStream);
-
-        }
+       
 
         #endregion
     }

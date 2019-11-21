@@ -4,6 +4,9 @@ using GroupKStegafy.Model;
 
 namespace GroupKStegafy.Controller
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ImageManager
     {
         #region Data members
@@ -62,7 +65,13 @@ namespace GroupKStegafy.Controller
             pixels[offset + 0] = color.B;
         }
 
-        public void embedImage(byte[] sourcePixels, uint imageWidth, uint imageHeight)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sourcePixels"></param>
+        /// <param name="imageWidth"></param>
+        /// <param name="imageHeight"></param>
+        public void EmbedImage(byte[] sourcePixels, uint imageWidth, uint imageHeight)
         {
             for (var i = 0; i < imageHeight; i++)
             {
@@ -91,7 +100,13 @@ namespace GroupKStegafy.Controller
             }
         }
 
-        public void extractSecretImage(byte[] sourcePixels, uint imageWidth, uint imageHeight)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sourcePixels"></param>
+        /// <param name="imageWidth"></param>
+        /// <param name="imageHeight"></param>
+        public void ExtractSecretImage(byte[] sourcePixels, uint imageWidth, uint imageHeight)
         {
             for (var i = 0; i < imageHeight; i++)
             {
@@ -118,20 +133,7 @@ namespace GroupKStegafy.Controller
             }
         }
 
-        private void giveImageRedTint(byte[] sourcePixels, uint imageWidth, uint imageHeight)
-        {
-            for (var i = 0; i < imageHeight; i++)
-            {
-                for (var j = 0; j < imageWidth; j++)
-                {
-                    var pixelColor = this.getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
-
-                    pixelColor.R = 255;
-
-                    this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
-                }
-            }
-        }
+       
 
         #endregion
     }
