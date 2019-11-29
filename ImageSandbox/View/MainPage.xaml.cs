@@ -1,25 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading.Tasks;
-using Windows.Graphics.Imaging;
-using Windows.Storage;
-using Windows.Storage.Pickers;
-using Windows.Storage.Streams;
-using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media.Imaging;
 using GroupKStegafy.Controller;
 using GroupKStegafy.DataTier;
-using GroupKStegafy.ViewModel;
 using GroupKStegafy.Model;
+using GroupKStegafy.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace GroupKStegafy.View
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    ///     An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class MainPage
     {
@@ -30,18 +23,18 @@ namespace GroupKStegafy.View
         private WriteableBitmap modifiedImage;
         private WriteableBitmap secretImage;
         private MainPageViewModel viewModel;
-        private FileReader reader;
+        private readonly FileReader reader;
         private Image sourceImage;
         private Image monoImage;
         private Image hiddenImage;
-        private ImageManager imageManager;
-        private SaveFileWriter writer;
+        private readonly ImageManager imageManager;
+        private readonly SaveFileWriter writer;
 
         #endregion
 
         #region Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="MainPage"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="MainPage" /> class.</summary>
         public MainPage()
         {
             this.InitializeComponent();
@@ -70,16 +63,12 @@ namespace GroupKStegafy.View
 
             this.sourceImage = sourceImage;
             this.sourceImageDisplay.Source = sourceImage.BitImage;
-
         }
-
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
             this.writer.SaveWritableBitmap(this.modifiedImage);
         }
-
-        #endregion
 
         private async void LoadMonoImageButton_Click(object sender, RoutedEventArgs e)
         {
@@ -104,24 +93,31 @@ namespace GroupKStegafy.View
 
         private async void EmbedButton_Click(object sender, RoutedEventArgs e)
         {
-
-         
-            this.imageManager.EmbedImage(this.sourceImage.Pixels, Convert.ToUInt32(this.sourceImage.ImageWidth), Convert.ToUInt32(this.sourceImage.ImageHeight));
-
-            
-            this.modifiedImage = new WriteableBitmap(this.sourceImage.ImageWidth, this.sourceImage.ImageHeight);
-
-            using (var writeStream = this.modifiedImage.PixelBuffer.AsStream())
+            if (!this.imageManager.IsImageExceedSource(Convert.ToUInt32(this.sourceImage.ImageWidth),
+                Convert.ToUInt32(this.sourceImage.ImageHeight)))
             {
-                await writeStream.WriteAsync(this.sourceImage.Pixels, 0, this.sourceImage.Pixels.Length);
-            }
+                this.tbImageError.Text = string.Empty;
 
-            
+                this.imageManager.EmbedImage(this.sourceImage.Pixels, Convert.ToUInt32(this.sourceImage.ImageWidth),
+                    Convert.ToUInt32(this.sourceImage.ImageHeight));
+
+                this.modifiedImage = new WriteableBitmap(this.sourceImage.ImageWidth, this.sourceImage.ImageHeight);
+
+                using (var writeStream = this.modifiedImage.PixelBuffer.AsStream())
+                {
+                    await writeStream.WriteAsync(this.sourceImage.Pixels, 0, this.sourceImage.Pixels.Length);
+                }
+            }
+            else
+            {
+                this.tbImageError.Text = "Secret Image exceeds the Source Image size";
+            }
         }
 
         private async void ExtractButton_Click(object sender, RoutedEventArgs e)
         {
-            this.imageManager.ExtractSecretImage(this.hiddenImage.Pixels, Convert.ToUInt32(this.hiddenImage.ImageWidth), Convert.ToUInt32(this.hiddenImage.ImageHeight));
+            this.imageManager.ExtractSecretImage(this.hiddenImage.Pixels, Convert.ToUInt32(this.hiddenImage.ImageWidth),
+                Convert.ToUInt32(this.hiddenImage.ImageHeight));
 
             this.secretImage = new WriteableBitmap(this.hiddenImage.ImageWidth, this.hiddenImage.ImageHeight);
 
@@ -131,5 +127,7 @@ namespace GroupKStegafy.View
                 this.secretImageDisplay.Source = this.secretImage;
             }
         }
+
+        #endregion
     }
 }

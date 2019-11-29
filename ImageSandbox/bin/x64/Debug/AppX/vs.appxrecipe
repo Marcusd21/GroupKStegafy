@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-21T06:07:36.265</Modified>
+      <Modified>2019-11-26T17:20:21.843</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\GroupKStegafy.exe">
       <PackagePath>entrypoint\GroupKStegafy.exe</PackagePath>
-      <Modified>2019-11-21T06:07:34.304</Modified>
+      <Modified>2019-11-26T17:20:16.581</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.8\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -90,11 +90,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-11-21T06:07:33.909</Modified>
+      <Modified>2019-11-26T17:20:15.611</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
-      <Modified>2019-11-21T06:07:33.910</Modified>
+      <Modified>2019-11-26T17:20:15.614</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -106,7 +106,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\Core\GroupKStegafy.exe">
       <PackagePath>GroupKStegafy.exe</PackagePath>
-      <Modified>2019-11-21T06:07:36.219</Modified>
+      <Modified>2019-11-26T17:20:21.735</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

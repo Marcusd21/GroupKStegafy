@@ -24,6 +24,7 @@
         <TextBlock x:Name="tbSource" HorizontalAlignment="Left" Margin="62,0,0,652" Text="Source Image:" TextWrapping="Wrap" Width="146" FontSize="20" Height="39" VerticalAlignment="Bottom" FontFamily="Segoe UI"/>
         <TextBlock x:Name="tbMonochrome" HorizontalAlignment="Left" Margin="817,0,0,662" Text="Monochrome Image:" TextWrapping="Wrap" Width="203" FontSize="20" FontFamily="Bodoni MT Black" Height="28" VerticalAlignment="Bottom"/>
         <TextBlock x:Name="tbHidden" HorizontalAlignment="Left" Margin="62,0,0,280" Text="Hidden Image:" TextWrapping="Wrap" Width="146" FontSize="20" Height="39" VerticalAlignment="Bottom" FontFamily="Segoe UI"/>
+        <TextBlock x:Name="tbImageError" HorizontalAlignment="Left" Margin="1002,484,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

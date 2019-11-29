@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Windows.UI;
 using GroupKStegafy.Model;
 
@@ -91,13 +92,54 @@ namespace GroupKStegafy.Controller
                         else
                         {
                             pixelColor.B |= 1;
-
                             this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
                         }
 
                     }
                 }
             }
+        }
+
+        /// <summary>Embeds the text.</summary>
+        /// <param name="sourcePixels">The source pixels.</param>
+        /// <param name="imageWidth">Width of the image.</param>
+        /// <param name="imageHeight">Height of the image.</param>
+        /// <param name="text">The text.</param>
+        public void EmbedText(byte[] sourcePixels, uint imageWidth, uint imageHeight, string text)
+        {
+            for (var i = 0; i < imageHeight; i++)
+            {
+                for (var j = 0; j < imageWidth; j++)
+                {
+                   
+                        var pixelColor = this.getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
+                        var monoColor = this.getPixelBgra8(this.MonoImage.Pixels, i, j,
+                            Convert.ToUInt32(this.MonoImage.ImageWidth), Convert.ToUInt32(this.MonoImage.ImageHeight));
+                        if (monoColor.R == 0)
+                        {
+                            pixelColor.B &= 0xfe;
+
+                            this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
+                        }
+                        else
+                        {
+                            pixelColor.B |= 1;
+                            this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
+                        }
+
+                    
+                }
+            }
+        }
+
+        /// <summary>Determines whether [is image exceed source] [the specified image width].</summary>
+        /// <param name="imageWidth">Width of the image.</param>
+        /// <param name="imageHeight">Height of the image.</param>
+        /// <returns>
+        ///   <c>true</c> if [is image exceed source] [the specified image width]; otherwise, <c>false</c>.</returns>
+        public bool IsImageExceedSource(uint imageWidth, uint imageHeight)
+        {
+            return (this.MonoImage.ImageHeight < imageHeight || this.MonoImage.ImageWidth < imageWidth);
         }
 
         /// <summary>
@@ -131,6 +173,17 @@ namespace GroupKStegafy.Controller
                     this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
                 }
             }
+        }
+        private List<byte> convertTextToBytes(string text)
+        {
+            var bytes = new List<byte>();
+
+            foreach (var item in text)
+            {
+                bytes.Add(Convert.ToByte(item));
+            }
+
+            return bytes;
         }
 
        
