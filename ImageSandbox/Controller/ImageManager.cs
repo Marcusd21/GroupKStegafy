@@ -139,7 +139,7 @@ namespace GroupKStegafy.Controller
         ///   <c>true</c> if [is image exceed source] [the specified image width]; otherwise, <c>false</c>.</returns>
         public bool IsImageExceedSource(uint imageWidth, uint imageHeight)
         {
-            return (this.MonoImage.ImageHeight < imageHeight || this.MonoImage.ImageWidth < imageWidth);
+            return (this.MonoImage.ImageHeight > imageHeight && this.MonoImage.ImageWidth > imageWidth);
         }
 
         /// <summary>
@@ -155,8 +155,17 @@ namespace GroupKStegafy.Controller
                 for (var j = 0; j < imageWidth; j++)
                 {
                     var pixelColor = this.getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
-
-                    if (pixelColor.B % 2 == 0)
+                    if (j == 0 && i == 0)
+                    {
+                        pixelColor.B = 212;
+                        pixelColor.R = 212;
+                        pixelColor.G = 212;
+                    }
+                    else if (j == 1 && i == 0)
+                    {
+                        continue;
+                    }
+                    else if (pixelColor.B % 2 == 0)
                     {
                         
                         pixelColor.B = 0;

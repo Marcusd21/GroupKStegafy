@@ -100,6 +100,20 @@
             <param name="imageWidth"></param>
             <param name="imageHeight"></param>
         </member>
+        <member name="M:GroupKStegafy.Controller.ImageManager.EmbedText(System.Byte[],System.UInt32,System.UInt32,System.String)">
+            <summary>Embeds the text.</summary>
+            <param name="sourcePixels">The source pixels.</param>
+            <param name="imageWidth">Width of the image.</param>
+            <param name="imageHeight">Height of the image.</param>
+            <param name="text">The text.</param>
+        </member>
+        <member name="M:GroupKStegafy.Controller.ImageManager.IsImageExceedSource(System.UInt32,System.UInt32)">
+            <summary>Determines whether [is image exceed source] [the specified image width].</summary>
+            <param name="imageWidth">Width of the image.</param>
+            <param name="imageHeight">Height of the image.</param>
+            <returns>
+              <c>true</c> if [is image exceed source] [the specified image width]; otherwise, <c>false</c>.</returns>
+        </member>
         <member name="M:GroupKStegafy.Controller.ImageManager.ExtractSecretImage(System.Byte[],System.UInt32,System.UInt32)">
             <summary>
             
@@ -117,6 +131,10 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:GroupKStegafy.DataTier.FileReader.SelectSourceTextFile">
+            <summary>Selects the source text file.</summary>
+            <returns></returns>
+        </member>
         <member name="M:GroupKStegafy.DataTier.FileReader.MakeACopyOfTheFileToWorkOn(Windows.Storage.StorageFile)">
             <summary>
                 Makes a copy of the file to work on.
@@ -126,6 +144,11 @@
         </member>
         <member name="M:GroupKStegafy.DataTier.FileReader.CreateImage(Windows.Storage.StorageFile,Windows.UI.Xaml.Media.Imaging.BitmapImage)">
             <summary>Creates the image.</summary>
+            <param name="file">The file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GroupKStegafy.DataTier.FileReader.CreateTextString(Windows.Storage.StorageFile)">
+            <summary>Creates the text string.</summary>
             <param name="file">The file.</param>
             <returns></returns>
         </member>
@@ -862,11 +885,11 @@
         </member>
         <member name="T:GroupKStegafy.View.MainPage">
             <summary>
-            An empty page that can be used on its own or navigated to within a Frame.
+                An empty page that can be used on its own or navigated to within a Frame.
             </summary>
         </member>
         <member name="M:GroupKStegafy.View.MainPage.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:GroupKStegafy.View.MainPage"/> class.</summary>
+            <summary>Initializes a new instance of the <see cref="T:GroupKStegafy.View.MainPage" /> class.</summary>
         </member>
         <member name="M:GroupKStegafy.View.MainPage.InitializeComponent">
             <summary>
