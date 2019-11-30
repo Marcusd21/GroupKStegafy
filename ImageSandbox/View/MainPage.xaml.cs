@@ -23,7 +23,6 @@ namespace GroupKStegafy.View
         public MainPage()
         {
             this.InitializeComponent();
-
         }
 
         #endregion

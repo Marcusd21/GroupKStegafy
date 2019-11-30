@@ -17,7 +17,7 @@
         <Button x:ConnectionId='2' x:Name="imageStegafyButton" Content="Image Steganography" Margin="0,380,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Height="41" Width="236"                                  />
         <Button x:ConnectionId='3' x:Name="textStegafyButton" Content="Text Steganography" Margin="0,491,0,0" VerticalAlignment="Top" Height="41" Width="236" HorizontalAlignment="Center"                                />
 
-        <TextBlock x:ConnectionId='4' x:Name="tbBpcc" HorizontalAlignment="Left" Margin="637,108,0,0" Text="Main Menu" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="230" FontSize="45" FontFamily="Segoe UI"/>
+        <TextBlock x:ConnectionId='4' x:Name="tbBpcc" HorizontalAlignment="Left" Margin="704,105,0,0" Text="Main Menu" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="230" FontSize="45" FontFamily="Segoe UI"/>
     </Grid>
 </Page>
 

@@ -21,7 +21,7 @@
         <ComboBox x:Name="cbBpcc" Margin="699,167,0,0" Width="120"/>
 
         <Button x:Name="openSourceImageButton"  Content="Open Image" Margin="233,587,0,0"  VerticalAlignment="Top" Height="44" Width="153" Click="OpenSourceImageButton_Click"/>
-        <Button x:Name="openSecretButton"  Content="Open Secret" Margin="1117,587,0,0" VerticalAlignment="Top" Height="44" Width="153" Click="OpenSecretButton_Click"/>
+        <Button x:Name="openSecretButton"  Content="Open Secret Text" Margin="1117,587,0,0" VerticalAlignment="Top" Height="44" Width="153" Click="OpenSecretButton_Click"/>
         <Button x:Name="saveSourceButton" Content="Embed &amp; Save" Margin="683,763,0,0" Click="EmbedAndSave_Button_Click" Height="44" Width="153" VerticalAlignment="Top" />
         <Button x:Name="mainMenuButton" Content="Main Menu" Margin="1117,886,0,0" Height="44" Width="153" VerticalAlignment="Top" Click="MainMenuButton_Click" />
     </Grid>

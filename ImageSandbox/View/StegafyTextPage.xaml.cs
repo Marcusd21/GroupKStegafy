@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using GroupKStegafy.DataTier;
+using Image = GroupKStegafy.Model.Image;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,9 +24,15 @@ namespace GroupKStegafy.View
     /// </summary>
     public sealed partial class StegafyTextPage : Page
     {
+        private Image sourceImage;
+        private readonly FileReader reader;
+
         public StegafyTextPage()
         {
             this.InitializeComponent();
+            this.reader = new FileReader();
+            this.sourceImage = new Image();
+
             this.fillComboBox();
         }
 
@@ -43,9 +51,14 @@ namespace GroupKStegafy.View
             this.cbBpcc.SelectedItem = 1;
         }
 
-        private void OpenSourceImageButton_Click(object sender, RoutedEventArgs e)
+        private async void OpenSourceImageButton_Click(object sender, RoutedEventArgs e)
         {
+            var result = await this.reader.SelectSourceImageFile();
+            var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
+            var sourceImage = await this.reader.CreateImage(result, bitImage);
 
+            this.sourceImage = sourceImage;
+            this.sourceImageDisplay.Source = sourceImage.BitImage;
         }
 
         private void OpenSecretButton_Click(object sender, RoutedEventArgs e)
