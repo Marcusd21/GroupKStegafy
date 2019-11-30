@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>DESKTOP-Q898VDV</Machine>
-    <WindowsUser>Marcus</WindowsUser>
+    <Machine>CS2138W01</Machine>
+    <WindowsUser>csuser</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,22 +10,22 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>81d861b7-0db4-4dbd-a465-a86dc393a7bb</PackageIdentityName>
     <PackageIdentityPublisher>CN=dyoder</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\GroupKStegafy.exe">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\GroupKStegafy.exe">
       <PackagePath>entrypoint\GroupKStegafy.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.8\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
@@ -34,52 +34,58 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.18362.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\GroupKStegafy.xr.xml">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\GroupKStegafy.xr.xml">
       <PackagePath>GroupKStegafy.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\View\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\View\StegafyImagePage.xbf">
+      <PackagePath>View\StegafyImagePage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\View\StegafyTextPage.xbf">
+      <PackagePath>View\StegafyTextPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\Core\GroupKStegafy.exe">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\Core\GroupKStegafy.exe">
       <PackagePath>GroupKStegafy.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

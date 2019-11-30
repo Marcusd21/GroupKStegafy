@@ -9,4 +9,6 @@ Assets\Wide310x150Logo.scale-200.png
 App.xbf
 GroupKStegafy.xr.xml
 View\MainPage.xbf
+View\StegafyImagePage.xbf
+View\StegafyTextPage.xbf
 Properties\Default.rd.xml

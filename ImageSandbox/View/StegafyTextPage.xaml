@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="GroupKStegafy.View.StegafyTextPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GroupKStegafy.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:GroupKStegafy.ViewModel"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <viewModel:MainPageViewModel/>
+    </Page.DataContext>
+
+    <Grid>
+        <Image x:Name="sourceImageDisplay" Source="{Binding SourceImage.BitImage, Mode=TwoWay}" Margin="155,239,1045,442"/>
+        <Image x:Name="sourceSecretTextDisplay" Margin="1034,239,166,442"/>
+
+        <TextBlock x:Name="tbBpcc" HorizontalAlignment="Left" Margin="703,133,0,0" Text="Select BPCC" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="120" FontSize="20" FontFamily="Segoe UI"/>
+        <ComboBox x:Name="cbBpcc" Margin="699,167,0,0" Width="120"/>
+
+        <Button x:Name="openSourceImageButton"  Content="Open Image" Margin="233,587,0,0"  VerticalAlignment="Top" Height="44" Width="153" Click="OpenSourceImageButton_Click"/>
+        <Button x:Name="openSecretButton"  Content="Open Secret" Margin="1117,587,0,0" VerticalAlignment="Top" Height="44" Width="153" Click="OpenSecretButton_Click"/>
+        <Button x:Name="saveSourceButton" Content="Embed &amp; Save" Margin="683,763,0,0" Click="EmbedAndSave_Button_Click" Height="44" Width="153" VerticalAlignment="Top" />
+        <Button x:Name="mainMenuButton" Content="Main Menu" Margin="1117,886,0,0" Height="44" Width="153" VerticalAlignment="Top" Click="MainMenuButton_Click" />
+    </Grid>
+</Page>

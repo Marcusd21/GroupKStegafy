@@ -7,27 +7,17 @@
     xmlns:viewModel="using:GroupKStegafy.ViewModel"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
     <Page.DataContext>
         <viewModel:MainPageViewModel/>
     </Page.DataContext>
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="981" VerticalAlignment="Center">
-        <Image x:ConnectionId='2' x:Name="sourceImageDisplay" Source="{Binding SourceImage.BitImage, Mode=TwoWay}" Margin="213,119,987,562"/>
-        <Button x:ConnectionId='3' x:Name="embedButton" Content="Embed" Margin="689,386,0,0" VerticalAlignment="Top"                           />
-        <Button x:ConnectionId='4' x:Name="extractButton" Content="Extract" Margin="683,752,0,0" VerticalAlignment="Top" Height="41" Width="67"                            />
-        <Image x:ConnectionId='5' x:Name="monoImageDisplay" Source="{Binding MonochromeImage.BitImage, Mode=TwoWay}" Margin="1006,119,194,562"/>
-        <Image x:ConnectionId='6' x:Name="hiddenImageDisplay" Source="{Binding HiddenImage.BitImage, Mode=TwoWay}" Margin="213,507,987,174"/>
-        <Image x:ConnectionId='7' x:Name="secretImageDisplay" Source="{Binding SecretImage.BitImage, Mode=TwoWay}" Margin="1006,522,194,159"/>
-        <Button x:ConnectionId='8' x:Name="loadHiddenImageButton" Content="Image" Margin="120,712,0,0" VerticalAlignment="Top"  Height="41" Width="67"                                    />
-        <Button x:ConnectionId='9' x:Name="saveButton" Content="Save" Margin="689,467,0,0" VerticalAlignment="Top"                         />
-        <Button x:ConnectionId='10' x:Name="loadSourceImageButton" Content="Image" Margin="125,369,0,0" VerticalAlignment="Top"                          Height="41" Width="67"/>
-        <Button x:ConnectionId='11' x:Name="loadMonoImageButton" Content="Image" Margin="934,369,0,0" VerticalAlignment="Top" Height="41" Width="67"                                  />
-        <TextBlock x:ConnectionId='12' x:Name="tbSource" HorizontalAlignment="Left" Margin="62,0,0,652" Text="Source Image:" TextWrapping="Wrap" Width="146" FontSize="20" Height="39" VerticalAlignment="Bottom" FontFamily="Segoe UI"/>
-        <TextBlock x:ConnectionId='13' x:Name="tbMonochrome" HorizontalAlignment="Left" Margin="817,0,0,662" Text="Monochrome Image:" TextWrapping="Wrap" Width="203" FontSize="20" FontFamily="Bodoni MT Black" Height="28" VerticalAlignment="Bottom"/>
-        <TextBlock x:ConnectionId='14' x:Name="tbHidden" HorizontalAlignment="Left" Margin="62,0,0,280" Text="Hidden Image:" TextWrapping="Wrap" Width="146" FontSize="20" Height="39" VerticalAlignment="Bottom" FontFamily="Segoe UI"/>
-        <TextBlock x:ConnectionId='15' x:Name="tbImageError" HorizontalAlignment="Left" Margin="1002,484,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <ComboBox x:ConnectionId='16' x:Name="cbBpcc" Margin="660,185,0,0" Width="120"/>
-        <TextBlock x:ConnectionId='17' x:Name="tbBpcc" HorizontalAlignment="Left" Margin="664,153,0,0" Text="Select BPCC" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="120" FontSize="20" FontFamily="Segoe UI"/>
 
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="981" VerticalAlignment="Center">
+
+        <Button x:ConnectionId='2' x:Name="imageStegafyButton" Content="Image Steganography" Margin="0,380,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Height="41" Width="236"                                  />
+        <Button x:ConnectionId='3' x:Name="textStegafyButton" Content="Text Steganography" Margin="0,491,0,0" VerticalAlignment="Top" Height="41" Width="236" HorizontalAlignment="Center"                                />
+
+        <TextBlock x:ConnectionId='4' x:Name="tbBpcc" HorizontalAlignment="Left" Margin="637,108,0,0" Text="Main Menu" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="230" FontSize="45" FontFamily="Segoe UI"/>
     </Grid>
 </Page>
 

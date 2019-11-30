@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>DESKTOP-Q898VDV</Machine>
-    <WindowsUser>Marcus</WindowsUser>
+    <Machine>CS2138W01</Machine>
+    <WindowsUser>csuser</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>81d861b7-0db4-4dbd-a465-a86dc393a7bb</PackageIdentityName>
     <PackageIdentityPublisher>CN=dyoder</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>B6BB8B86B4D431E4FA25B63C5ED097D75CB5ECAA5BE99A55DD7507A17C01D9FB</RegisteredManifestChecksum>
+    <LayoutDir>C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>E5DA50E9B9AE90C28BF372E0C1923FC03623B91B9CB81458E822C5F57A5C6D74</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>81d861b7-0db4-4dbd-a465-a86dc393a7bb_1.0.0.0_x64__vpktpzvxd0r0j</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>81d861b7-0db4-4dbd-a465-a86dc393a7bb_vpktpzvxd0r0j!App</RegisteredUserModeAppID>
     <RegisteredPackageID>81d861b7-0db4-4dbd-a465-a86dc393a7bb</RegisteredPackageID>
@@ -27,16 +27,16 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-30T00:05:15.644</Modified>
+      <Modified>2019-11-30T19:09:52.894</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\GroupKStegafy.exe">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\GroupKStegafy.exe">
       <PackagePath>entrypoint\GroupKStegafy.exe</PackagePath>
-      <Modified>2019-11-30T00:05:14.638</Modified>
+      <Modified>2019-11-30T19:09:52.554</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.8\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -46,67 +46,75 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2019-03-18T22:36:56.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2019-11-17T16:32:15.214</Modified>
+      <Modified>2019-11-30T18:12:53.461</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2019-11-17T16:32:13.560</Modified>
+      <Modified>2019-11-30T18:12:53.445</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-17T16:32:13.580</Modified>
+      <Modified>2019-11-30T18:12:53.461</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-17T16:32:13.660</Modified>
+      <Modified>2019-11-30T18:12:53.461</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-17T16:32:13.684</Modified>
+      <Modified>2019-11-30T18:12:53.461</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-17T16:32:13.708</Modified>
+      <Modified>2019-11-30T18:12:53.461</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-17T16:32:13.732</Modified>
+      <Modified>2019-11-30T18:12:53.461</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-17T16:32:13.756</Modified>
+      <Modified>2019-11-30T18:12:53.461</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\GroupKStegafy.xr.xml">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\GroupKStegafy.xr.xml">
       <PackagePath>GroupKStegafy.xr.xml</PackagePath>
-      <Modified>2019-11-30T00:02:57.127</Modified>
+      <Modified>2019-11-30T19:01:21.732</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-11-30T00:05:14.176</Modified>
+      <Modified>2019-11-30T19:09:52.418</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\View\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
-      <Modified>2019-11-30T00:05:14.179</Modified>
+      <Modified>2019-11-30T19:09:52.419</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\View\StegafyImagePage.xbf">
+      <PackagePath>View\StegafyImagePage.xbf</PackagePath>
+      <Modified>2019-11-30T19:09:52.419</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\View\StegafyTextPage.xbf">
+      <PackagePath>View\StegafyTextPage.xbf</PackagePath>
+      <Modified>2019-11-30T19:09:52.420</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2019-03-18T21:33:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-11-21T01:20:22.196</Modified>
+      <Modified>2019-11-30T19:01:22.225</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Marcus\PC%281%29\GroupKStegafy\ImageSandbox\bin\x64\Debug\Core\GroupKStegafy.exe">
+    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\Core\GroupKStegafy.exe">
       <PackagePath>GroupKStegafy.exe</PackagePath>
-      <Modified>2019-11-30T00:05:15.629</Modified>
+      <Modified>2019-11-30T19:09:52.888</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -131,6 +131,12 @@
     </Compile>
     <Compile Include="Model\Image.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\StegafyImagePage.xaml.cs">
+      <DependentUpon>StegafyImagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StegafyTextPage.xaml.cs">
+      <DependentUpon>StegafyTextPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -155,6 +161,14 @@
     <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\StegafyImagePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StegafyTextPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

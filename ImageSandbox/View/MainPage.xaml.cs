@@ -17,133 +17,25 @@ namespace GroupKStegafy.View
     /// </summary>
     public sealed partial class MainPage
     {
-        #region Data members
-
-        private double dpiX;
-        private double dpiY;
-        private WriteableBitmap modifiedImage;
-        private WriteableBitmap secretImage;
-        private MainPageViewModel viewModel;
-        private readonly FileReader reader;
-        private Image sourceImage;
-        private Image monoImage;
-        private Image hiddenImage;
-        private readonly ImageManager imageManager;
-        private readonly SaveFileWriter writer;
-
-        #endregion
-
         #region Constructors
 
         /// <summary>Initializes a new instance of the <see cref="MainPage" /> class.</summary>
         public MainPage()
         {
             this.InitializeComponent();
-            this.viewModel = new MainPageViewModel();
-            this.reader = new FileReader();
-            this.sourceImage = new Image();
-            this.monoImage = new Image();
-            this.hiddenImage = new Image();
-            this.imageManager = new ImageManager();
-            this.writer = new SaveFileWriter();
-            this.modifiedImage = null;
-            this.secretImage = null;
-            this.dpiX = 0;
-            this.dpiY = 0;
-            this.fillComboBox();
-            
+
         }
 
         #endregion
 
-        #region Methods
-
-        private void fillComboBox()
+        private void ImageStegafyButton_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 1; i <= 8; i++)
-            {
-                var c = this.cbBpcc.Items;
-                if (c != null)
-                {
-                    c.Add(i);
-                }
-            }
-
-            this.cbBpcc.SelectedItem = 1;
-        }
-        private async void openButton_Click(object sender, RoutedEventArgs e)
-        {
-            var result = await this.reader.SelectSourceImageFile();
-            var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
-            var sourceImage = await this.reader.CreateImage(result, bitImage);
-
-            this.sourceImage = sourceImage;
-            this.sourceImageDisplay.Source = sourceImage.BitImage;
+            Frame.Navigate(typeof(StegafyImagePage));
         }
 
-        private void saveButton_Click(object sender, RoutedEventArgs e)
+        private void TextStegafyButton_Click(object sender, RoutedEventArgs e)
         {
-            this.writer.SaveWritableBitmap(this.modifiedImage);
+            Frame.Navigate(typeof(StegafyTextPage));
         }
-
-        private async void LoadMonoImageButton_Click(object sender, RoutedEventArgs e)
-        {
-            var result = await this.reader.SelectSourceImageFile();
-            var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
-            var monoImage = await this.reader.CreateImage(result, bitImage);
-
-            this.monoImage = monoImage;
-            this.imageManager.MonoImage = monoImage;
-            this.monoImageDisplay.Source = monoImage.BitImage;
-        }
-
-        private async void LoadHiddenImageButton_Click(object sender, RoutedEventArgs e)
-        {
-            var result = await this.reader.SelectSourceImageFile();
-            var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
-            var hiddenImage = await this.reader.CreateImage(result, bitImage);
-
-            this.hiddenImage = hiddenImage;
-            this.hiddenImageDisplay.Source = hiddenImage.BitImage;
-        }
-
-        private async void EmbedButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (!this.imageManager.IsImageExceedSource(Convert.ToUInt32(this.sourceImage.ImageWidth),
-                Convert.ToUInt32(this.sourceImage.ImageHeight)))
-            {
-                this.tbImageError.Text = string.Empty;
-
-                this.imageManager.EmbedImage(this.sourceImage.Pixels, Convert.ToUInt32(this.sourceImage.ImageWidth),
-                    Convert.ToUInt32(this.sourceImage.ImageHeight));
-
-                this.modifiedImage = new WriteableBitmap(this.sourceImage.ImageWidth, this.sourceImage.ImageHeight);
-
-                using (var writeStream = this.modifiedImage.PixelBuffer.AsStream())
-                {
-                    await writeStream.WriteAsync(this.sourceImage.Pixels, 0, this.sourceImage.Pixels.Length);
-                }
-            }
-            else
-            {
-                this.tbImageError.Text = "Secret Image exceeds the Source Image size";
-            }
-        }
-
-        private async void ExtractButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.imageManager.ExtractSecretImage(this.hiddenImage.Pixels, Convert.ToUInt32(this.hiddenImage.ImageWidth),
-                Convert.ToUInt32(this.hiddenImage.ImageHeight));
-
-            this.secretImage = new WriteableBitmap(this.hiddenImage.ImageWidth, this.hiddenImage.ImageHeight);
-
-            using (var writeStream = this.secretImage.PixelBuffer.AsStream())
-            {
-                await writeStream.WriteAsync(this.hiddenImage.Pixels, 0, this.hiddenImage.Pixels.Length);
-                this.secretImageDisplay.Source = this.secretImage;
-            }
-        }
-
-        #endregion
     }
 }
