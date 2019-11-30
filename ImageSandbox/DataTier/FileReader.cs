@@ -72,9 +72,7 @@ namespace GroupKStegafy.DataTier
                 await image.SetSourceImage(file, bitImage);
             }
 
-            return image;
-
-           
+            return image;     
         }
 
         /// <summary>Creates the text string.</summary>
@@ -85,6 +83,7 @@ namespace GroupKStegafy.DataTier
             var sb = new StringBuilder();
 
             var lines = File.ReadLines(file.Path);
+
             foreach (var line in lines)
             {
                 sb.Append(line);

@@ -15,7 +15,7 @@
 
     <Grid>
         <Image x:Name="sourceImageDisplay" Source="{Binding SourceImage.BitImage, Mode=TwoWay}" Margin="155,239,1045,442"/>
-        <Image x:Name="sourceSecretTextDisplay" Margin="1034,239,166,442"/>
+        <Image x:Name="sourceSecretTextDisplay" Source="{Binding TextImage.BitImage, Mode=TwoWay}" Margin="1034,239,166,442"/>
 
         <TextBlock x:Name="tbBpcc" HorizontalAlignment="Left" Margin="703,133,0,0" Text="Select BPCC" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="120" FontSize="20" FontFamily="Segoe UI"/>
         <ComboBox x:Name="cbBpcc" Margin="699,167,0,0" Width="120"/>

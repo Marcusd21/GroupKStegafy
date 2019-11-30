@@ -6,6 +6,7 @@
     <RootPropertyPathName Name="HiddenImage" />
     <RootPropertyPathName Name="MonochromeImage" />
     <RootPropertyPathName Name="SourceImage" />
+    <RootPropertyPathName Name="TextImage" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />

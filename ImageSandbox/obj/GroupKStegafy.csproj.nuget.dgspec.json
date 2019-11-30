@@ -1,45 +1,51 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\csuser\\Desktop\\GroupKStegafy\\ImageSandbox\\GroupKStegafy.csproj": {}
+    "C:\\Users\\CaviayeMWilliams\\Desktop\\GroupKStegafy\\ImageSandbox\\GroupKStegafy.csproj": {}
   },
   "projects": {
-    "C:\\Users\\csuser\\Desktop\\GroupKStegafy\\ImageSandbox\\GroupKStegafy.csproj": {
+    "C:\\Users\\CaviayeMWilliams\\Desktop\\GroupKStegafy\\ImageSandbox\\GroupKStegafy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\csuser\\Desktop\\GroupKStegafy\\ImageSandbox\\GroupKStegafy.csproj",
+        "projectUniqueName": "C:\\Users\\CaviayeMWilliams\\Desktop\\GroupKStegafy\\ImageSandbox\\GroupKStegafy.csproj",
         "projectName": "GroupKStegafy",
-        "projectPath": "C:\\Users\\csuser\\Desktop\\GroupKStegafy\\ImageSandbox\\GroupKStegafy.csproj",
-        "packagesPath": "C:\\Users\\csuser\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\csuser\\Desktop\\GroupKStegafy\\ImageSandbox\\obj\\",
+        "projectPath": "C:\\Users\\CaviayeMWilliams\\Desktop\\GroupKStegafy\\ImageSandbox\\GroupKStegafy.csproj",
+        "packagesPath": "C:\\Users\\CaviayeMWilliams\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\CaviayeMWilliams\\Desktop\\GroupKStegafy\\ImageSandbox\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\csuser\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\CaviayeMWilliams\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "uap10.0.17763"
+          "uap10.0.17134"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "uap10.0.17763": {
+          "uap10.0.17134": {
             "projectReferences": {}
           }
         }
       },
       "frameworks": {
-        "uap10.0.17763": {
+        "uap10.0.17134": {
           "dependencies": {
             "Microsoft.NETCore.UniversalWindowsPlatform": {
               "target": "Package",
               "version": "[6.2.8, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[4.6.1, )"
             }
           },
           "imports": [

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>CS2138W01</Machine>
-    <WindowsUser>csuser</WindowsUser>
+    <Machine>CAVIAYE-PC</Machine>
+    <WindowsUser>CaviayeMWilliams</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>81d861b7-0db4-4dbd-a465-a86dc393a7bb</PackageIdentityName>
     <PackageIdentityPublisher>CN=dyoder</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>E5DA50E9B9AE90C28BF372E0C1923FC03623B91B9CB81458E822C5F57A5C6D74</RegisteredManifestChecksum>
+    <LayoutDir>C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>9BC76DBEE81336066B9BA4983DDAF016F50F4E582052C3466995C8A3C05D2752</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>81d861b7-0db4-4dbd-a465-a86dc393a7bb_1.0.0.0_x64__vpktpzvxd0r0j</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>81d861b7-0db4-4dbd-a465-a86dc393a7bb_vpktpzvxd0r0j!App</RegisteredUserModeAppID>
     <RegisteredPackageID>81d861b7-0db4-4dbd-a465-a86dc393a7bb</RegisteredPackageID>
@@ -27,148 +27,152 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-30T19:38:16.850</Modified>
+      <Modified>2019-11-30T23:14:29.213</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\GroupKStegafy.exe">
+    <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\GroupKStegafy.exe">
       <PackagePath>entrypoint\GroupKStegafy.exe</PackagePath>
-      <Modified>2019-11-30T19:38:16.506</Modified>
+      <Modified>2019-11-30T23:14:27.700</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.8\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
+    <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\.nuget\packages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.8\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
       <Modified>2019-03-13T02:23:24.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\.nuget\packages\system.drawing.common\4.6.1\lib\netstandard2.0\System.Drawing.Common.dll">
+      <PackagePath>System.Drawing.Common.dll</PackagePath>
+      <Modified>2018-09-18T23:38:14.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.18362.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2019-03-18T22:36:56.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2019-11-30T18:12:53.461</Modified>
+      <Modified>2019-11-30T20:53:36.794</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2019-11-30T18:12:53.445</Modified>
+      <Modified>2019-11-30T20:53:36.763</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-30T18:12:53.461</Modified>
+      <Modified>2019-11-30T20:53:36.763</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-30T18:12:53.461</Modified>
+      <Modified>2019-11-30T20:53:36.763</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-30T18:12:53.461</Modified>
+      <Modified>2019-11-30T20:53:36.763</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-30T18:12:53.461</Modified>
+      <Modified>2019-11-30T20:53:36.763</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-30T18:12:53.461</Modified>
+      <Modified>2019-11-30T20:53:36.763</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-30T18:12:53.461</Modified>
+      <Modified>2019-11-30T20:53:36.778</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\GroupKStegafy.xr.xml">
+    <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\GroupKStegafy.xr.xml">
       <PackagePath>GroupKStegafy.xr.xml</PackagePath>
-      <Modified>2019-11-30T19:01:21.732</Modified>
+      <Modified>2019-11-30T22:55:26.334</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-11-30T19:38:16.365</Modified>
+      <Modified>2019-11-30T23:14:27.069</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\View\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
-      <Modified>2019-11-30T19:38:16.365</Modified>
+      <Modified>2019-11-30T23:14:27.070</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\View\StegafyImagePage.xbf">
+    <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\View\StegafyImagePage.xbf">
       <PackagePath>View\StegafyImagePage.xbf</PackagePath>
-      <Modified>2019-11-30T19:38:16.365</Modified>
+      <Modified>2019-11-30T23:14:27.070</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\View\StegafyTextPage.xbf">
+    <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\View\StegafyTextPage.xbf">
       <PackagePath>View\StegafyTextPage.xbf</PackagePath>
-      <Modified>2019-11-30T19:38:16.365</Modified>
+      <Modified>2019-11-30T23:14:27.071</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2019-03-18T21:33:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-11-30T19:36:47.641</Modified>
+      <Modified>2019-11-30T22:56:48.928</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\Core\GroupKStegafy.exe">
+    <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\Core\GroupKStegafy.exe">
       <PackagePath>GroupKStegafy.exe</PackagePath>
-      <Modified>2019-11-30T19:38:16.850</Modified>
+      <Modified>2019-11-30T23:14:29.188</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
-    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+    <ResolvedSDKReference Include="C:\Users\CaviayeMWilliams\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
       <Name>Microsoft.NET.CoreRuntime.2.2</Name>
       <Version>2.2.27404.2</Version>
       <Architecture>x86</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.27404.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Users\CaviayeMWilliams\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+    <ResolvedSDKReference Include="C:\Users\CaviayeMWilliams\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
       <Name>Microsoft.NET.CoreRuntime.2.2</Name>
       <Version>2.2.27404.2</Version>
       <Architecture>x64</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.27404.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Users\CaviayeMWilliams\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+    <ResolvedSDKReference Include="C:\Users\CaviayeMWilliams\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
       <Name>Microsoft.NET.CoreRuntime.2.2</Name>
       <Version>2.2.27404.2</Version>
       <Architecture>arm</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.27404.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Users\CaviayeMWilliams\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+    <ResolvedSDKReference Include="C:\Users\CaviayeMWilliams\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
       <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
       <Version>2.2.27505.2</Version>
       <Architecture>x86</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.27505.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Users\CaviayeMWilliams\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+    <ResolvedSDKReference Include="C:\Users\CaviayeMWilliams\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
       <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
       <Version>2.2.27505.2</Version>
       <Architecture>x64</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.27505.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Users\CaviayeMWilliams\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+    <ResolvedSDKReference Include="C:\Users\CaviayeMWilliams\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
       <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
       <Version>2.2.27505.2</Version>
       <Architecture>arm</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.27505.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Users\CaviayeMWilliams\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.8\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
