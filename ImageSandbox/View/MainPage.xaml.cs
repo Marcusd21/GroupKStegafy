@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media.Imaging;
@@ -49,12 +50,27 @@ namespace GroupKStegafy.View
             this.secretImage = null;
             this.dpiX = 0;
             this.dpiY = 0;
+            this.fillComboBox();
+            
         }
 
         #endregion
 
         #region Methods
 
+        private void fillComboBox()
+        {
+            for (int i = 1; i <= 8; i++)
+            {
+                var c = this.cbBpcc.Items;
+                if (c != null)
+                {
+                    c.Add(i);
+                }
+            }
+
+            this.cbBpcc.SelectedItem = 1;
+        }
         private async void openButton_Click(object sender, RoutedEventArgs e)
         {
             var result = await this.reader.SelectSourceImageFile();

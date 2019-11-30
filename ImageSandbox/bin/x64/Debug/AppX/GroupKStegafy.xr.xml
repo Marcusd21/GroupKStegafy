@@ -45,6 +45,10 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="FontFamily" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Width" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Mode" />
     </RootType>
