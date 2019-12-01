@@ -34,6 +34,9 @@
     <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\.nuget\packages\system.drawing.common\4.6.1\lib\netstandard2.0\System.Drawing.Common.dll">
       <PackagePath>System.Drawing.Common.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\CaviayeMWilliams\.nuget\packages\system.security.permissions\4.6.0\lib\netstandard2.0\System.Security.Permissions.dll">
+      <PackagePath>System.Security.Permissions.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.18362.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>

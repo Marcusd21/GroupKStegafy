@@ -1,6 +1,8 @@
 ﻿using GroupKStegafy.Model;
 using System;
 using System.IO;
+using System.Security;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
@@ -82,6 +84,10 @@ namespace GroupKStegafy.DataTier
         {
             var sb = new StringBuilder();
 
+
+            //TODO: Fix issues with file read access
+            this.giveReadAccessToFiles();
+
             var lines = File.ReadLines(file.Path);
 
             foreach (var line in lines)
@@ -89,9 +95,23 @@ namespace GroupKStegafy.DataTier
                 sb.Append(line);
             }
 
-            return sb.ToString();
+            return sb.ToString();           
+        }
 
-            
+        private void giveReadAccessToFiles()
+        {
+            FileIOPermission f = new FileIOPermission(PermissionState.None);
+
+            f.AllLocalFiles = FileIOPermissionAccess.Read;
+
+            try
+            {
+                f.Demand();
+            }
+            catch (SecurityException s)
+            {
+                Console.WriteLine(s.Message);
+            }
         }
     }
 }

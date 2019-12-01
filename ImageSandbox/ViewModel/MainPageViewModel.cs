@@ -19,8 +19,6 @@ namespace GroupKStegafy.ViewModel
 
         private Image secretImage;
 
-        private Image textImage;
-
         #endregion
 
         #region Properties
@@ -73,16 +71,6 @@ namespace GroupKStegafy.ViewModel
             }
         }
 
-        public Image TextImage
-        {
-            get => this.textImage;
-            set
-            {
-                this.textImage = value;
-                this.OnPropertyChanged();
-            }
-        }
-
         #endregion
 
         #region Constructors
@@ -94,7 +82,6 @@ namespace GroupKStegafy.ViewModel
             this.monochromeImage = new Image();
             this.hiddenImage = new Image();
             this.secretImage = new Image();
-            this.textImage = new Image();
         }
 
         #endregion

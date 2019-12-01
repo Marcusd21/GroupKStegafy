@@ -315,6 +315,15 @@
         "runtime": {
           "lib/netstandard2.0/System.Drawing.Common.dll": {}
         }
+      },
+      "System.Security.Permissions/4.6.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Security.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Permissions.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0.17134/win10-arm": {
@@ -809,6 +818,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/System.Drawing.Common.dll": {}
+        }
+      },
+      "System.Security.Permissions/4.6.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Security.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Permissions.dll": {}
         }
       }
     },
@@ -1306,6 +1324,15 @@
         "runtime": {
           "lib/netstandard2.0/System.Drawing.Common.dll": {}
         }
+      },
+      "System.Security.Permissions/4.6.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Security.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Permissions.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0.17134/win10-arm64-aot": {
@@ -1802,6 +1829,15 @@
         "runtime": {
           "lib/netstandard2.0/System.Drawing.Common.dll": {}
         }
+      },
+      "System.Security.Permissions/4.6.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Security.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Permissions.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0.17134/win10-x64": {
@@ -2296,6 +2332,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/System.Drawing.Common.dll": {}
+        }
+      },
+      "System.Security.Permissions/4.6.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Security.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Permissions.dll": {}
         }
       }
     },
@@ -2793,6 +2838,15 @@
         "runtime": {
           "lib/netstandard2.0/System.Drawing.Common.dll": {}
         }
+      },
+      "System.Security.Permissions/4.6.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Security.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Permissions.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0.17134/win10-x86": {
@@ -3287,6 +3341,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/System.Drawing.Common.dll": {}
+        }
+      },
+      "System.Security.Permissions/4.6.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Security.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Permissions.dll": {}
         }
       }
     },
@@ -3783,6 +3846,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/System.Drawing.Common.dll": {}
+        }
+      },
+      "System.Security.Permissions/4.6.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Security.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Permissions.dll": {}
         }
       }
     }
@@ -8254,12 +8326,40 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "System.Security.Permissions/4.6.0": {
+      "sha512": "W3Uxog9KCZAmGYsOFHgJnb7L2q+SDbxS3vGnFHmErUnXuIjWYpIh1KVTlua7qmPdrlRCkAcTF9dImv+jciBPOQ==",
+      "type": "package",
+      "path": "system.security.permissions/4.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Security.Permissions.dll",
+        "lib/net461/System.Security.Permissions.xml",
+        "lib/netcoreapp3.0/System.Security.Permissions.dll",
+        "lib/netcoreapp3.0/System.Security.Permissions.xml",
+        "lib/netstandard2.0/System.Security.Permissions.dll",
+        "lib/netstandard2.0/System.Security.Permissions.xml",
+        "ref/net461/System.Security.Permissions.dll",
+        "ref/net461/System.Security.Permissions.xml",
+        "ref/netcoreapp3.0/System.Security.Permissions.dll",
+        "ref/netcoreapp3.0/System.Security.Permissions.xml",
+        "ref/netstandard2.0/System.Security.Permissions.dll",
+        "ref/netstandard2.0/System.Security.Permissions.xml",
+        "system.security.permissions.4.6.0.nupkg.sha512",
+        "system.security.permissions.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "UAP,Version=v10.0.17134": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.8",
-      "System.Drawing.Common >= 4.6.1"
+      "System.Drawing.Common >= 4.6.1",
+      "System.Security.Permissions >= 4.6.0"
     ]
   },
   "packageFolders": {
@@ -8309,6 +8409,10 @@
           "System.Drawing.Common": {
             "target": "Package",
             "version": "[4.6.1, )"
+          },
+          "System.Security.Permissions": {
+            "target": "Package",
+            "version": "[4.6.0, )"
           }
         },
         "imports": [

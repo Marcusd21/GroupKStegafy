@@ -202,3 +202,5 @@ C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\obj\x64\Debug\Proje
 C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\obj\x64\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636885454160000000.json
 C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\System.Drawing.Common.dll
 C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\obj\x64\Debug\FxResources.System.Drawing.Common.SR.resw
+C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\System.Security.Permissions.dll
+C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\obj\x64\Debug\FxResources.System.Security.Permissions.SR.resw

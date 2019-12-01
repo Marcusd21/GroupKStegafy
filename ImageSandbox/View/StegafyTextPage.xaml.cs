@@ -63,69 +63,26 @@ namespace GroupKStegafy.View
         private async void OpenSourceImageButton_Click(object sender, RoutedEventArgs e)
         {
             var result = await this.reader.SelectSourceImageFile();
-            var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
-            var sourceImage = await this.reader.CreateImage(result, bitImage);
 
-            this.sourceImage = sourceImage;
-            this.sourceImageDisplay.Source = this.sourceImage.BitImage;
+            if (result != null)
+            {
+                var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
+                var sourceImage = await this.reader.CreateImage(result, bitImage);
+
+                this.sourceImage = sourceImage;
+                this.sourceImageDisplay.Source = this.sourceImage.BitImage;
+            }
         }
 
-        private async void OpenSecretButton_Click(object sender, RoutedEventArgs e)
+        private async void OpenTextFileButton_Click(object sender, RoutedEventArgs e)
         {
             var result = await this.reader.SelectSourceTextFile();
-            this.textFromFile = this.reader.CreateTextString(result);
 
-            var bmp = this.DrawText();
-            this.textImage = await this.ConverBitmapToBitmapImageAsync(bmp);
-
-            this.sourceSecretTextDisplay.Source = this.textImage;
-        }
-
-        private Bitmap DrawText()
-        {
-            //first, create a dummy bitmap just to get a graphics object
-            var img = new Bitmap(1, 1);
-            Graphics drawing = Graphics.FromImage(img);
-
-            var font = new Font(System.Drawing.FontFamily.GenericSansSerif, 12);
-
-            //measure the string to see how big the image needs to be
-            SizeF textSize = drawing.MeasureString(this.textFromFile, font);
-
-            //free up the dummy image and old graphics object
-            img.Dispose();
-            drawing.Dispose();
-
-            //create a new image of the right size
-            img = new Bitmap((int)textSize.Width, (int)textSize.Height);
-
-            drawing = Graphics.FromImage(img);
-
-            //paint the background
-            drawing.Clear(Color.AntiqueWhite);
-
-            //create a brush for the text
-            var textBrush = new SolidBrush(Color.Black);
-
-            drawing.DrawString(this.textFromFile, font, textBrush, 0, 0);
-
-            drawing.Save();
-
-            textBrush.Dispose();
-            drawing.Dispose();
-
-            return img;
-        }
-
-        private async Task<BitmapImage> ConverBitmapToBitmapImageAsync(Bitmap bmp)
-        {
-            MemoryStream stream = new MemoryStream();
-            bmp.Save(stream, ImageFormat.Png);
-
-            BitmapImage bitmapImage = new BitmapImage();
-            await bitmapImage.SetSourceAsync(stream.AsRandomAccessStream());
-
-            return bitmapImage;
+            if (result != null)
+            {
+                this.textFromFile = this.reader.CreateTextString(result);
+                this.sourceText.Text = this.textFromFile;
+            }          
         }
 
         private void EmbedAndSave_Button_Click(object sender, RoutedEventArgs e)

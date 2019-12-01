@@ -59,11 +59,15 @@ namespace GroupKStegafy.View
         private async void openButton_Click(object sender, RoutedEventArgs e)
         {
             var result = await this.reader.SelectSourceImageFile();
-            var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
-            var sourceImage = await this.reader.CreateImage(result, bitImage);
 
-            this.sourceImage = sourceImage;
-            this.sourceImageDisplay.Source = sourceImage.BitImage;
+            if (result != null)
+            {
+                var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
+                var sourceImage = await this.reader.CreateImage(result, bitImage);
+
+                this.sourceImage = sourceImage;
+                this.sourceImageDisplay.Source = sourceImage.BitImage;
+            }
         }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
@@ -74,22 +78,30 @@ namespace GroupKStegafy.View
         private async void LoadMonoImageButton_Click(object sender, RoutedEventArgs e)
         {
             var result = await this.reader.SelectSourceImageFile();
-            var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
-            var monoImage = await this.reader.CreateImage(result, bitImage);
 
-            this.monoImage = monoImage;
-            this.imageManager.MonoImage = monoImage;
-            this.monoImageDisplay.Source = monoImage.BitImage;
+            if (result != null)
+            {
+                var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
+                var monoImage = await this.reader.CreateImage(result, bitImage);
+
+                this.monoImage = monoImage;
+                this.imageManager.MonoImage = monoImage;
+                this.monoImageDisplay.Source = monoImage.BitImage;
+            }       
         }
 
         private async void LoadHiddenImageButton_Click(object sender, RoutedEventArgs e)
         {
             var result = await this.reader.SelectSourceImageFile();
-            var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
-            var hiddenImage = await this.reader.CreateImage(result, bitImage);
 
-            this.hiddenImage = hiddenImage;
-            this.hiddenImageDisplay.Source = hiddenImage.BitImage;
+            if (result != null)
+            {
+                var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
+                var hiddenImage = await this.reader.CreateImage(result, bitImage);
+
+                this.hiddenImage = hiddenImage;
+                this.hiddenImageDisplay.Source = hiddenImage.BitImage;
+            }        
         }
 
         private async void EmbedButton_Click(object sender, RoutedEventArgs e)

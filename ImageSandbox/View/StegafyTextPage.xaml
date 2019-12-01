@@ -15,13 +15,13 @@
 
     <Grid>
         <Image x:Name="sourceImageDisplay" Source="{Binding SourceImage.BitImage, Mode=TwoWay}" Margin="155,239,1045,442"/>
-        <Image x:Name="sourceSecretTextDisplay" Source="{Binding TextImage.BitImage, Mode=TwoWay}" Margin="1034,239,166,442"/>
+        <TextBlock x:Name="sourceText" FontSize="18" Margin="1034,239,166,442"/>
 
         <TextBlock x:Name="tbBpcc" HorizontalAlignment="Left" Margin="703,133,0,0" Text="Select BPCC" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="120" FontSize="20" FontFamily="Segoe UI"/>
         <ComboBox x:Name="cbBpcc" Margin="699,167,0,0" Width="120"/>
 
         <Button x:Name="openSourceImageButton"  Content="Open Image" Margin="233,587,0,0"  VerticalAlignment="Top" Height="44" Width="153" Click="OpenSourceImageButton_Click"/>
-        <Button x:Name="openSecretButton"  Content="Open Secret Text" Margin="1117,587,0,0" VerticalAlignment="Top" Height="44" Width="153" Click="OpenSecretButton_Click"/>
+        <Button x:Name="openTextFileButton"  Content="Open Text File" Margin="1117,587,0,0" VerticalAlignment="Top" Height="44" Width="153" Click="OpenTextFileButton_Click"/>
         <Button x:Name="saveSourceButton" Content="Embed &amp; Save" Margin="683,763,0,0" Click="EmbedAndSave_Button_Click" Height="44" Width="153" VerticalAlignment="Top" />
         <Button x:Name="mainMenuButton" Content="Main Menu" Margin="1117,886,0,0" Height="44" Width="153" VerticalAlignment="Top" Click="MainMenuButton_Click" />
     </Grid>
