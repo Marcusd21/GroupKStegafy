@@ -1,5 +1,6 @@
 ﻿using GroupKStegafy.Model;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Security;
 using System.Security.Permissions;
@@ -80,22 +81,23 @@ namespace GroupKStegafy.DataTier
         /// <summary>Creates the text string.</summary>
         /// <param name="file">The file.</param>
         /// <returns></returns>
-        public String CreateTextString(StorageFile file)
+        public async Task<String> CreateTextString(StorageFile file)
         {
             var sb = new StringBuilder();
-
+         
 
             //TODO: Fix issues with file read access
-            this.giveReadAccessToFiles();
-
-            var lines = File.ReadLines(file.Path);
-
+            using (var fileStream = await file.OpenAsync(FileAccessMode.Read))
+            {
+                var lines = await FileIO.ReadLinesAsync(file);
             foreach (var line in lines)
             {
                 sb.Append(line);
             }
+            }
+           
 
-            return sb.ToString();           
+            return Convert.ToString(sb);           
         }
 
         private void giveReadAccessToFiles()

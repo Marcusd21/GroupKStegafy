@@ -204,3 +204,17 @@ C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\Syste
 C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\obj\x64\Debug\FxResources.System.Drawing.Common.SR.resw
 C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\System.Security.Permissions.dll
 C:\Users\CaviayeMWilliams\Desktop\GroupKStegafy\ImageSandbox\obj\x64\Debug\FxResources.System.Security.Permissions.SR.resw
+C:\Users\Marcus\PC(1)\GroupKStegafy\ImageSandbox\bin\x64\Debug\View\StegafyImagePage.xbf
+C:\Users\Marcus\PC(1)\GroupKStegafy\ImageSandbox\bin\x64\Debug\View\StegafyTextPage.xbf
+C:\Users\Marcus\PC(1)\GroupKStegafy\ImageSandbox\bin\x64\Debug\System.Drawing.Common.dll
+C:\Users\Marcus\PC(1)\GroupKStegafy\ImageSandbox\bin\x64\Debug\System.Security.Permissions.dll
+C:\Users\Marcus\PC(1)\GroupKStegafy\ImageSandbox\obj\x64\Debug\View\StegafyImagePage.g.i.cs
+C:\Users\Marcus\PC(1)\GroupKStegafy\ImageSandbox\obj\x64\Debug\View\StegafyImagePage.g.cs
+C:\Users\Marcus\PC(1)\GroupKStegafy\ImageSandbox\obj\x64\Debug\View\StegafyTextPage.g.i.cs
+C:\Users\Marcus\PC(1)\GroupKStegafy\ImageSandbox\obj\x64\Debug\View\StegafyTextPage.g.cs
+C:\Users\Marcus\PC(1)\GroupKStegafy\ImageSandbox\obj\x64\Debug\View\StegafyImagePage.xaml
+C:\Users\Marcus\PC(1)\GroupKStegafy\ImageSandbox\obj\x64\Debug\View\StegafyTextPage.xaml
+C:\Users\Marcus\PC(1)\GroupKStegafy\ImageSandbox\obj\x64\Debug\View\StegafyImagePage.xbf
+C:\Users\Marcus\PC(1)\GroupKStegafy\ImageSandbox\obj\x64\Debug\View\StegafyTextPage.xbf
+C:\Users\Marcus\PC(1)\GroupKStegafy\ImageSandbox\obj\x64\Debug\FxResources.System.Drawing.Common.SR.resw
+C:\Users\Marcus\PC(1)\GroupKStegafy\ImageSandbox\obj\x64\Debug\FxResources.System.Security.Permissions.SR.resw

@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\CaviayeMWilliams\\Desktop\\GroupKStegafy\\ImageSandbox\\GroupKStegafy.csproj": {}
+    "C:\\Users\\Marcus\\PC(1)\\GroupKStegafy\\ImageSandbox\\GroupKStegafy.csproj": {}
   },
   "projects": {
-    "C:\\Users\\CaviayeMWilliams\\Desktop\\GroupKStegafy\\ImageSandbox\\GroupKStegafy.csproj": {
+    "C:\\Users\\Marcus\\PC(1)\\GroupKStegafy\\ImageSandbox\\GroupKStegafy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CaviayeMWilliams\\Desktop\\GroupKStegafy\\ImageSandbox\\GroupKStegafy.csproj",
+        "projectUniqueName": "C:\\Users\\Marcus\\PC(1)\\GroupKStegafy\\ImageSandbox\\GroupKStegafy.csproj",
         "projectName": "GroupKStegafy",
-        "projectPath": "C:\\Users\\CaviayeMWilliams\\Desktop\\GroupKStegafy\\ImageSandbox\\GroupKStegafy.csproj",
-        "packagesPath": "C:\\Users\\CaviayeMWilliams\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CaviayeMWilliams\\Desktop\\GroupKStegafy\\ImageSandbox\\obj\\",
+        "projectPath": "C:\\Users\\Marcus\\PC(1)\\GroupKStegafy\\ImageSandbox\\GroupKStegafy.csproj",
+        "packagesPath": "C:\\Users\\Marcus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Marcus\\PC(1)\\GroupKStegafy\\ImageSandbox\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\CaviayeMWilliams\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Marcus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "uap10.0.17134"

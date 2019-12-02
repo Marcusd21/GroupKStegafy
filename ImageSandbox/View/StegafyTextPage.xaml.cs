@@ -80,7 +80,7 @@ namespace GroupKStegafy.View
 
             if (result != null)
             {
-                this.textFromFile = this.reader.CreateTextString(result);
+                this.textFromFile = await this.reader.CreateTextString(result);
                 this.sourceText.Text = this.textFromFile;
             }          
         }
