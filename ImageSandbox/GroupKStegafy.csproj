@@ -122,6 +122,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controller\ImageManager.cs" />
+    <Compile Include="Controller\TextManager.cs" />
     <Compile Include="DataTier\FileReader.cs" />
     <Compile Include="DataTier\SaveFileWriter.cs" />
     <Compile Include="Properties\Annotations.cs" />

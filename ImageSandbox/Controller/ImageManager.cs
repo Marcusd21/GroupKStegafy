@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using Windows.UI;
 using GroupKStegafy.Model;
 
 namespace GroupKStegafy.Controller
 {
     /// <summary>
-    /// 
     /// </summary>
     public class ImageManager
     {
@@ -40,7 +38,7 @@ namespace GroupKStegafy.Controller
         {
             var offset = (x * (int) width + y) * 4;
 
-            if (offset >= (width * height * 4))
+            if (offset >= width * height * 4)
             {
                 return Color.FromArgb(0, 255, 255, 255);
             }
@@ -67,7 +65,6 @@ namespace GroupKStegafy.Controller
         }
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="sourcePixels"></param>
         /// <param name="imageWidth"></param>
@@ -94,7 +91,6 @@ namespace GroupKStegafy.Controller
                             pixelColor.B |= 1;
                             this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
                         }
-
                     }
                 }
             }
@@ -111,23 +107,34 @@ namespace GroupKStegafy.Controller
             {
                 for (var j = 0; j < imageWidth; j++)
                 {
-                   
-                        var pixelColor = this.getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
-                        var monoColor = this.getPixelBgra8(this.MonoImage.Pixels, i, j,
-                            Convert.ToUInt32(this.MonoImage.ImageWidth), Convert.ToUInt32(this.MonoImage.ImageHeight));
-                        if (monoColor.R == 0)
-                        {
-                            pixelColor.B &= 0xfe;
+                    var pixelColor = this.getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
+                    var monoColor = this.getPixelBgra8(this.MonoImage.Pixels, i, j,
+                        Convert.ToUInt32(this.MonoImage.ImageWidth), Convert.ToUInt32(this.MonoImage.ImageHeight));
+                    if (j == 0 && i == 0)
+                    {
+                        pixelColor.B = 212;
+                        pixelColor.R = 212;
+                        pixelColor.G = 212;
+                        this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
+                    }
+                    else if (j == 1 && i == 0)
+                    {
+                        pixelColor.R = 1;
+                        pixelColor.G = 1;
+                        pixelColor.B = 0;
+                        this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
+                    }
+                    else if (monoColor.R == 0)
+                    {
+                        pixelColor.B &= 0xfe;
 
-                            this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
-                        }
-                        else
-                        {
-                            pixelColor.B |= 1;
-                            this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
-                        }
-
-                    
+                        this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
+                    }
+                    else
+                    {
+                        pixelColor.B |= 1;
+                        this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
+                    }
                 }
             }
         }
@@ -136,14 +143,26 @@ namespace GroupKStegafy.Controller
         /// <param name="imageWidth">Width of the image.</param>
         /// <param name="imageHeight">Height of the image.</param>
         /// <returns>
-        ///   <c>true</c> if [is image exceed source] [the specified image width]; otherwise, <c>false</c>.</returns>
+        ///     <c>true</c> if [is image exceed source] [the specified image width]; otherwise, <c>false</c>.
+        /// </returns>
         public bool IsImageExceedSource(uint imageWidth, uint imageHeight)
         {
-            return (this.MonoImage.ImageHeight > imageHeight && this.MonoImage.ImageWidth > imageWidth);
+            return this.MonoImage.ImageHeight > imageHeight && this.MonoImage.ImageWidth > imageWidth;
+        }
+
+        /// <summary>Determines whether [is image secret message] [the specified source pixels].</summary>
+        /// <param name="sourcePixels">The source pixels.</param>
+        /// <param name="imageWidth">Width of the image.</param>
+        /// <param name="imageHeight">Height of the image.</param>
+        /// <returns>
+        ///   <c>true</c> if [is image secret message] [the specified source pixels]; otherwise, <c>false</c>.</returns>
+        public bool IsImageSecretMessage(byte[] sourcePixels, uint imageWidth, uint imageHeight)
+        {
+            var pixelColor = this.getPixelBgra8(sourcePixels, 0, 0, imageWidth, imageHeight);
+            return (pixelColor.B == 212 && pixelColor.R == 212 && pixelColor.G == 212);
         }
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="sourcePixels"></param>
         /// <param name="imageWidth"></param>
@@ -155,19 +174,9 @@ namespace GroupKStegafy.Controller
                 for (var j = 0; j < imageWidth; j++)
                 {
                     var pixelColor = this.getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
-                    if (j == 0 && i == 0)
+
+                    if (pixelColor.B % 2 == 0)
                     {
-                        pixelColor.B = 212;
-                        pixelColor.R = 212;
-                        pixelColor.G = 212;
-                    }
-                    else if (j == 1 && i == 0)
-                    {
-                        continue;
-                    }
-                    else if (pixelColor.B % 2 == 0)
-                    {
-                        
                         pixelColor.B = 0;
                         pixelColor.R = 0;
                         pixelColor.G = 0;
@@ -183,19 +192,6 @@ namespace GroupKStegafy.Controller
                 }
             }
         }
-        private List<byte> convertTextToBytes(string text)
-        {
-            var bytes = new List<byte>();
-
-            foreach (var item in text)
-            {
-                bytes.Add(Convert.ToByte(item));
-            }
-
-            return bytes;
-        }
-
-       
 
         #endregion
     }
