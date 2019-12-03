@@ -96,48 +96,7 @@ namespace GroupKStegafy.Controller
             }
         }
 
-        /// <summary>Embeds the text.</summary>
-        /// <param name="sourcePixels">The source pixels.</param>
-        /// <param name="imageWidth">Width of the image.</param>
-        /// <param name="imageHeight">Height of the image.</param>
-        /// <param name="text">The text.</param>
-        public void EmbedText(byte[] sourcePixels, uint imageWidth, uint imageHeight, string text)
-        {
-            for (var i = 0; i < imageHeight; i++)
-            {
-                for (var j = 0; j < imageWidth; j++)
-                {
-                    var pixelColor = this.getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
-                    var monoColor = this.getPixelBgra8(this.MonoImage.Pixels, i, j,
-                        Convert.ToUInt32(this.MonoImage.ImageWidth), Convert.ToUInt32(this.MonoImage.ImageHeight));
-                    if (j == 0 && i == 0)
-                    {
-                        pixelColor.B = 212;
-                        pixelColor.R = 212;
-                        pixelColor.G = 212;
-                        this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
-                    }
-                    else if (j == 1 && i == 0)
-                    {
-                        pixelColor.R = 1;
-                        pixelColor.G = 1;
-                        pixelColor.B = 0;
-                        this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
-                    }
-                    else if (monoColor.R == 0)
-                    {
-                        pixelColor.B &= 0xfe;
-
-                        this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
-                    }
-                    else
-                    {
-                        pixelColor.B |= 1;
-                        this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
-                    }
-                }
-            }
-        }
+       
 
         /// <summary>Determines whether [is image exceed source] [the specified image width].</summary>
         /// <param name="imageWidth">Width of the image.</param>

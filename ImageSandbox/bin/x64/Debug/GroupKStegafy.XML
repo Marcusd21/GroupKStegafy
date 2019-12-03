@@ -98,13 +98,6 @@
             <param name="imageWidth"></param>
             <param name="imageHeight"></param>
         </member>
-        <member name="M:GroupKStegafy.Controller.ImageManager.EmbedText(System.Byte[],System.UInt32,System.UInt32,System.String)">
-            <summary>Embeds the text.</summary>
-            <param name="sourcePixels">The source pixels.</param>
-            <param name="imageWidth">Width of the image.</param>
-            <param name="imageHeight">Height of the image.</param>
-            <param name="text">The text.</param>
-        </member>
         <member name="M:GroupKStegafy.Controller.ImageManager.IsImageExceedSource(System.UInt32,System.UInt32)">
             <summary>Determines whether [is image exceed source] [the specified image width].</summary>
             <param name="imageWidth">Width of the image.</param>
