@@ -5,6 +5,7 @@ using System.IO;
 using System.Security;
 using System.Security.Permissions;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Pickers;
@@ -81,39 +82,27 @@ namespace GroupKStegafy.DataTier
         /// <summary>Creates the text string.</summary>
         /// <param name="file">The file.</param>
         /// <returns></returns>
-        public async Task<String> CreateTextString(StorageFile file)
+        public async Task<string> CreateTextString(StorageFile file)
         {
             var sb = new StringBuilder();
-         
-
-            //TODO: Fix issues with file read access
+            
             using (var fileStream = await file.OpenAsync(FileAccessMode.Read))
             {
                 var lines = await FileIO.ReadLinesAsync(file);
-            foreach (var line in lines)
-            {
-                sb.Append(line);
+
+                foreach (var line in lines)
+                {
+                    var result = Regex.Match(line, "[a-zA-Z0-9]*");
+
+                    while (result.Success)
+                    {
+                        sb.Append(result.Value);
+                        result = result.NextMatch();
+                    }
+                }
             }
-            }
-           
 
             return Convert.ToString(sb);           
-        }
-
-        private void giveReadAccessToFiles()
-        {
-            FileIOPermission f = new FileIOPermission(PermissionState.None);
-
-            f.AllLocalFiles = FileIOPermissionAccess.Read;
-
-            try
-            {
-                f.Demand();
-            }
-            catch (SecurityException s)
-            {
-                Console.WriteLine(s.Message);
-            }
         }
     }
 }

@@ -126,6 +126,7 @@
     <Compile Include="DataTier\FileReader.cs" />
     <Compile Include="DataTier\SaveFileWriter.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Utility\CipherTextManager.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

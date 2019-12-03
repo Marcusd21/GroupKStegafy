@@ -81,8 +81,7 @@ namespace GroupKStegafy.Controller
                         pixelColor.B = 0;
                         this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
                     }
-
-                   else if (this.textBytes[current] < this.textBytes.Count)
+                    else if (this.textBytes[current] < this.textBytes.Count)
                     {
                         
                         pixelColor.B &= this.textBytes[current];

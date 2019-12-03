@@ -19,8 +19,10 @@ using Image = GroupKStegafy.Model.Image;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.Storage.Streams;
 using System.Drawing.Imaging;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using GroupKStegafy.Controller;
+using GroupKStegafy.Utility;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -98,7 +100,18 @@ namespace GroupKStegafy.View
 
         private async void EmbedAndSave_Button_Click(object sender, RoutedEventArgs e)
         {
-            this.textManager.EmbedText(this.sourceImage.Pixels, Convert.ToUInt32(this.sourceImage.ImageWidth), Convert.ToUInt32(this.sourceImage.ImageHeight),this.textFromFile,1);
+            this.keywordErrorLbl.Visibility = Visibility.Collapsed;
+
+            if (this.keywordTxt.Text == string.Empty)
+            {
+                this.keywordErrorLbl.Visibility = Visibility.Visible;
+                return;
+            }
+
+            var encryptText = CipherTextManager.VigenereEncrypt(this.textFromFile, this.keywordTxt.Text);
+            this.encryptedText.Text = encryptText;
+
+            this.textManager.EmbedText(this.sourceImage.Pixels, Convert.ToUInt32(this.sourceImage.ImageWidth), Convert.ToUInt32(this.sourceImage.ImageHeight), encryptText, 1);
 
             this.modifiedImage = new WriteableBitmap(this.sourceImage.ImageWidth,this.sourceImage.ImageHeight);
 
@@ -136,6 +149,10 @@ namespace GroupKStegafy.View
         }
 
        
+
+
+
+
     }
 
    
