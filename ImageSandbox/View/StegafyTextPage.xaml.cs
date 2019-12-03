@@ -60,7 +60,6 @@ namespace GroupKStegafy.View
 
         private void fillComboBox()
         {
-
             for (int i = 1; i <= 8; i++)
             {
                 var c = this.cbBpcc.Items;
@@ -116,6 +115,7 @@ namespace GroupKStegafy.View
             this.modifiedImage = new WriteableBitmap(this.sourceImage.ImageWidth,this.sourceImage.ImageHeight);
 
             this.writer.SaveWritableBitmap(this.modifiedImage);
+
             using (var writeStream = this.modifiedImage.PixelBuffer.AsStream())
             {
                 await writeStream.WriteAsync(this.sourceImage.Pixels, 0, this.sourceImage.Pixels.Length);

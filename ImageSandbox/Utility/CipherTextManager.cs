@@ -74,14 +74,17 @@ namespace GroupKStegafy.Utility
         private static string ExpandString(string str, int length)
         {
             if (length <= str.Length) return str.Substring(0, length);
+
             while (str.Length * 2 <= length)
             {
                 str += str;
             }
+
             if (str.Length < length)
             {
                 str += str.Substring(0, length - str.Length);
             }
+
             return str;
         }
     }
