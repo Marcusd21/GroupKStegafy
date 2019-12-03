@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 using System.Linq;
@@ -60,6 +61,7 @@ namespace GroupKStegafy.Controller
         {
            this.textBytes =  this.convertTextToBytes(text);
            var current = 0;
+           var byteAmount = Convert.ToByte(bpcc);
            
             for (var i = 0; i < imageHeight; i++)
             {
@@ -77,13 +79,14 @@ namespace GroupKStegafy.Controller
                     else if (j == 1 && i == 0)
                     {
                         pixelColor.R = 1;
-                        pixelColor.G = 1;
+                        pixelColor.G = byteAmount;
                         pixelColor.B = 0;
                         this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
                     }
-                    else if (this.textBytes[current] < this.textBytes.Count)
+                    else if (current < this.textBytes.Count)
                     {
-                        
+                        var b = new BitArray(this.textBytes[current]);
+                        string hex = BitConverter.ToString(new byte[] { this.textBytes[current] });
                         pixelColor.B &= this.textBytes[current];
                         
 
@@ -103,14 +106,15 @@ namespace GroupKStegafy.Controller
         /// <param name="imageHeight">Height of the image.</param>
         public void ExtractSecretText(byte[] sourcePixels, uint imageWidth, uint imageHeight)
         {
-           var item = convertTextToBytes(this.textBytes);
+            string message = "";
             for (var i = 0; i < imageHeight; i++)
             {
-                for (var j = 0; j < imageWidth; j++)
+                for (var j = 2; j < imageWidth; j++)
                 {
                     var pixelColor = this.getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
 
-                    if (pixelColor.B % 2 == 0)
+                    string hex = pixelColor.B.ToString("X2");
+                    if (pixelColor.B == 35)
                     {
                         pixelColor.B = 0;
                         pixelColor.R = 0;
@@ -123,9 +127,11 @@ namespace GroupKStegafy.Controller
                         pixelColor.G = 255;
                     }
 
-                    this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
+                   
+
                 }
             }
+            var item = this.convertBytesToText(this.textBytes);
         }
         private List<byte> convertTextToBytes(string text)
         {
@@ -139,7 +145,7 @@ namespace GroupKStegafy.Controller
             return bytes;
         }
 
-        private List<char> convertTextToBytes(List<byte> text)
+        private List<char> convertBytesToText(List<byte> text)
         {
             var bytes = new List<char>();
 
