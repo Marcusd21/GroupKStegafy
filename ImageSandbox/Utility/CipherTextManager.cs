@@ -71,6 +71,7 @@ namespace GroupKStegafy.Utility
             return decryptedText.ToString();
         }
 
+
         private static string ExpandString(string str, int length)
         {
             if (length <= str.Length) return str.Substring(0, length);

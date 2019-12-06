@@ -62,12 +62,13 @@ namespace GroupKStegafy.Controller
         /// <param name="text">The text.</param>
         public void EmbedText(byte[] sourcePixels, uint imageWidth, uint imageHeight, string text, int bpcc)
         {
-            this.textBytes = this.convertTextToBytes(text);
+            var textBytesValue = this.convertTextToBytes(text);
             var current = 0;
             var byteAmount = Convert.ToByte(bpcc);
             var bitChecked = 0;
             var bit = "";
-            var pixelBit = "";
+
+            var amount = "";
             for (var i = 0; i < imageHeight; i++)
             for (var j = 0; j < imageWidth; j++)
             {
@@ -86,13 +87,15 @@ namespace GroupKStegafy.Controller
                     pixelColor.B = 0;
                     this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
                 }
-                else if (current < this.textBytes.Count && bitChecked % 8 == 0)
+
+                else if (current < textBytesValue.Length && bitChecked % 8 == 0)
                 {
-                    bitChecked = 0;
                     var result = "";
                     var pixel = "";
-                    bit = Convert.ToString(this.textBytes[current], 2).PadLeft(8, '0');
-                    pixelBit = Convert.ToString(pixelColor.B, 2).PadLeft(8, '0');
+                    bitChecked = 0;
+                    bit = Convert.ToString(textBytesValue[current], 2).PadLeft(8, '0');
+                    var pixelBit = Convert.ToString(pixelColor.B, 2).PadLeft(8, '0');
+
                     for (var k = bit.Length - 1; k > bit.Length - bpcc - 1; k--)
                     {
                         if (bitChecked < 8 && bitChecked < bitChecked + bpcc)
@@ -104,50 +107,85 @@ namespace GroupKStegafy.Controller
 
                     for (var k = 0; k < pixelBit.Length; k++)
                     {
-                        if (k < pixelBit.Length - bitChecked)
+                        if (k > pixelBit.Length - bitChecked - bpcc && k < pixelBit.Length - bitChecked + 1)
+                        {
+                            pixel += bit[k];
+                            amount = bit[k] + amount;
+                        }
+                        else
                         {
                             pixel += pixelBit[k];
                         }
                     }
 
-                    var answer = pixel + result;
+                    if (j >= 232)
+                    {
+                        var a = 0;
+                    }
 
-                    var value = Convert.ToInt32(answer, 2);
+                    var value = Convert.ToInt32(pixel, 2);
                     var bite = Convert.ToByte(value);
-
-                    pixelColor.B |= bite;
+                    if (bite != 246)
+                    {
+                        pixelColor.B |= bite;
+                        }
+                    else
+                    {
+                        pixelColor.B &= bite;
+                        }
+                    
 
                     this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
                     current++;
                 }
-                else if (current < this.textBytes.Count && bitChecked % 8 != 0)
+                else if (current <= textBytesValue.Length && bitChecked % 8 != 0)
                 {
                     var result = "";
                     var pixel = "";
-
-                    for (var k = bit.Length; k >= bit.Length - bitChecked; k--)
+                    var pixelBit = Convert.ToString(pixelColor.B, 2).PadLeft(8, '0');
+                    for (var k = bit.Length - 1; k > bit.Length - bpcc - 1; k--)
                     {
-                        if (bitChecked < 8 && bitChecked <= bitChecked + bpcc)
+                        if (bitChecked < 8 && bitChecked < bitChecked + bpcc)
                         {
-                            result += bit[k - 1];
+                            result += bit[k];
                         }
+                    }
+
+                    if (j >= 232)
+                    {
+                        var a = 0;
                     }
 
                     bitChecked++;
 
                     for (var k = 0; k < pixelBit.Length; k++)
                     {
-                        if (k < pixelBit.Length - bitChecked)
+                        if (k > pixelBit.Length - bitChecked - bpcc && k < pixelBit.Length - bitChecked + 1)
+                        {
+                            pixel += bit[k];
+                            amount = bit[k] + amount;
+                        }
+                        else
                         {
                             pixel += pixelBit[k];
                         }
                     }
 
-                    var answer = pixel + result;
-                    var value = Convert.ToInt32(answer, 2);
-                    var bite = Convert.ToByte(value);
+                    if (amount.Equals(bit))
+                    {
+                        amount = "";
+                    }
 
-                    pixelColor.B |= bite;
+                    var value = Convert.ToInt32(pixel, 2);
+                    var bite = Convert.ToByte(value);
+                    if (bite >= 250 && bite<= 255)
+                    {
+                        pixelColor.B |= bite;
+                    }
+                    else
+                    {
+                        pixelColor.B &= bite;
+                    }
 
                     this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
                 }
@@ -158,65 +196,71 @@ namespace GroupKStegafy.Controller
         /// <param name="sourcePixels">The source pixels.</param>
         /// <param name="imageWidth">Width of the image.</param>
         /// <param name="imageHeight">Height of the image.</param>
-        public void ExtractSecretText(byte[] sourcePixels, uint imageWidth, uint imageHeight)
+        public List<char> ExtractSecretText(byte[] sourcePixels, uint imageWidth, uint imageHeight, int bpcc)
         {
             var message = "";
             var bitChecked = 0;
+            var answer = new List<byte>();
+
             for (var i = 0; i < imageHeight; i++)
             for (var j = 2; j < imageWidth; j++)
             {
+                if (j >= 34)
+                {
+                    var a = 0;
+                }
+
                 var pixelColor = this.getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
                 if (bitChecked % 8 == 0)
                 {
                     bitChecked = 0;
-                    var hex = pixelColor.B.ToString("X2");
-                    if (pixelColor.B % 2 == 0)
+                    if (message != "")
                     {
-                        pixelColor.B = 0;
-                        pixelColor.R = 0;
-                        pixelColor.G = 0;
-                    }
-                    else
-                    {
-                        pixelColor.B = 255;
-                        pixelColor.R = 255;
-                        pixelColor.G = 255;
+                        var value = Convert.ToInt32(message, 2);
+                        var bite = Convert.ToByte(value);
+                        answer.Add(bite);
+                        message = "";
                     }
 
-                    bitChecked++;
+                    var bit = Convert.ToString(pixelColor.B, 2).PadLeft(8, '0');
+                    for (var k = 0; k < bit.Length; k++)
+                    {
+                        if (k > bit.Length - bitChecked - bpcc - 1 && k < bit.Length - bitChecked)
+                        {
+                            message = bit[k] + message;
+                            bitChecked++;
+                        }
+                    }
                 }
                 else if (bitChecked % 8 != 0)
                 {
-                    if (pixelColor.B % 2 == 0)
+                    if (j >= 30)
                     {
-                        pixelColor.B = 0;
-                        pixelColor.R = 0;
-                        pixelColor.G = 0;
+                        var a = 0;
                     }
-                    else
+
+                    var bit = Convert.ToString(pixelColor.B, 2).PadLeft(8, '0');
+                    for (var k = 0; k < bit.Length; k++)
                     {
-                        pixelColor.B = 255;
-                        pixelColor.R = 255;
-                        pixelColor.G = 255;
+                        if (k > bit.Length - bitChecked - bpcc - 1 && k < bit.Length - bitChecked)
+                        {
+                            message = bit[k] + message;
+                        }
                     }
 
                     bitChecked++;
                 }
             }
 
-            var item = this.convertBytesToText(this.textBytes);
+            var current = this.convertBytesToText(answer);
+            return current;
         }
 
-        private List<byte> convertTextToBytes(string text)
+        private byte[] convertTextToBytes(string text)
         {
-            var bytes = new List<byte>();
+            var array = Encoding.ASCII.GetBytes(text);
 
-            foreach (var item in text)
-            {
-                bytes.Add(Convert.ToByte(item));
-            }
-
-            return bytes;
+            return array;
         }
 
         private List<char> convertBytesToText(List<byte> text)

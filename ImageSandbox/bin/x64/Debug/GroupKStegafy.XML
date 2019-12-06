@@ -149,7 +149,7 @@
             <param name="imageHeight">Height of the image.</param>
             <param name="text">The text.</param>
         </member>
-        <member name="M:GroupKStegafy.Controller.TextManager.ExtractSecretText(System.Byte[],System.UInt32,System.UInt32)">
+        <member name="M:GroupKStegafy.Controller.TextManager.ExtractSecretText(System.Byte[],System.UInt32,System.UInt32,System.Int32)">
             <summary>Extracts the secret text.</summary>
             <param name="sourcePixels">The source pixels.</param>
             <param name="imageWidth">Width of the image.</param>

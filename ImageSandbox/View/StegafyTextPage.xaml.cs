@@ -143,7 +143,14 @@ namespace GroupKStegafy.View
             if (this.imageManager.IsImageSecretMessage(this.hiddenImage.Pixels, Convert.ToUInt32(this.hiddenImage.ImageWidth),
                 Convert.ToUInt32(this.hiddenImage.ImageHeight)))
             {
-                this.textManager.ExtractSecretText(this.hiddenImage.Pixels, Convert.ToUInt32(this.hiddenImage.ImageWidth), Convert.ToUInt32(this.hiddenImage.ImageHeight));
+               var item = this.textManager.ExtractSecretText(this.hiddenImage.Pixels, Convert.ToUInt32(this.hiddenImage.ImageWidth), Convert.ToUInt32(this.hiddenImage.ImageHeight), Convert.ToInt32(this.cbBpcc.SelectedValue));
+               var curr = "";
+               foreach (var c in item)
+               {
+                   curr += c;
+               }
+
+               var answer = CipherTextManager.VigenereDecrypt(curr);
             }
 
         }
