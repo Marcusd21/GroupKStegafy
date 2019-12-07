@@ -19,23 +19,27 @@
           Height="1000" VerticalAlignment="Center" >
 
         <Image x:Name="sourceImageDisplay" Source="{Binding SourceImage.BitImage, Mode=TwoWay}" Margin="155,49,1045,705"/>
-        <Image x:Name="hiddenImageDisplay" Source="{Binding HiddenImage.BitImage, Mode=TwoWay}" Margin="155,463,1045,289"  />
+        <Image x:Name="hiddenImageDisplay" Source="{Binding HiddenImage.BitImage, Mode=TwoWay}" Margin="155,515,1045,237"  />
 
-        <TextBox x:Name="keywordTxt" HorizontalAlignment="Left" Margin="690,319,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
-        <TextBlock x:Name="sourceText" FontSize="16" TextWrapping="Wrap" Margin="936,70,349,692"/>
-        <TextBlock x:Name="encryptedText" FontSize="16" TextWrapping="Wrap" Margin="1214,70,74,692"/>
-        <TextBlock HorizontalAlignment="Left" Margin="710,25,0,0" Text="Select BPCC" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="110" FontSize="20" FontFamily="Segoe UI"/>
-        <TextBlock x:Name="tbHiddenMessage" HorizontalAlignment="Left" Margin="1035,500,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="216" Width="291"/>
-        <TextBlock HorizontalAlignment="Left" Margin="690,293,0,0" Text="Encryption Keyword:" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock x:Name="keywordErrorLbl" HorizontalAlignment="Left" Margin="616,260,0,0" Text="*Please enter a keyword to encrypt message*" Foreground="Red" Visibility="Collapsed" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="keywordTxt" HorizontalAlignment="Left" Margin="1149,412,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
+        <TextBlock x:Name="sourceText" FontSize="14" TextWrapping="Wrap" Margin="936,70,349,692"/>
+        <TextBlock x:Name="encryptedText" FontSize="14" TextWrapping="Wrap" Margin="1214,70,74,692"/>
+        <TextBlock HorizontalAlignment="Left" Margin="682,480,0,0" Text="Select BPCC" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="110" FontSize="20" FontFamily="Segoe UI"/>
+        <TextBlock x:Name="tbHiddenMessage" HorizontalAlignment="Left" Margin="1042,603,0,0" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" Height="169" Width="291"/>
+        <TextBlock HorizontalAlignment="Left" Margin="994,417,0,0" Text="Encryption Keyword:" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="keywordErrorLbl" HorizontalAlignment="Left" Margin="998,463,0,0" Text="**Please provide a keyword and/or text file!**" Foreground="Red" Visibility="Collapsed" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="embedErrorLbl" HorizontalAlignment="Left" Margin="544,614,0,0" Text="**Please provide a source image or encrypt the text!**" Foreground="Red" Visibility="Collapsed" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
         <TextBlock HorizontalAlignment="Left" Margin="936,32,0,0" Text="Original Text" TextWrapping="Wrap" FontSize="15" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="1214,32,0,0" Text="Encrypted Text" TextWrapping="Wrap" FontSize="15" VerticalAlignment="Top"/>
 
-        <ComboBox x:Name="cbBpcc" Margin="702,59,0,0" Width="132"/>
-        <Button Content="Open Source Image" Margin="231,346,0,0"  VerticalAlignment="Top" Height="44" Width="153" Click="OpenSourceImageButton_Click"/>
-        <Button Content="Open Text File" Margin="1117,347,0,0" VerticalAlignment="Top" Height="44" Width="153" Click="OpenTextFileButton_Click"/>
-        <Button Content="Embed &amp; Save" Margin="690,369,0,0" Click="EmbedAndSave_Button_Click" Height="44" Width="153" VerticalAlignment="Top" />
-        <Button Content="Main Menu" Margin="690,743,0,0" Height="44" Width="153" VerticalAlignment="Top" Click="MainMenuButton_Click" />
-        <Button Content="Open Embedded Image" Margin="223,743,0,0" VerticalAlignment="Top" Height="44" Width="169" Click="HiddenImageButton_Click"/>
+        <ComboBox x:Name="cbBpcc" Margin="670,510,0,0" Width="132"/>
+        <Button Content="Open Source Image" Margin="223,342,0,0"  VerticalAlignment="Top" Height="44" Width="153" Click="OpenSourceImageButton_Click"/>
+        <Button Content="Open Text File" Margin="936,336,0,0" VerticalAlignment="Top" Height="44" Width="153" Click="OpenTextFileButton_Click"/>
+        <Button Content="Encrypt Text" Margin="1214,336,0,0" VerticalAlignment="Top" Height="44" Width="153" Click="EncryptTextButton_Click"/>
+        <Button Content="Embed &amp; Save" Margin="659,555,0,0" Click="EmbedAndSave_Button_Click" Height="44" Width="153" VerticalAlignment="Top" />
+        <Button Content="Main Menu" Margin="1109,791,0,0" Height="44" Width="153" VerticalAlignment="Top" Click="MainMenuButton_Click" />
+        <Button Content="Open Embedded Image" Margin="223,791,0,0" VerticalAlignment="Top" Height="44" Width="169" Click="HiddenImageButton_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1042,565,0,0" Text="Hidden Message:" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top"/>
     </Grid>
 </Page>

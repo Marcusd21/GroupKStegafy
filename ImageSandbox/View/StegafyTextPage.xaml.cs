@@ -38,7 +38,6 @@ namespace GroupKStegafy.View
         private WriteableBitmap modifiedImage;
         private TextManager textManager;
         private BitmapImage textImage;
-        private string textFromFile;
 
         /// <summary>Initializes a new instance of the <see cref="StegafyTextPage"/> class.</summary>
         public StegafyTextPage()
@@ -73,9 +72,9 @@ namespace GroupKStegafy.View
             if (result != null)
             {
                 var bitImage = await FileReader.MakeACopyOfTheFileToWorkOn(result);
-                var sourceImage = await FileReader.CreateImage(result, bitImage);
+                var imageSource = await FileReader.CreateImage(result, bitImage);
 
-                this.sourceImage = sourceImage;
+                this.sourceImage = imageSource;
                 this.sourceImageDisplay.Source = this.sourceImage.BitImage;
             }
         }
@@ -86,25 +85,35 @@ namespace GroupKStegafy.View
 
             if (result != null)
             {
-                this.textFromFile = await FileReader.CreateTextString(result);
-                this.sourceText.Text = this.textFromFile;
+                var textFromFile = await FileReader.CreateTextString(result);
+                this.sourceText.Text = textFromFile;
             }          
         }
 
-        private async void EmbedAndSave_Button_Click(object sender, RoutedEventArgs e)
+        private void EncryptTextButton_Click(object sender, RoutedEventArgs e)
         {
             this.keywordErrorLbl.Visibility = Visibility.Collapsed;
 
-            if (this.keywordTxt.Text == string.Empty)
+            if (this.keywordTxt.Text == string.Empty || this.sourceText.Text == string.Empty)
             {
                 this.keywordErrorLbl.Visibility = Visibility.Visible;
                 return;
             }
 
-            var encryptText = CipherTextManager.VigenereEncrypt(this.textFromFile, this.keywordTxt.Text);
-            this.encryptedText.Text = encryptText;
+            this.encryptedText.Text = CipherTextManager.VigenereEncrypt(this.sourceText.Text, this.keywordTxt.Text);
+        }
 
-            this.textManager.EmbedText(this.sourceImage.Pixels, Convert.ToUInt32(this.sourceImage.ImageWidth), Convert.ToUInt32(this.sourceImage.ImageHeight), encryptText, Convert.ToInt32(this.cbBpcc.SelectedValue));
+        private async void EmbedAndSave_Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.embedErrorLbl.Visibility = Visibility.Collapsed;
+
+            if (this.sourceImage.Pixels == null || this.encryptedText.Text == string.Empty)
+            {
+                this.embedErrorLbl.Visibility = Visibility.Visible;
+                return;
+            }
+
+            this.textManager.EmbedText(this.sourceImage.Pixels, Convert.ToUInt32(this.sourceImage.ImageWidth), Convert.ToUInt32(this.sourceImage.ImageHeight), this.encryptedText.Text, Convert.ToInt32(this.cbBpcc.SelectedValue));
 
             this.modifiedImage = new WriteableBitmap(this.sourceImage.ImageWidth,this.sourceImage.ImageHeight);
 
@@ -129,9 +138,9 @@ namespace GroupKStegafy.View
             if (result != null)
             {
                 var bitImage = await FileReader.MakeACopyOfTheFileToWorkOn(result);
-                var hiddenImage = await FileReader.CreateImage(result, bitImage);
+                var imageHidden = await FileReader.CreateImage(result, bitImage);
 
-                this.hiddenImage = hiddenImage;
+                this.hiddenImage = imageHidden;
                 this.hiddenImageDisplay.Source = this.hiddenImage.BitImage;
             }
             if (ImageManager.IsImageSecretMessage(this.hiddenImage.Pixels, Convert.ToUInt32(this.hiddenImage.ImageWidth),

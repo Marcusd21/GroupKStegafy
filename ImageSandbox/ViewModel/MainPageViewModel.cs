@@ -184,7 +184,7 @@ namespace GroupKStegafy.ViewModel
             }
             else
             {
-                this.ErrorText = "Secret Image exceeds the Source Image size";
+                this.ErrorText = "**Mono Image exceeds the Source Image size**";
             }
         }
 

@@ -32,6 +32,6 @@
         <TextBlock HorizontalAlignment="Left" Margin="62,0,0,652" Text="Source Image:" TextWrapping="Wrap" Width="146" FontSize="20" Height="39" VerticalAlignment="Bottom" FontFamily="Segoe UI"/>
         <TextBlock HorizontalAlignment="Left" Margin="817,0,0,662" Text="Monochrome Image:" TextWrapping="Wrap" Width="203" FontSize="20" FontFamily="Bodoni MT Black" Height="28" VerticalAlignment="Bottom"/>
         <TextBlock HorizontalAlignment="Left" Margin="58,0,0,174" Text="Hidden Image:" TextWrapping="Wrap" Width="146" FontSize="20" Height="39" VerticalAlignment="Bottom" FontFamily="Segoe UI"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1002,484,0,0" Text="{Binding ErrorText, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" />
+        <TextBlock HorizontalAlignment="Left" Margin="1002,484,0,0" Text="{Binding ErrorText, Mode=TwoWay}" Foreground="Red" TextWrapping="Wrap" VerticalAlignment="Top" />
     </Grid>
 </Page>
