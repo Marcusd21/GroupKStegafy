@@ -110,7 +110,7 @@ namespace GroupKStegafy.View
             var encryptText = CipherTextManager.VigenereEncrypt(this.textFromFile, this.keywordTxt.Text);
             this.encryptedText.Text = encryptText;
 
-            this.textManager.EmbedText(this.sourceImage.Pixels, Convert.ToUInt32(this.sourceImage.ImageWidth), Convert.ToUInt32(this.sourceImage.ImageHeight), encryptText, 1);
+            this.textManager.EmbedText(this.sourceImage.Pixels, Convert.ToUInt32(this.sourceImage.ImageWidth), Convert.ToUInt32(this.sourceImage.ImageHeight), encryptText, Convert.ToInt32(this.cbBpcc.SelectedValue));
 
             this.modifiedImage = new WriteableBitmap(this.sourceImage.ImageWidth,this.sourceImage.ImageHeight);
 
