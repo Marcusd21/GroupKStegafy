@@ -128,12 +128,11 @@ namespace GroupKStegafy.Controller
                     if (bite != 246)
                     {
                         pixelColor.B |= bite;
-                        }
+                    }
                     else
                     {
                         pixelColor.B &= bite;
-                        }
-                    
+                    }
 
                     this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
                     current++;
@@ -178,7 +177,7 @@ namespace GroupKStegafy.Controller
 
                     var value = Convert.ToInt32(pixel, 2);
                     var bite = Convert.ToByte(value);
-                    if (bite >= 250 && bite<= 255)
+                    if (bite >= 250 && bite <= 255)
                     {
                         pixelColor.B |= bite;
                     }
@@ -200,55 +199,116 @@ namespace GroupKStegafy.Controller
         {
             var message = "";
             var bitChecked = 0;
+            var channel = 0;
             var answer = new List<byte>();
 
             for (var i = 0; i < imageHeight; i++)
-            for (var j = 2; j < imageWidth; j++)
             {
-                if (j >= 34)
+                for (var j = 2; j < imageWidth; j++)
                 {
-                    var a = 0;
-                }
-
-                var pixelColor = this.getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
-                if (bitChecked % 8 == 0)
-                {
-                    bitChecked = 0;
-                    if (message != "")
+                    var pixelColor = this.getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
+                    var bitR = Convert.ToString(pixelColor.R, 2).PadLeft(8, '0');
+                    var bitG = Convert.ToString(pixelColor.G, 2).PadLeft(8, '0');
+                    var bitB = Convert.ToString(pixelColor.B, 2).PadLeft(8, '0');
+                    var count = 0;
+                    while (channel != 3)
                     {
-                        var value = Convert.ToInt32(message, 2);
-                        var bite = Convert.ToByte(value);
-                        answer.Add(bite);
-                        message = "";
-                    }
-
-                    var bit = Convert.ToString(pixelColor.B, 2).PadLeft(8, '0');
-                    for (var k = 0; k < bit.Length; k++)
-                    {
-                        if (k > bit.Length - bitChecked - bpcc - 1 && k < bit.Length - bitChecked)
+                        if (channel == 0)
                         {
-                            message = bit[k] + message;
-                            bitChecked++;
+                            var amount = bpcc + bitChecked;
+                            var a = bitChecked;
+                            for (var k = 0; k < bitR.Length; k++)
+                            {
+                                if (k > bitR.Length - bpcc - 1 && k < bitR.Length)
+                                {
+                                    message += bitR[k];
+                                    bitChecked++;
+
+                                    if (bitChecked == 8)
+                                    {
+                                        count++;
+                                        var value = Convert.ToInt32(message, 2);
+                                        var bite = Convert.ToByte(value);
+                                        answer.Add(bite);
+                                        var c = Convert.ToChar(bite);
+                                        message = "";
+                                        bitChecked = 0;
+                                        if (count == bpcc)
+                                        {
+                                            count = 0;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+
+                            channel++;
+                        }
+                        else if (channel == 1)
+                        {
+                            var amount = bpcc + bitChecked;
+                            var a = bitChecked;
+                            for (var k = 0; k < bitG.Length; k++)
+                            {
+                                if (k > bitG.Length - bpcc - 1 && k < bitG.Length)
+                                {
+                                    message += bitG[k];
+                                    bitChecked++;
+
+                                    if (bitChecked == 8)
+                                    {
+                                        count++;
+                                        var value = Convert.ToInt32(message, 2);
+                                        var bite = Convert.ToByte(value);
+                                        answer.Add(bite);
+                                        var c = Convert.ToChar(bite);
+                                        message = "";
+                                        bitChecked = 0;
+                                        if (count == bpcc)
+                                        {
+                                            count = 0;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+
+                            channel++;
+                        }
+                        else
+                        {
+                            var amount = bpcc + bitChecked;
+                            var a = bitChecked;
+                            for (var k = 0; k < bitB.Length; k++)
+                            {
+                                if (k > bitG.Length - bpcc - 1 && k < bitG.Length)
+                                {
+                                    message += bitB[k];
+                                    bitChecked++;
+
+                                    if (bitChecked == 8)
+                                    {
+                                        count++;
+                                        var value = Convert.ToInt32(message, 2);
+                                        var bite = Convert.ToByte(value);
+                                        answer.Add(bite);
+                                        var c = Convert.ToChar(bite);
+                                        message = "";
+                                        bitChecked = 0;
+                                        if (count == bpcc)
+                                        {
+                                            count = 0;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+
+                            channel++;
                         }
                     }
-                }
-                else if (bitChecked % 8 != 0)
-                {
-                    if (j >= 30)
-                    {
-                        var a = 0;
-                    }
 
-                    var bit = Convert.ToString(pixelColor.B, 2).PadLeft(8, '0');
-                    for (var k = 0; k < bit.Length; k++)
-                    {
-                        if (k > bit.Length - bitChecked - bpcc - 1 && k < bit.Length - bitChecked)
-                        {
-                            message = bit[k] + message;
-                        }
-                    }
-
-                    bitChecked++;
+                    channel = 0;
                 }
             }
 

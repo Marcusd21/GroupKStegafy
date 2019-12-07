@@ -151,6 +151,7 @@ namespace GroupKStegafy.View
                }
 
                var answer = CipherTextManager.VigenereDecrypt(curr);
+               this.tbHiddenMessage.Text = answer;
             }
 
         }
