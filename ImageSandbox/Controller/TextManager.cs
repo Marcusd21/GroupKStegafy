@@ -128,38 +128,56 @@ namespace GroupKStegafy.Controller
                                 {
                                     var value = "";
                                     var curr = 0;
-                                    for (var k = result.Length-1; k >= 0; k--)
+                                    for (var k = result.Length-1; k >=0; k--)
                                     {
                                         
                                         if (result[k] == '1' && bitR[bitR.Length - 1 - curr] == '0')
                                         {
-                                            value += result[k];
-                                            curr++;
-                                            var item = Convert.ToInt32(value, 2);
-                                            var bite = Convert.ToByte(item);
-                                            pixelColor.R |= bite;
-                                            this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                imageHeight);
+                                            value = result[k]+value;
+                                            
+                                                curr++;
+                                                var item = Convert.ToInt32(value, 2);
+                                                var bite = Convert.ToByte(item);
+                                                pixelColor.R |= bite;
+                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
+                                                    imageHeight);
+                                            
                                         }
                                         else if (result[k] == '0' && bitR[bitR.Length - 1 - curr] == '1')
                                         {
                                             curr++;
-                                            value += result[k];
+                                            value = result[k] + value;
+
                                             var item = Convert.ToInt32(value, 2);
-                                            var bite = Convert.ToByte(item);
-                                            pixelColor.R &= bite;
-                                            this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                imageHeight);
+                                                var bite = Convert.ToByte(item);
+                                                pixelColor.R &= bite;
+                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
+                                                    imageHeight);
+                                            
+                                        }
+                                        else if (result[k] == '0' && bitR[bitR.Length - 1 - curr] == '0')
+                                        {
+                                            curr++;
+                                            value = result[k] + value;
+
+                                            var item = Convert.ToInt32(value, 2);
+                                                var bite = Convert.ToByte(item);
+                                                pixelColor.R &= bite;
+                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
+                                                    imageHeight);
+                                            
                                         }
                                         else
                                         {
                                             curr++;
-                                            value += result[k];
+                                            value = result[k] + value;
+
                                             var item = Convert.ToInt32(value, 2);
-                                            var bite = Convert.ToByte(item);
-                                            pixelColor.R &= bite;
-                                            this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                imageHeight);
+                                                var bite = Convert.ToByte(item);
+                                                pixelColor.R |= bite;
+                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
+                                                    imageHeight);
+                                            
                                         }
                                     }
 
@@ -203,38 +221,56 @@ namespace GroupKStegafy.Controller
                                 {
                                     var curr = 0;
                                     var value = "";
-                                    for (var k = result.Length-1; k >= 0; k--)
+                                    for (var k = result.Length-1; k >=0; k--)
                                     {
                                         
                                         if (result[k] == '1' && bitG[bitG.Length - 1 - curr] == '0')
                                         {
-                                            value += result[k];
+                                            value = result[k] + value;
                                             curr++;
-                                            var item = Convert.ToInt32(value, 2);
-                                            var bite = Convert.ToByte(item);
-                                            pixelColor.G |= bite;
-                                            this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                imageHeight);
+                                           
+                                                var item = Convert.ToInt32(value, 2);
+                                                var bite = Convert.ToByte(item);
+                                                pixelColor.G |= bite;
+                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
+                                                    imageHeight);
+                                            
                                         }
                                         else if (result[k] == '0' && bitG[bitG.Length - 1 - curr] == '1')
                                         {
                                             curr++;
-                                            value += result[k];
+                                            value = result[k] + value;
+
                                             var item = Convert.ToInt32(value, 2);
-                                            var bite = Convert.ToByte(item);
-                                            pixelColor.G &= bite;
-                                            this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                imageHeight);
+                                                var bite = Convert.ToByte(item);
+                                                pixelColor.G &= bite;
+                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
+                                                    imageHeight);
+                                            
+                                        }
+                                        else if (result[k] == '0' && bitG[bitG.Length - 1 - curr] == '0')
+                                        {
+                                            curr++;
+                                            value = result[k] + value;
+
+                                            var item = Convert.ToInt32(value, 2);
+                                                var bite = Convert.ToByte(item);
+                                                pixelColor.G &= bite;
+                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
+                                                    imageHeight);
+                                            
                                         }
                                         else
                                         {
                                             curr++;
-                                            value += result[k];
+                                            value = result[k] + value;
+
                                             var item = Convert.ToInt32(value, 2);
-                                            var bite = Convert.ToByte(item);
-                                            pixelColor.G &= bite;
-                                            this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                imageHeight);
+                                                var bite = Convert.ToByte(item);
+                                                pixelColor.G |= bite;
+                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
+                                                    imageHeight);
+                                            
                                         }
                                     }
 
@@ -277,38 +313,56 @@ namespace GroupKStegafy.Controller
                                 {
                                     var value = "";
                                     var curr = 0;
-                                    for (var k = result.Length-1; k >= 0; k--)
+                                    for (var k = result.Length-1; k >=0; k--)
                                     {
                                        
                                         if (result[k] == '1' && bitB[bitB.Length - 1 - curr] == '0')
                                         {
                                             curr++;
-                                            value += 1;
+                                            value = result[k] + value;
+
                                             var item = Convert.ToInt32(value, 2);
-                                            var bite = Convert.ToByte(item);
-                                            pixelColor.B |= bite;
-                                            this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                imageHeight);
+                                                var bite = Convert.ToByte(item);
+                                                pixelColor.B |= bite;
+                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
+                                                    imageHeight);
+                                            
                                         }
                                         else if (result[k] == '0' && bitB[bitB.Length - 1 - curr] == '1')
                                         {
                                             curr++;
-                                            value += 0;
+                                            value = result[k] + value;
+
                                             var item = Convert.ToInt32(value, 2);
-                                            var bite = Convert.ToByte(item);
-                                            pixelColor.B &= bite;
-                                            this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                imageHeight);
+                                                var bite = Convert.ToByte(item);
+                                                pixelColor.B &= bite;
+                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
+                                                    imageHeight);
+                                            
+                                        }
+                                        else if (result[k] == '0' && bitB[bitB.Length - 1 - curr] == '0')
+                                        {
+                                            curr++;
+                                            value = result[k] + value;
+
+                                            var item = Convert.ToInt32(value, 2);
+                                                var bite = Convert.ToByte(item);
+                                                pixelColor.B &= bite;
+                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
+                                                    imageHeight);
+                                            
                                         }
                                         else
                                         {
                                             curr++;
-                                            value += 1;
+                                            value = result[k] + value;
+
                                             var item = Convert.ToInt32(value, 2);
-                                            var bite = Convert.ToByte(item);
-                                            pixelColor.B &= bite;
-                                            this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                imageHeight);
+                                                var bite = Convert.ToByte(item);
+                                                pixelColor.B|= bite;
+                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
+                                                    imageHeight);
+                                            
                                         }
                                     }
 
