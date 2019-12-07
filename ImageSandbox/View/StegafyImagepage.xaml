@@ -13,21 +13,25 @@
         <viewModel:MainPageViewModel/>
     </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="981" VerticalAlignment="Center" >
-        <Image Source="{Binding SourceImage.BitImage, Mode=TwoWay}" Margin="213,119,979,579"/>
-        <Button Content="Embed and Save" Margin="674,534,0,0" VerticalAlignment="Top" Command="{Binding EmbedAndSaveCommand}" />
-        <Image Source="{Binding MonochromeImage.BitImage, Mode=TwoWay}" Margin="1068,129,87,580"/>
-        <Image Source="{Binding HiddenImage.BitImage, Mode=TwoWay}" Margin="213,507,987,174"/>
-        <Image Source="{Binding SecretImage, Mode=TwoWay}" Margin="1006,522,194,159"/>
-        <Button Content="Image" Margin="120,712,0,0" VerticalAlignment="Top"  Height="41" Width="67" Click="LoadHiddenImageButton_Click"/>
-        <Button Content="Image" Margin="125,369,0,0" VerticalAlignment="Top" Click="OpenButton_Click" Height="41" Width="67"/>
-        <Button Content="Image" Margin="934,369,0,0" VerticalAlignment="Top" Height="41" Width="67" Click="LoadMonoImageButton_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="62,0,0,652" Text="Source Image:" TextWrapping="Wrap" Width="146" FontSize="20" Height="39" VerticalAlignment="Bottom" FontFamily="Segoe UI"/>
-        <TextBlock HorizontalAlignment="Left" Margin="817,0,0,662" Text="Monochrome Image:" TextWrapping="Wrap" Width="203" FontSize="20" FontFamily="Bodoni MT Black" Height="28" VerticalAlignment="Bottom"/>
-        <TextBlock HorizontalAlignment="Left" Margin="62,0,0,280" Text="Hidden Image:" TextWrapping="Wrap" Width="146" FontSize="20" Height="39" VerticalAlignment="Bottom" FontFamily="Segoe UI"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1002,484,0,0" Text="{Binding ErrorText, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" />
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" MinWidth="1500"
+          MinHeight="1000"
+          Width="1500"
+          Height="1000" VerticalAlignment="Center">
 
+        <Image Source="{Binding SourceImage.BitImage, Mode=TwoWay}" Margin="274,90,944,665"/>
+        <Image Source="{Binding MonochromeImage.BitImage, Mode=TwoWay}" Margin="1077,90,140,665"/>
+        <Image Source="{Binding HiddenImage.BitImage, Mode=TwoWay}" Margin="249,565,969,186"/>
+        <Image Source="{Binding SecretImage, Mode=TwoWay}" Margin="1046,565,154,186"/>
+
+        <Button Content="Embed &amp; Save" Margin="661,567,0,0" VerticalAlignment="Top" Command="{Binding EmbedAndSaveCommand}" Height="44" Width="118" />
+        <Button Content="Open Embedded Image" Margin="125,840,0,0" VerticalAlignment="Top"  Height="41" Width="174" Click="LoadHiddenImageButton_Click"/>
+        <Button Content="Open Source Image" Margin="125,369,0,0" VerticalAlignment="Top" Click="OpenButton_Click" Height="41" Width="149"/>
+        <Button Content="Open Mono Image" Margin="934,369,0,0" VerticalAlignment="Top" Height="41" Width="143" Click="LoadMonoImageButton_Click"/>
         <Button Content="Main Menu" Margin="644,844,0,0" Height="44" Width="153" VerticalAlignment="Top" Click="MainMenuButton_Click" />
 
+        <TextBlock HorizontalAlignment="Left" Margin="62,0,0,652" Text="Source Image:" TextWrapping="Wrap" Width="146" FontSize="20" Height="39" VerticalAlignment="Bottom" FontFamily="Segoe UI"/>
+        <TextBlock HorizontalAlignment="Left" Margin="817,0,0,662" Text="Monochrome Image:" TextWrapping="Wrap" Width="203" FontSize="20" FontFamily="Bodoni MT Black" Height="28" VerticalAlignment="Bottom"/>
+        <TextBlock HorizontalAlignment="Left" Margin="58,0,0,174" Text="Hidden Image:" TextWrapping="Wrap" Width="146" FontSize="20" Height="39" VerticalAlignment="Bottom" FontFamily="Segoe UI"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1002,484,0,0" Text="{Binding ErrorText, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" />
     </Grid>
 </Page>

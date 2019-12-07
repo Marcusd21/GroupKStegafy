@@ -12,11 +12,14 @@
         <viewModel:MainPageViewModel/>
     </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="981" VerticalAlignment="Center">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" MinWidth="1500"
+          MinHeight="1000"
+          Width="1500"
+          Height="1000" VerticalAlignment="Center">
 
         <Button x:Name="imageStegafyButton" Content="Image Steganography" Margin="0,380,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Height="41" Width="236" Click="ImageStegafyButton_Click" />
         <Button x:Name="textStegafyButton" Content="Text Steganography" Margin="0,491,0,0" VerticalAlignment="Top" Height="41" Width="236" HorizontalAlignment="Center" Click="TextStegafyButton_Click"/>
 
-        <TextBlock x:Name="tbBpcc" HorizontalAlignment="Left" Margin="704,105,0,0" Text="Main Menu" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="230" FontSize="45" FontFamily="Segoe UI"/>
+        <TextBlock x:Name="tbBpcc" HorizontalAlignment="Left" Margin="641,106,0,0" Text="Main Menu" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="230" FontSize="45" FontFamily="Segoe UI"/>
     </Grid>
 </Page>
