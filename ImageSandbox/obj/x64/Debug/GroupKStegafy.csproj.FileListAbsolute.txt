@@ -179,6 +179,7 @@ C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\System.Runtime.
 C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\System.Drawing.Common.dll
 C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\System.Security.Permissions.dll
 C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\bin\x64\Debug\Microsoft.UI.Xaml.Markup.winmd
+C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\obj\x64\Debug\GroupKStegafy.csprojAssemblyReference.cache
 C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\obj\x64\Debug\App.g.i.cs
 C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\obj\x64\Debug\App.g.cs
 C:\Users\csuser\Desktop\GroupKStegafy\ImageSandbox\obj\x64\Debug\View\MainPage.g.i.cs

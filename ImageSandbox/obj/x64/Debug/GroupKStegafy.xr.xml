@@ -1,23 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
   <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="EmbedSuccessText" />
     <RootPropertyPathName Name="ErrorText" />
-    <RootPropertyPathName Name="EmbedAndSaveCommand" />
+    <RootPropertyPathName Name="EmbedAndSaveImageCommand" />
     <RootPropertyPathName Name="SecretImage" />
-    <RootPropertyPathName Name="HiddenImage" />
+    <RootPropertyPathName Name="EmbeddedImage" />
     <RootPropertyPathName Name="BitImage" />
     <RootPropertyPathName Name="MonochromeImage" />
     <RootPropertyPathName Name="SourceImage" />
+    <RootPropertyPathName Name="EmbedAndSaveTextImageCommand" />
+    <RootPropertyPathName Name="EncryptTextCommand" />
+    <RootPropertyPathName Name="SelectedBpcc" />
+    <RootPropertyPathName Name="ErrorEncryptText" />
+    <RootPropertyPathName Name="SecretMessage" />
+    <RootPropertyPathName Name="EncryptedText" />
+    <RootPropertyPathName Name="OriginalText" />
+    <RootPropertyPathName Name="KeywordText" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Background" />
-      <RootProperty Name="DataContext" />
       <RootProperty Name="Content" />
+      <RootProperty Name="DataContext" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
-    <RootType FullName="GroupKStegafy.ViewModel.MainPageViewModel" />
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="Background" />
       <RootProperty Name="MinWidth" />
@@ -48,9 +56,9 @@
       <RootProperty Name="FontSize" />
       <RootProperty Name="FontFamily" />
       <RootProperty Name="Foreground" />
-      <RootProperty Name="Visibility" />
     </RootType>
     <RootType FullName="GroupKStegafy.View.MainPage" />
+    <RootType FullName="GroupKStegafy.ViewModel.ImageViewModel" />
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Source" />
       <RootProperty Name="Margin" />
@@ -61,12 +69,14 @@
     <RootType FullName="GroupKStegafy.View.StegafyImagePage" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Text" />
       <RootProperty Name="Margin" />
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
+      <RootProperty Name="SelectedItem" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Width" />
     </RootType>

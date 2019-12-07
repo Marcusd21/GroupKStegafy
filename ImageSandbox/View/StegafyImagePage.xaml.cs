@@ -41,7 +41,7 @@ namespace GroupKStegafy.View
             var bitImageCopy = await FileReader.MakeACopyOfTheFileToWorkOn(result);
             var imageSource = await FileReader.CreateImage(result, bitImageCopy);
 
-            var imagePageViewModel = (MainPageViewModel) this.DataContext;
+            var imagePageViewModel = (ImageViewModel) this.DataContext;
 
             if (imagePageViewModel.SetSourceImageCommand.CanExecute(imageSource))
             {
@@ -58,7 +58,7 @@ namespace GroupKStegafy.View
             var bitImageCopy = await FileReader.MakeACopyOfTheFileToWorkOn(result);
             var imageMono = await FileReader.CreateImage(result, bitImageCopy);
 
-            var imagePageViewModel = (MainPageViewModel) this.DataContext;
+            var imagePageViewModel = (ImageViewModel) this.DataContext;
 
             if (imagePageViewModel.SetMonoImageCommand.CanExecute(imageMono))
             {
@@ -66,7 +66,7 @@ namespace GroupKStegafy.View
             }
         }
 
-        private async void LoadHiddenImageButton_Click(object sender, RoutedEventArgs e)
+        private async void LoadEmbeddedImageButton_Click(object sender, RoutedEventArgs e)
         {
             var result = await FileReader.SelectSourceImageFile();
 
@@ -75,11 +75,11 @@ namespace GroupKStegafy.View
             var bitImageCopy = await FileReader.MakeACopyOfTheFileToWorkOn(result);
             var imageHidden = await FileReader.CreateImage(result, bitImageCopy);
 
-            var imagePageViewModel = (MainPageViewModel) this.DataContext;
+            var imagePageViewModel = (ImageViewModel) this.DataContext;
 
-            if (imagePageViewModel.SetHiddenImageCommand.CanExecute(imageHidden))
+            if (imagePageViewModel.SetEmbeddedImageCommand.CanExecute(imageHidden))
             {
-                imagePageViewModel.SetHiddenImageCommand.Execute(imageHidden);
+                imagePageViewModel.SetEmbeddedImageCommand.Execute(imageHidden);
             }
         }
 

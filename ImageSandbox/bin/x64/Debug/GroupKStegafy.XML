@@ -129,7 +129,7 @@
             <param name="height">The height.</param>
             <returns></returns>
         </member>
-        <member name="M:GroupKStegafy.Controller.TextManager.setPixelBgra8(System.Byte[],System.Int32,System.Int32,Windows.UI.Color,System.UInt32,System.UInt32)">
+        <member name="M:GroupKStegafy.Controller.TextManager.setPixelBgra8(System.Byte[],System.Int32,System.Int32,Windows.UI.Color,System.UInt32)">
             <summary>Sets the pixel bgra8.</summary>
             <param name="pixels">The pixels.</param>
             <param name="x">The x.</param>
@@ -913,39 +913,59 @@
             Calls the CanExecuteChanged event when an update happens enabling/disabling execution
             </summary>
         </member>
-        <member name="T:GroupKStegafy.ViewModel.MainPageViewModel">
+        <member name="T:GroupKStegafy.ViewModel.ImageViewModel">
             <summary>Instance of the view model</summary>
             <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
         </member>
-        <member name="P:GroupKStegafy.ViewModel.MainPageViewModel.SourceImage">
+        <member name="P:GroupKStegafy.ViewModel.ImageViewModel.OriginalText">
+            <summary>
+            Gets or sets the original text from file.
+            </summary>
+        </member>
+        <member name="P:GroupKStegafy.ViewModel.ImageViewModel.SourceImage">
             <summary>Gets or sets the scores.</summary>
             <value>The scores.</value>
         </member>
-        <member name="P:GroupKStegafy.ViewModel.MainPageViewModel.MonochromeImage">
+        <member name="P:GroupKStegafy.ViewModel.ImageViewModel.MonochromeImage">
             <summary>Gets or sets the monochrome image.</summary>
             <value>The monochrome image.</value>
         </member>
-        <member name="P:GroupKStegafy.ViewModel.MainPageViewModel.HiddenImage">
+        <member name="P:GroupKStegafy.ViewModel.ImageViewModel.EmbeddedImage">
             <summary>Gets or sets the hidden image.</summary>
             <value>The hidden image.</value>
         </member>
-        <member name="P:GroupKStegafy.ViewModel.MainPageViewModel.SecretImage">
+        <member name="P:GroupKStegafy.ViewModel.ImageViewModel.SecretImage">
             <summary>Gets or sets the message image.</summary>
             <value>The message image.</value>
         </member>
-        <member name="P:GroupKStegafy.ViewModel.MainPageViewModel.ErrorText">
+        <member name="P:GroupKStegafy.ViewModel.ImageViewModel.ErrorText">
             <summary>
-            Gets or sets the error message when trying to do an action.
+            Gets or sets the error message when mono image size is bigger than source image.
             </summary>
         </member>
-        <member name="M:GroupKStegafy.ViewModel.MainPageViewModel.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:GroupKStegafy.ViewModel.MainPageViewModel" /> class.</summary>
+        <member name="P:GroupKStegafy.ViewModel.ImageViewModel.ErrorEncryptText">
+            <summary>
+            Gets or sets the error message when trying to encrypt text.
+            </summary>
         </member>
-        <member name="E:GroupKStegafy.ViewModel.MainPageViewModel.PropertyChanged">
+        <member name="P:GroupKStegafy.ViewModel.ImageViewModel.EncryptedText">
+            <summary>
+            Gets or sets the encrypted text from file.
+            </summary>
+        </member>
+        <member name="P:GroupKStegafy.ViewModel.ImageViewModel.SecretMessage">
+            <summary>
+            Gets or sets the secrete message from embedded image.
+            </summary>
+        </member>
+        <member name="M:GroupKStegafy.ViewModel.ImageViewModel.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:GroupKStegafy.ViewModel.ImageViewModel" /> class.</summary>
+        </member>
+        <member name="E:GroupKStegafy.ViewModel.ImageViewModel.PropertyChanged">
             <summary>Occurs when a property value changes.</summary>
             <returns></returns>
         </member>
-        <member name="M:GroupKStegafy.ViewModel.MainPageViewModel.OnPropertyChanged(System.String)">
+        <member name="M:GroupKStegafy.ViewModel.ImageViewModel.OnPropertyChanged(System.String)">
             <summary>
                 Updates property
             </summary>

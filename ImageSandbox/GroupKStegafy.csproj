@@ -128,7 +128,7 @@
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Utility\CipherTextManager.cs" />
     <Compile Include="Utility\RelayCommand.cs" />
-    <Compile Include="ViewModel\MainPageViewModel.cs" />
+    <Compile Include="ViewModel\ImageViewModel.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

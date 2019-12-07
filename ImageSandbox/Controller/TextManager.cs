@@ -6,13 +6,13 @@ using Windows.UI;
 namespace GroupKStegafy.Controller
 {
     /// <summary>Instance to update text</summary>
-    public class TextManager
+    public static class TextManager
     {
         #region Data members
 
-        private List<byte> textBytes;
+        //private static List<byte> TextBytes;
 
-        private readonly int[] item = {0X1, 0X2, 0X4, 0X8, 0X10, 0X20, 0X40, 0X80, 0X100};
+       // private static readonly int[] Item = {0X1, 0X2, 0X4, 0X8, 0X10, 0X20, 0X40, 0X80, 0X100};
 
         #endregion
 
@@ -25,7 +25,7 @@ namespace GroupKStegafy.Controller
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
         /// <returns></returns>
-        private Color getPixelBgra8(byte[] pixels, int x, int y, uint width, uint height)
+        private static Color getPixelBgra8(byte[] pixels, int x, int y, uint width, uint height)
         {
             var offset = (x * (int) width + y) * 4;
 
@@ -47,7 +47,7 @@ namespace GroupKStegafy.Controller
         /// <param name="color">The color.</param>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        private void setPixelBgra8(byte[] pixels, int x, int y, Color color, uint width, uint height)
+        private static void setPixelBgra8(byte[] pixels, int x, int y, Color color, uint width)
         {
             var offset = (x * (int) width + y) * 4;
             pixels[offset + 2] = color.R;
@@ -60,9 +60,9 @@ namespace GroupKStegafy.Controller
         /// <param name="imageWidth">Width of the image.</param>
         /// <param name="imageHeight">Height of the image.</param>
         /// <param name="text">The text.</param>
-        public void EmbedText(byte[] sourcePixels, uint imageWidth, uint imageHeight, string text, int bpcc)
+        public static void EmbedText(byte[] sourcePixels, uint imageWidth, uint imageHeight, string text, int bpcc)
         {
-            var textBytesValue = this.convertTextToBytes(text);
+            var textBytesValue = convertTextToBytes(text);
             var current = 0;
             var byteAmount = Convert.ToByte(bpcc);
             var bitChecked = 0;
@@ -73,7 +73,7 @@ namespace GroupKStegafy.Controller
             {
                 for (var j = 0; j < imageWidth; j++)
                 {
-                    var pixelColor = this.getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
+                    var pixelColor = getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
                     var bitR = Convert.ToString(pixelColor.R, 2).PadLeft(8, '0');
                     var bitG = Convert.ToString(pixelColor.G, 2).PadLeft(8, '0');
                     var bitB = Convert.ToString(pixelColor.B, 2).PadLeft(8, '0');
@@ -83,14 +83,14 @@ namespace GroupKStegafy.Controller
                         pixelColor.B = 212;
                         pixelColor.R = 212;
                         pixelColor.G = 212;
-                        this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
+                        setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth);
                     }
                     else if (j == 1 && i == 0)
                     {
                         pixelColor.R = 1;
                         pixelColor.G = byteAmount;
                         pixelColor.B = 0;
-                        this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth, imageHeight);
+                        setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth);
                     }
                     else
                     {
@@ -139,8 +139,7 @@ namespace GroupKStegafy.Controller
                                                 var item = Convert.ToInt32(value, 2);
                                                 var bite = Convert.ToByte(item);
                                                 pixelColor.R |= bite;
-                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                    imageHeight);
+                                                setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth);
                                             
                                         }
                                         else if (result[k] == '0' && bitR[bitR.Length - 1 - curr] == '1')
@@ -151,8 +150,7 @@ namespace GroupKStegafy.Controller
                                             var item = Convert.ToInt32(value, 2);
                                                 var bite = Convert.ToByte(item);
                                                 pixelColor.R &= bite;
-                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                    imageHeight);
+                                                setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth);
                                             
                                         }
                                         else if (result[k] == '0' && bitR[bitR.Length - 1 - curr] == '0')
@@ -163,8 +161,7 @@ namespace GroupKStegafy.Controller
                                             var item = Convert.ToInt32(value, 2);
                                                 var bite = Convert.ToByte(item);
                                                 pixelColor.R &= bite;
-                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                    imageHeight);
+                                                setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth);
                                             
                                         }
                                         else
@@ -175,8 +172,7 @@ namespace GroupKStegafy.Controller
                                             var item = Convert.ToInt32(value, 2);
                                                 var bite = Convert.ToByte(item);
                                                 pixelColor.R |= bite;
-                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                    imageHeight);
+                                                setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth);
                                             
                                         }
                                     }
@@ -232,9 +228,8 @@ namespace GroupKStegafy.Controller
                                                 var item = Convert.ToInt32(value, 2);
                                                 var bite = Convert.ToByte(item);
                                                 pixelColor.G |= bite;
-                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                    imageHeight);
-                                            
+                                                setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth);
+
                                         }
                                         else if (result[k] == '0' && bitG[bitG.Length - 1 - curr] == '1')
                                         {
@@ -244,9 +239,8 @@ namespace GroupKStegafy.Controller
                                             var item = Convert.ToInt32(value, 2);
                                                 var bite = Convert.ToByte(item);
                                                 pixelColor.G &= bite;
-                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                    imageHeight);
-                                            
+                                                setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth);
+
                                         }
                                         else if (result[k] == '0' && bitG[bitG.Length - 1 - curr] == '0')
                                         {
@@ -256,9 +250,8 @@ namespace GroupKStegafy.Controller
                                             var item = Convert.ToInt32(value, 2);
                                                 var bite = Convert.ToByte(item);
                                                 pixelColor.G &= bite;
-                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                    imageHeight);
-                                            
+                                                setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth);
+
                                         }
                                         else
                                         {
@@ -268,9 +261,8 @@ namespace GroupKStegafy.Controller
                                             var item = Convert.ToInt32(value, 2);
                                                 var bite = Convert.ToByte(item);
                                                 pixelColor.G |= bite;
-                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                    imageHeight);
-                                            
+                                                setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth);
+
                                         }
                                     }
 
@@ -324,9 +316,8 @@ namespace GroupKStegafy.Controller
                                             var item = Convert.ToInt32(value, 2);
                                                 var bite = Convert.ToByte(item);
                                                 pixelColor.B |= bite;
-                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                    imageHeight);
-                                            
+                                                setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth);
+
                                         }
                                         else if (result[k] == '0' && bitB[bitB.Length - 1 - curr] == '1')
                                         {
@@ -336,9 +327,8 @@ namespace GroupKStegafy.Controller
                                             var item = Convert.ToInt32(value, 2);
                                                 var bite = Convert.ToByte(item);
                                                 pixelColor.B &= bite;
-                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                    imageHeight);
-                                            
+                                                setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth);
+
                                         }
                                         else if (result[k] == '0' && bitB[bitB.Length - 1 - curr] == '0')
                                         {
@@ -348,9 +338,8 @@ namespace GroupKStegafy.Controller
                                             var item = Convert.ToInt32(value, 2);
                                                 var bite = Convert.ToByte(item);
                                                 pixelColor.B &= bite;
-                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                    imageHeight);
-                                            
+                                                setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth);
+
                                         }
                                         else
                                         {
@@ -360,9 +349,8 @@ namespace GroupKStegafy.Controller
                                             var item = Convert.ToInt32(value, 2);
                                                 var bite = Convert.ToByte(item);
                                                 pixelColor.B|= bite;
-                                                this.setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth,
-                                                    imageHeight);
-                                            
+                                                setPixelBgra8(sourcePixels, i, j, pixelColor, imageWidth);
+
                                         }
                                     }
 
@@ -386,7 +374,7 @@ namespace GroupKStegafy.Controller
         /// <param name="sourcePixels">The source pixels.</param>
         /// <param name="imageWidth">Width of the image.</param>
         /// <param name="imageHeight">Height of the image.</param>
-        public List<char> ExtractSecretText(byte[] sourcePixels, uint imageWidth, uint imageHeight, int bpcc)
+        public static List<char> ExtractSecretText(byte[] sourcePixels, uint imageWidth, uint imageHeight, int bpcc)
         {
             var message = "";
             var bitChecked = 0;
@@ -397,7 +385,7 @@ namespace GroupKStegafy.Controller
             {
                 for (var j = 2; j < imageWidth; j++)
                 {
-                    var pixelColor = this.getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
+                    var pixelColor = getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
                     var bitR = Convert.ToString(pixelColor.R, 2).PadLeft(8, '0');
                     var bitG = Convert.ToString(pixelColor.G, 2).PadLeft(8, '0');
                     var bitB = Convert.ToString(pixelColor.B, 2).PadLeft(8, '0');
@@ -501,18 +489,18 @@ namespace GroupKStegafy.Controller
                 }
             }
 
-            var current = this.convertBytesToText(answer);
+            var current = convertBytesToText(answer);
             return current;
         }
 
-        private byte[] convertTextToBytes(string text)
+        private static byte[] convertTextToBytes(string text)
         {
             var array = Encoding.ASCII.GetBytes(text);
 
             return array;
         }
 
-        private List<char> convertBytesToText(List<byte> text)
+        private static List<char> convertBytesToText(List<byte> text)
         {
             var bytes = new List<char>();
 
@@ -524,7 +512,7 @@ namespace GroupKStegafy.Controller
             return bytes;
         }
 
-        private string convertBitsToChar(string value)
+        private static string convertBitsToChar(string value)
         {
             if (string.IsNullOrEmpty(value))
             {

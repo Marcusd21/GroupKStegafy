@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Pickers;
@@ -16,7 +17,7 @@ namespace GroupKStegafy.DataTier
         ///     Saves the writable bitmap.
         /// </summary>
         /// <param name="image">The modified image.</param>
-        public static async void SaveWritableBitmap(WriteableBitmap image)
+        public static async Task<bool> SaveWritableBitmap(WriteableBitmap image)
         {
             var saveImage = new Image {BitImage = image};
 
@@ -30,22 +31,23 @@ namespace GroupKStegafy.DataTier
 
             var saveFile = await fileSavePicker.PickSaveFileAsync();
 
-            if (saveFile != null)
-            {
-                var stream = await saveFile.OpenAsync(FileAccessMode.ReadWrite);
-                var encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.PngEncoderId, stream);
+            if (saveFile == null) return false;
 
-                var pixelStream = image.PixelBuffer.AsStream();
-                var pixels = new byte[pixelStream.Length];
-                await pixelStream.ReadAsync(pixels, 0, pixels.Length);
+            var stream = await saveFile.OpenAsync(FileAccessMode.ReadWrite);
+            var encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.PngEncoderId, stream);
 
-                encoder.SetPixelData(BitmapPixelFormat.Bgra8, BitmapAlphaMode.Ignore,
-                    (uint)image.PixelWidth,
-                    (uint)image.PixelHeight, saveImage.dpiX, saveImage.dpiY, pixels);
-                await encoder.FlushAsync();
+            var pixelStream = image.PixelBuffer.AsStream();
+            var pixels = new byte[pixelStream.Length];
+            await pixelStream.ReadAsync(pixels, 0, pixels.Length);
 
-                stream.Dispose();
-            }
+            encoder.SetPixelData(BitmapPixelFormat.Bgra8, BitmapAlphaMode.Ignore,
+                (uint)image.PixelWidth,
+                (uint)image.PixelHeight, saveImage.dpiX, saveImage.dpiY, pixels);
+            await encoder.FlushAsync();
+
+            stream.Dispose();
+
+            return true;
         }
     }
 }
