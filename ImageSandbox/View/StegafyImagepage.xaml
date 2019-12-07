@@ -15,7 +15,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="981" VerticalAlignment="Center" >
         <Image Source="{Binding SourceImage.BitImage, Mode=TwoWay}" Margin="213,119,979,579"/>
-        <Button Content="Embed" Margin="689,386,0,0" VerticalAlignment="Top" Command="{Binding EmbedAndSaveCommand}" />
+        <Button Content="Embed and Save" Margin="674,534,0,0" VerticalAlignment="Top" Command="{Binding EmbedAndSaveCommand}" />
         <Image Source="{Binding MonochromeImage.BitImage, Mode=TwoWay}" Margin="1068,129,87,580"/>
         <Image Source="{Binding HiddenImage.BitImage, Mode=TwoWay}" Margin="213,507,987,174"/>
         <Image Source="{Binding SecretImage, Mode=TwoWay}" Margin="1006,522,194,159"/>
