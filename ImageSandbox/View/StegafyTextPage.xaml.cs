@@ -36,25 +36,19 @@ namespace GroupKStegafy.View
         private Image sourceImage;
         private Image hiddenImage;
         private WriteableBitmap modifiedImage;
+        private TextManager textManager;
         private BitmapImage textImage;
         private string textFromFile;
-        private readonly SaveFileWriter writer;
-        private readonly FileReader reader;
-        private readonly TextManager textManager;
-        private readonly ImageManager imageManager;
 
         /// <summary>Initializes a new instance of the <see cref="StegafyTextPage"/> class.</summary>
         public StegafyTextPage()
         {
             this.InitializeComponent();
-            this.writer = new SaveFileWriter();
-            this.reader = new FileReader();
             this.sourceImage = new Image();
             this.hiddenImage = new Image();
             this.modifiedImage = null;
             this.textImage = new BitmapImage();
             this.textManager = new TextManager();
-            this.imageManager = new ImageManager();
             this.fillComboBox();
         }
 
@@ -74,12 +68,12 @@ namespace GroupKStegafy.View
 
         private async void OpenSourceImageButton_Click(object sender, RoutedEventArgs e)
         {
-            var result = await this.reader.SelectSourceImageFile();
+            var result = await FileReader.SelectSourceImageFile();
 
             if (result != null)
             {
-                var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
-                var sourceImage = await this.reader.CreateImage(result, bitImage);
+                var bitImage = await FileReader.MakeACopyOfTheFileToWorkOn(result);
+                var sourceImage = await FileReader.CreateImage(result, bitImage);
 
                 this.sourceImage = sourceImage;
                 this.sourceImageDisplay.Source = this.sourceImage.BitImage;
@@ -88,11 +82,11 @@ namespace GroupKStegafy.View
 
         private async void OpenTextFileButton_Click(object sender, RoutedEventArgs e)
         {
-            var result = await this.reader.SelectSourceTextFile();
+            var result = await FileReader.SelectSourceTextFile();
 
             if (result != null)
             {
-                this.textFromFile = await this.reader.CreateTextString(result);
+                this.textFromFile = await FileReader.CreateTextString(result);
                 this.sourceText.Text = this.textFromFile;
             }          
         }
@@ -114,7 +108,7 @@ namespace GroupKStegafy.View
 
             this.modifiedImage = new WriteableBitmap(this.sourceImage.ImageWidth,this.sourceImage.ImageHeight);
 
-            this.writer.SaveWritableBitmap(this.modifiedImage);
+            SaveFileWriter.SaveWritableBitmap(this.modifiedImage);
 
             using (var writeStream = this.modifiedImage.PixelBuffer.AsStream())
             {
@@ -130,17 +124,17 @@ namespace GroupKStegafy.View
 
         private async void HiddenImageButton_Click(object sender, RoutedEventArgs e)
         {
-            var result = await this.reader.SelectSourceImageFile();
+            var result = await FileReader.SelectSourceImageFile();
 
             if (result != null)
             {
-                var bitImage = await this.reader.MakeACopyOfTheFileToWorkOn(result);
-                var hiddenImage = await this.reader.CreateImage(result, bitImage);
+                var bitImage = await FileReader.MakeACopyOfTheFileToWorkOn(result);
+                var hiddenImage = await FileReader.CreateImage(result, bitImage);
 
                 this.hiddenImage = hiddenImage;
                 this.hiddenImageDisplay.Source = this.hiddenImage.BitImage;
             }
-            if (this.imageManager.IsImageSecretMessage(this.hiddenImage.Pixels, Convert.ToUInt32(this.hiddenImage.ImageWidth),
+            if (ImageManager.IsImageSecretMessage(this.hiddenImage.Pixels, Convert.ToUInt32(this.hiddenImage.ImageWidth),
                 Convert.ToUInt32(this.hiddenImage.ImageHeight)))
             {
                var item = this.textManager.ExtractSecretText(this.hiddenImage.Pixels, Convert.ToUInt32(this.hiddenImage.ImageWidth), Convert.ToUInt32(this.hiddenImage.ImageHeight), Convert.ToInt32(this.cbBpcc.SelectedValue));

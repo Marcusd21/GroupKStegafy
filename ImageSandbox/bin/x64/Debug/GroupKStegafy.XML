@@ -67,12 +67,6 @@
             <summary>
             </summary>
         </member>
-        <member name="F:GroupKStegafy.Controller.ImageManager.MonoImage">
-            <summary>The mono image</summary>
-        </member>
-        <member name="M:GroupKStegafy.Controller.ImageManager.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:GroupKStegafy.Controller.ImageManager" /> class.</summary>
-        </member>
         <member name="M:GroupKStegafy.Controller.ImageManager.getPixelBgra8(System.Byte[],System.Int32,System.Int32,System.UInt32,System.UInt32)">
             <summary>Gets the pixel bgra8.</summary>
             <param name="pixels">The pixels.</param>
@@ -82,7 +76,7 @@
             <param name="height">The height.</param>
             <returns></returns>
         </member>
-        <member name="M:GroupKStegafy.Controller.ImageManager.setPixelBgra8(System.Byte[],System.Int32,System.Int32,Windows.UI.Color,System.UInt32,System.UInt32)">
+        <member name="M:GroupKStegafy.Controller.ImageManager.setPixelBgra8(System.Byte[],System.Int32,System.Int32,Windows.UI.Color,System.UInt32)">
             <summary>Sets the pixel bgra8.</summary>
             <param name="pixels">The pixels.</param>
             <param name="x">The x.</param>
@@ -91,17 +85,19 @@
             <param name="width">The width.</param>
             <param name="height">The height.</param>
         </member>
-        <member name="M:GroupKStegafy.Controller.ImageManager.EmbedImage(System.Byte[],System.UInt32,System.UInt32)">
+        <member name="M:GroupKStegafy.Controller.ImageManager.EmbedImage(System.Byte[],System.UInt32,System.UInt32,GroupKStegafy.Model.Image)">
             <summary>
             </summary>
             <param name="sourcePixels"></param>
             <param name="imageWidth"></param>
             <param name="imageHeight"></param>
+            <param name="monoImage"></param>
         </member>
-        <member name="M:GroupKStegafy.Controller.ImageManager.IsImageExceedSource(System.UInt32,System.UInt32)">
+        <member name="M:GroupKStegafy.Controller.ImageManager.IsImageExceedSource(System.UInt32,System.UInt32,GroupKStegafy.Model.Image)">
             <summary>Determines whether [is image exceed source] [the specified image width].</summary>
             <param name="imageWidth">Width of the image.</param>
             <param name="imageHeight">Height of the image.</param>
+            <param name="monoImage"></param>
             <returns>
                 <c>true</c> if [is image exceed source] [the specified image width]; otherwise, <c>false</c>.
             </returns>
@@ -187,9 +183,6 @@
         </member>
         <member name="T:GroupKStegafy.DataTier.SaveFileWriter">
             <summary>Instance of saving to a file</summary>
-        </member>
-        <member name="M:GroupKStegafy.DataTier.SaveFileWriter.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:GroupKStegafy.DataTier.SaveFileWriter"/> class.</summary>
         </member>
         <member name="M:GroupKStegafy.DataTier.SaveFileWriter.SaveWritableBitmap(Windows.UI.Xaml.Media.Imaging.WriteableBitmap)">
             <summary>
@@ -883,6 +876,43 @@
             marked with the <see cref="T:GroupKStegafy.Annotations.XamlItemsControlAttribute"/> attribute.
             </remarks>
         </member>
+        <member name="M:GroupKStegafy.Utility.RelayCommand.#ctor(System.Action{System.Object},System.Predicate{System.Object})">
+            <summary>Initializes a new instance of the <see cref="T:GroupKStegafy.Utility.RelayCommand" /> class.</summary>
+            <param name="execute">The execute.</param>
+            <param name="canExecute">The can execute.</param>
+        </member>
+        <member name="E:GroupKStegafy.Utility.RelayCommand.CanExecuteChanged">
+            <summary>Occurs when changes occur that affect whether or not the command should execute.</summary>
+            <returns>EventHandler for a RelayCommand</returns>
+        </member>
+        <member name="M:GroupKStegafy.Utility.RelayCommand.CanExecute(System.Object)">
+            <summary>
+                Defines the method that determines whether the command can execute in its current state.
+                Precondition: none
+                Postcondition: none
+            </summary>
+            <param name="parameter">
+                Data used by the command.  If the command does not require data to be passed, this object can
+                be set to null.
+            </param>
+            <returns>true if this command can be executed; otherwise, false.</returns>
+        </member>
+        <member name="M:GroupKStegafy.Utility.RelayCommand.Execute(System.Object)">
+            <summary>
+                Defines the method to be called when the command is invoked.
+                Precondition: none
+                Postcondition: none
+            </summary>
+            <param name="parameter">
+                Data used by the command.  If the command does not require data to be passed, this object can
+                be set to null.
+            </param>
+        </member>
+        <member name="M:GroupKStegafy.Utility.RelayCommand.UpdateCanExecute">
+            <summary>
+            Calls the CanExecuteChanged event when an update happens enabling/disabling execution
+            </summary>
+        </member>
         <member name="T:GroupKStegafy.ViewModel.MainPageViewModel">
             <summary>Instance of the view model</summary>
             <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
@@ -902,6 +932,11 @@
         <member name="P:GroupKStegafy.ViewModel.MainPageViewModel.SecretImage">
             <summary>Gets or sets the message image.</summary>
             <value>The message image.</value>
+        </member>
+        <member name="P:GroupKStegafy.ViewModel.MainPageViewModel.ErrorText">
+            <summary>
+            Gets or sets the error message when trying to do an action.
+            </summary>
         </member>
         <member name="M:GroupKStegafy.ViewModel.MainPageViewModel.#ctor">
             <summary>Initializes a new instance of the <see cref="T:GroupKStegafy.ViewModel.MainPageViewModel" /> class.</summary>

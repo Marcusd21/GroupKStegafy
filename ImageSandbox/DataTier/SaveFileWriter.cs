@@ -10,27 +10,16 @@ using GroupKStegafy.Model;
 namespace GroupKStegafy.DataTier
 {
     /// <summary>Instance of saving to a file</summary>
-    public class SaveFileWriter
+    public static class SaveFileWriter
     {
-        private WriteableBitmap modifiedImage;
-
-        private Image saveImage;
-
-
-        /// <summary>Initializes a new instance of the <see cref="SaveFileWriter"/> class.</summary>
-        public SaveFileWriter()
-        {
-            this.saveImage = new Image();
-        }
-
         /// <summary>
         ///     Saves the writable bitmap.
         /// </summary>
         /// <param name="image">The modified image.</param>
-        public async void SaveWritableBitmap(WriteableBitmap image)
+        public static async void SaveWritableBitmap(WriteableBitmap image)
         {
-            this.modifiedImage = image;
-            this.saveImage.BitImage = image;
+            var saveImage = new Image {BitImage = image};
+
             var fileSavePicker = new FileSavePicker
             {
                 SuggestedStartLocation = PickerLocationId.PicturesLibrary,
@@ -39,20 +28,20 @@ namespace GroupKStegafy.DataTier
             fileSavePicker.FileTypeChoices.Add("BMP", new List<string> { ".bmp" });
             fileSavePicker.FileTypeChoices.Add("PNG", new List<string> { ".png" });
 
-            var savefile = await fileSavePicker.PickSaveFileAsync();
+            var saveFile = await fileSavePicker.PickSaveFileAsync();
 
-            if (savefile != null)
+            if (saveFile != null)
             {
-                var stream = await savefile.OpenAsync(FileAccessMode.ReadWrite);
+                var stream = await saveFile.OpenAsync(FileAccessMode.ReadWrite);
                 var encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.PngEncoderId, stream);
 
-                var pixelStream = this.modifiedImage.PixelBuffer.AsStream();
+                var pixelStream = image.PixelBuffer.AsStream();
                 var pixels = new byte[pixelStream.Length];
                 await pixelStream.ReadAsync(pixels, 0, pixels.Length);
 
                 encoder.SetPixelData(BitmapPixelFormat.Bgra8, BitmapAlphaMode.Ignore,
-                    (uint)this.modifiedImage.PixelWidth,
-                    (uint)this.modifiedImage.PixelHeight, this.saveImage.dpiX, this.saveImage.dpiY, pixels);
+                    (uint)image.PixelWidth,
+                    (uint)image.PixelHeight, saveImage.dpiX, saveImage.dpiY, pixels);
                 await encoder.FlushAsync();
 
                 stream.Dispose();

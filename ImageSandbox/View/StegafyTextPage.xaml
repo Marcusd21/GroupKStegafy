@@ -26,7 +26,7 @@
         <Button x:Name="openSourceImageButton"  Content="Open Image" Margin="231,346,0,0"  VerticalAlignment="Top" Height="44" Width="153" Click="OpenSourceImageButton_Click"/>
         <Button x:Name="openTextFileButton"  Content="Open Text File" Margin="1117,347,0,0" VerticalAlignment="Top" Height="44" Width="153" Click="OpenTextFileButton_Click"/>
         <Button x:Name="saveSourceButton" Content="Embed &amp; Save" Margin="697,302,0,0" Click="EmbedAndSave_Button_Click" Height="44" Width="153" VerticalAlignment="Top" />
-        <Button x:Name="mainMenuButton" Content="Main Menu" Margin="1117,743,0,0" Height="44" Width="153" VerticalAlignment="Top" Click="MainMenuButton_Click" />
+        <Button x:Name="mainMenuButton" Content="Main Menu" Margin="690,814,0,0" Height="44" Width="153" VerticalAlignment="Top" Click="MainMenuButton_Click" />
         <Button x:Name="hiddenImageButton" Content="Open Image" Margin="231,743,0,0" VerticalAlignment="Top" Height="44" Width="153" Click="HiddenImageButton_Click"/>
         <TextBlock x:Name="tbHiddenMessage" HorizontalAlignment="Left" Margin="1035,450,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="235" Width="316"/>
         <TextBox x:Name="keywordTxt" HorizontalAlignment="Left" Margin="699,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
