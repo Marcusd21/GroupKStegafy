@@ -1,28 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 using GroupKStegafy.DataTier;
-using GroupKStegafy.Model;
-using System.Drawing;
-using Image = GroupKStegafy.Model.Image;
-using Windows.UI.Xaml.Media.Imaging;
-using Windows.Storage.Streams;
-using System.Drawing.Imaging;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using GroupKStegafy.Controller;
-using GroupKStegafy.Utility;
 using GroupKStegafy.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -30,16 +8,26 @@ using GroupKStegafy.ViewModel;
 namespace GroupKStegafy.View
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    ///     An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class StegafyTextPage : Page
     {
-        /// <summary>Initializes a new instance of the <see cref="StegafyTextPage"/> class.</summary>
+        #region Constructors
+
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="StegafyTextPage" /> class.
+        ///     Precondition: none
+        ///     Postcondition: none
+        /// </summary>
         public StegafyTextPage()
         {
             this.InitializeComponent();
             this.fillComboBox();
         }
+
+        #endregion
+
+        #region Methods
 
         private void fillComboBox()
         {
@@ -54,12 +42,15 @@ namespace GroupKStegafy.View
         {
             var result = await FileReader.SelectSourceImageFile();
 
-            if (result == null) return;
+            if (result == null)
+            {
+                return;
+            }
 
             var bitImage = await FileReader.MakeACopyOfTheFileToWorkOn(result);
             var imageSource = await FileReader.CreateImage(result, bitImage);
 
-            var imagePageViewModel = (ImageViewModel) this.DataContext;
+            var imagePageViewModel = (ImageViewModel) DataContext;
 
             if (imagePageViewModel.SetSourceImageCommand.CanExecute(imageSource))
             {
@@ -71,17 +62,19 @@ namespace GroupKStegafy.View
         {
             var result = await FileReader.SelectSourceImageFile();
 
-            if (result != null)
+            if (result == null)
             {
-                var bitImage = await FileReader.MakeACopyOfTheFileToWorkOn(result);
-                var imageHidden = await FileReader.CreateImage(result, bitImage);
+                return;
+            }
 
-                var imagePageViewModel = (ImageViewModel)this.DataContext;
+            var bitImage = await FileReader.MakeACopyOfTheFileToWorkOn(result);
+            var imageHidden = await FileReader.CreateImage(result, bitImage);
 
-                if (imagePageViewModel.SetEmbeddedImageCommand.CanExecute(imageHidden))
-                {
-                    imagePageViewModel.SetEmbeddedImageCommand.Execute(imageHidden);
-                }
+            var imagePageViewModel = (ImageViewModel) DataContext;
+
+            if (imagePageViewModel.SetEmbeddedImageCommand.CanExecute(imageHidden))
+            {
+                imagePageViewModel.SetEmbeddedImageCommand.Execute(imageHidden);
             }
         }
 
@@ -89,7 +82,10 @@ namespace GroupKStegafy.View
         {
             var result = await FileReader.SelectSourceTextFile();
 
-            if (result == null) return;
+            if (result == null)
+            {
+                return;
+            }
 
             var textFromFile = await FileReader.CreateTextString(result);
             this.sourceText.Text = textFromFile;
@@ -100,7 +96,7 @@ namespace GroupKStegafy.View
             var navigationFrame = Window.Current.Content as Frame;
             navigationFrame?.Navigate(typeof(MainPage));
         }
-    }
 
-   
+        #endregion
+    }
 }

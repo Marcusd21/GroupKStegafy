@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace GroupKStegafy.Utility
 {
+    /// <summary>
+    ///     Base class for Commands used within for the ViewModel.
+    /// </summary>
     public class RelayCommand : ICommand
     {
         #region Data members
@@ -19,7 +18,11 @@ namespace GroupKStegafy.Utility
 
         #region Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="RelayCommand" /> class.</summary>
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="RelayCommand" /> class.
+        ///     Precondition: none
+        ///     Postcondition: creates a new RelayCommand object.
+        /// </summary>
         /// <param name="execute">The execute.</param>
         /// <param name="canExecute">The can execute.</param>
         public RelayCommand(Action<object> execute, Predicate<object> canExecute)
@@ -70,9 +73,14 @@ namespace GroupKStegafy.Utility
         }
 
         /// <summary>
-        /// Calls the CanExecuteChanged event when an update happens enabling/disabling execution
+        ///     Calls the CanExecuteChanged event when an update happens
+        ///     Precondition: none
+        ///     Postcondition: none
         /// </summary>
-        public void UpdateCanExecute() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        public void UpdateCanExecute()
+        {
+            this.CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
 
         #endregion
     }

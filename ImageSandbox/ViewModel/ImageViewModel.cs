@@ -3,8 +3,6 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media.Imaging;
 using GroupKStegafy.Annotations;
 using GroupKStegafy.Controller;
@@ -42,29 +40,62 @@ namespace GroupKStegafy.ViewModel
 
         private int selectedBpcc;
 
-        public RelayCommand SetSourceImageCommand { get; }
-
-        public RelayCommand SetMonoImageCommand { get; }
-
-        public RelayCommand SetEmbeddedImageCommand { get; }
-
-        public RelayCommand EmbedAndSaveImageCommand { get; }
-
-        public RelayCommand EmbedAndSaveTextImageCommand { get; }
-
-        public RelayCommand EncryptTextCommand { get; }
-
         #endregion
 
         #region Properties
 
         /// <summary>
-        /// Gets or sets the original text from file.
+        ///     Command for setting up the source Image.
         /// </summary>
+        public RelayCommand SetSourceImageCommand { get; }
+
+        /// <summary>
+        ///     Command for setting up the mono Image.
+        /// </summary>
+        public RelayCommand SetMonoImageCommand { get; }
+
+        /// <summary>
+        ///     Command for setting up the embedded Image.
+        /// </summary>
+        public RelayCommand SetEmbeddedImageCommand { get; }
+
+        /// <summary>
+        ///     Command for embedding and saving image within image.
+        /// </summary>
+        public RelayCommand EmbedAndSaveImageCommand { get; }
+
+        /// <summary>
+        ///     Command for embedding and saving text within image.
+        /// </summary>
+        public RelayCommand EmbedAndSaveTextImageCommand { get; }
+
+        /// <summary>
+        ///     Command for encrypting text.
+        /// </summary>
+        public RelayCommand EncryptTextCommand { get; }
+
+        /// <summary>
+        ///     Gets or sets the original text.
+        /// </summary>
+        /// <value>
+        ///     The original text.
+        /// </value>
         public string OriginalText { get; set; }
 
+        /// <summary>
+        ///     Gets or sets the keyword text.
+        /// </summary>
+        /// <value>
+        ///     The keyword text.
+        /// </value>
         public string KeywordText { get; set; }
 
+        /// <summary>
+        ///     Gets or sets the selected BPCC.
+        /// </summary>
+        /// <value>
+        ///     The selected BPCC.
+        /// </value>
         public int SelectedBpcc
         {
             get => this.selectedBpcc;
@@ -73,10 +104,14 @@ namespace GroupKStegafy.ViewModel
                 this.selectedBpcc = value;
                 this.OnPropertyChanged();
             }
-        } 
+        }
 
-        /// <summary>Gets or sets the scores.</summary>
-        /// <value>The scores.</value>
+        /// <summary>
+        ///     Gets or sets the source image.
+        /// </summary>
+        /// <value>
+        ///     The source image.
+        /// </value>
         public Image SourceImage
         {
             get => this.sourceImage;
@@ -90,8 +125,12 @@ namespace GroupKStegafy.ViewModel
             }
         }
 
-        /// <summary>Gets or sets the monochrome image.</summary>
-        /// <value>The monochrome image.</value>
+        /// <summary>
+        ///     Gets or sets the monochrome image.
+        /// </summary>
+        /// <value>
+        ///     The monochrome image.
+        /// </value>
         public Image MonochromeImage
         {
             get => this.monochromeImage;
@@ -103,8 +142,12 @@ namespace GroupKStegafy.ViewModel
             }
         }
 
-        /// <summary>Gets or sets the hidden image.</summary>
-        /// <value>The hidden image.</value>
+        /// <summary>
+        ///     Gets or sets the embedded image.
+        /// </summary>
+        /// <value>
+        ///     The embedded image.
+        /// </value>
         public Image EmbeddedImage
         {
             get => this.embeddedImage;
@@ -129,8 +172,11 @@ namespace GroupKStegafy.ViewModel
         }
 
         /// <summary>
-        /// Gets or sets the error message when mono image size is bigger than source image.
+        ///     Gets or sets the error text.
         /// </summary>
+        /// <value>
+        ///     The error text.
+        /// </value>
         public string ErrorText
         {
             get => this.errorMonoSizeText;
@@ -141,10 +187,12 @@ namespace GroupKStegafy.ViewModel
             }
         }
 
-
         /// <summary>
-        /// Gets or sets the error message when trying to encrypt text.
+        ///     Gets or sets the error encrypt text.
         /// </summary>
+        /// <value>
+        ///     The error encrypt text.
+        /// </value>
         public string ErrorEncryptText
         {
             get => this.errorEncryptText;
@@ -156,8 +204,11 @@ namespace GroupKStegafy.ViewModel
         }
 
         /// <summary>
-        /// Gets or sets the encrypted text from file.
+        ///     Gets or sets the encrypted text.
         /// </summary>
+        /// <value>
+        ///     The encrypted text.
+        /// </value>
         public string EncryptedText
         {
             get => this.encryptedText;
@@ -170,8 +221,11 @@ namespace GroupKStegafy.ViewModel
         }
 
         /// <summary>
-        /// Gets or sets the secrete message from embedded image.
+        ///     Gets or sets the secret message.
         /// </summary>
+        /// <value>
+        ///     The secret message.
+        /// </value>
         public string SecretMessage
         {
             get => this.secretMessage;
@@ -182,6 +236,12 @@ namespace GroupKStegafy.ViewModel
             }
         }
 
+        /// <summary>
+        ///     Gets or sets the embed success text.
+        /// </summary>
+        /// <value>
+        ///     The embed success text.
+        /// </value>
         public string EmbedSuccessText
         {
             get => this.embedSuccessText;
@@ -196,7 +256,11 @@ namespace GroupKStegafy.ViewModel
 
         #region Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="ImageViewModel" /> class.</summary>
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="ImageViewModel" /> class.
+        ///     Precondition: none
+        ///     Postcondition: initializes the view model.
+        /// </summary>
         public ImageViewModel()
         {
             this.sourceImage = new Image();
@@ -207,14 +271,19 @@ namespace GroupKStegafy.ViewModel
             this.SetSourceImageCommand = new RelayCommand(this.setImage, canSetImage);
             this.SetMonoImageCommand = new RelayCommand(this.setMonoImage, canSetMonoImage);
             this.SetEmbeddedImageCommand = new RelayCommand(this.setEmbeddedImage, canSetEmbeddedImage);
-            this.EmbedAndSaveImageCommand = new RelayCommand(this.embedAndSaveImage, canEmbedAndSaveImage);
-            this.EmbedAndSaveTextImageCommand = new RelayCommand(this.embedAndSaveTextImage, canEmbedAndSaveTextImage);
+            this.EmbedAndSaveImageCommand = new RelayCommand(this.embedAndSaveImage, this.canEmbedAndSaveImage);
+            this.EmbedAndSaveTextImageCommand =
+                new RelayCommand(this.embedAndSaveTextImage, this.canEmbedAndSaveTextImage);
             this.EncryptTextCommand = new RelayCommand(this.encrpytText, canEncrpytText);
         }
 
         #endregion
 
         #region Methods
+
+        /// <summary>Occurs when a property value changes.</summary>
+        /// <returns>event handler for property changed</returns>
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private static bool canSetImage(object obj)
         {
@@ -288,7 +357,8 @@ namespace GroupKStegafy.ViewModel
 
         private async void embedAndSaveTextImage(object obj)
         {
-            TextManager.EmbedText(this.sourceImage.Pixels, Convert.ToUInt32(this.sourceImage.ImageWidth), Convert.ToUInt32(this.sourceImage.ImageHeight), this.encryptedText, Convert.ToInt32(this.SelectedBpcc));
+            TextManager.EmbedText(this.sourceImage.Pixels, Convert.ToUInt32(this.sourceImage.ImageWidth),
+                Convert.ToUInt32(this.sourceImage.ImageHeight), this.encryptedText, Convert.ToInt32(this.SelectedBpcc));
 
             var modifiedImage = new WriteableBitmap(this.sourceImage.ImageWidth, this.sourceImage.ImageHeight);
 
@@ -300,7 +370,7 @@ namespace GroupKStegafy.ViewModel
             var result = await SaveFileWriter.SaveWritableBitmap(modifiedImage);
 
             this.EmbedSuccessText = result ? "Image embedding successful!" : "Error: Image embedding unsuccessful!";
-            this.currentBpcc = SelectedBpcc;
+            this.currentBpcc = this.SelectedBpcc;
         }
 
         private static bool canEncrpytText(object obj)
@@ -327,7 +397,7 @@ namespace GroupKStegafy.ViewModel
                 Convert.ToUInt32(this.embeddedImage.ImageWidth),
                 Convert.ToUInt32(this.embeddedImage.ImageHeight)))
             {
-               this.extractSecretMessage();
+                this.extractSecretMessage();
             }
             else
             {
@@ -342,7 +412,9 @@ namespace GroupKStegafy.ViewModel
                 return;
             }
 
-            var item = TextManager.ExtractSecretText(this.embeddedImage.Pixels, Convert.ToUInt32(this.embeddedImage.ImageWidth), Convert.ToUInt32(this.embeddedImage.ImageHeight), Convert.ToInt32(this.currentBpcc));
+            var item = TextManager.ExtractSecretText(this.embeddedImage.Pixels,
+                Convert.ToUInt32(this.embeddedImage.ImageWidth), Convert.ToUInt32(this.embeddedImage.ImageHeight),
+                Convert.ToInt32(this.currentBpcc));
 
             var curr = item.Aggregate("", (current, c) => current + c);
 
@@ -369,12 +441,10 @@ namespace GroupKStegafy.ViewModel
             }
         }
 
-        /// <summary>Occurs when a property value changes.</summary>
-        /// <returns></returns>
-        public event PropertyChangedEventHandler PropertyChanged;
-
         /// <summary>
-        ///     Updates property
+        ///     Updates property.
+        ///     Precondition: none
+        ///     Postcondition: none
         /// </summary>
         /// <param name="propertyName"></param>
         [NotifyPropertyChangedInvocator]

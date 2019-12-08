@@ -1,19 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace GroupKStegafy.Utility
 {
+    /// <summary>
+    ///     Handles the encryption and decryption of text.
+    /// </summary>
     public static class CipherTextManager
     {
+        #region Data members
 
         private const string KeyWordIdentifier = "#KEY#";
         private const string TextEndingIdentifier = "#.-.-.-#";
         private const string EnglishAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        ///     Encrypts text using the Vigenere cipher.
+        ///     Precondition: none
+        ///     Postcondition: none
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="keyword"></param>
+        /// <returns>an encrypted string</returns>
         public static string VigenereEncrypt(string source, string keyword)
         {
             source = source.ToUpper();
@@ -26,12 +39,14 @@ namespace GroupKStegafy.Utility
             encryptedText.Append(keyword);
             encryptedText.Append(KeyWordIdentifier);
 
-            keyword = ExpandString(keyword, source.Length);
+            keyword = expandString(keyword, source.Length);
 
             foreach (var character in source)
             {
                 encryptedText.Append(EnglishAlphabet.Contains(character)
-                    ? EnglishAlphabet[(EnglishAlphabet.IndexOf(character) + EnglishAlphabet.IndexOf(keyword[j])) % EnglishAlphabet.Length]
+                    ? EnglishAlphabet[
+                        (EnglishAlphabet.IndexOf(character) + EnglishAlphabet.IndexOf(keyword[j])) %
+                        EnglishAlphabet.Length]
                     : character);
 
                 j = (j + 1) % keyword.Length;
@@ -42,6 +57,13 @@ namespace GroupKStegafy.Utility
             return encryptedText.ToString();
         }
 
+        /// <summary>
+        ///     Decrypts text using the Vigenere cipher.
+        ///     Precondition: none
+        ///     Postcondition: none
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns>a decrypted string</returns>
         public static string VigenereDecrypt(string source)
         {
             source = source.ToUpper();
@@ -55,13 +77,14 @@ namespace GroupKStegafy.Utility
             var decryptedText = new StringBuilder(source.Length);
             var encryptedText = source.Substring(start, end);
 
-            keyword = ExpandString(keyword, source.Length);
+            keyword = expandString(keyword, source.Length);
 
             foreach (var character in encryptedText)
             {
                 decryptedText.Append(EnglishAlphabet.Contains(character)
                     ? EnglishAlphabet[
-                        (EnglishAlphabet.IndexOf(character) - EnglishAlphabet.IndexOf(keyword[j]) + EnglishAlphabet.Length) %
+                        (EnglishAlphabet.IndexOf(character) - EnglishAlphabet.IndexOf(keyword[j]) +
+                         EnglishAlphabet.Length) %
                         EnglishAlphabet.Length]
                     : character);
 
@@ -71,9 +94,12 @@ namespace GroupKStegafy.Utility
             return decryptedText.ToString();
         }
 
-        private static string ExpandString(string str, int length)
+        private static string expandString(string str, int length)
         {
-            if (length <= str.Length) return str.Substring(0, length);
+            if (length <= str.Length)
+            {
+                return str.Substring(0, length);
+            }
 
             while (str.Length * 2 <= length)
             {
@@ -87,5 +113,7 @@ namespace GroupKStegafy.Utility
 
             return str;
         }
+
+        #endregion
     }
 }

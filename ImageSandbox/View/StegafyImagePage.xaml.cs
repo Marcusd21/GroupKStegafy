@@ -1,47 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
-using Windows.UI.Xaml.Navigation;
-using GroupKStegafy.Controller;
 using GroupKStegafy.DataTier;
 using GroupKStegafy.ViewModel;
-using Image = GroupKStegafy.Model.Image;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace GroupKStegafy.View
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    ///     An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class StegafyImagePage : Page
     {
+        #region Constructors
+
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="StegafyImagePage" /> class.
+        ///     Precondition: none
+        ///     Postcondition: none
+        /// </summary>
         public StegafyImagePage()
         {
             this.InitializeComponent();
         }
 
+        #endregion
+
+        #region Methods
+
         private async void OpenButton_Click(object sender, RoutedEventArgs e)
         {
             var result = await FileReader.SelectSourceImageFile();
 
-            if (result == null) return;
+            if (result == null)
+            {
+                return;
+            }
 
             var bitImageCopy = await FileReader.MakeACopyOfTheFileToWorkOn(result);
             var imageSource = await FileReader.CreateImage(result, bitImageCopy);
 
-            var imagePageViewModel = (ImageViewModel) this.DataContext;
+            var imagePageViewModel = (ImageViewModel) DataContext;
 
             if (imagePageViewModel.SetSourceImageCommand.CanExecute(imageSource))
             {
@@ -53,12 +52,15 @@ namespace GroupKStegafy.View
         {
             var result = await FileReader.SelectSourceImageFile();
 
-            if (result == null) return;
+            if (result == null)
+            {
+                return;
+            }
 
             var bitImageCopy = await FileReader.MakeACopyOfTheFileToWorkOn(result);
             var imageMono = await FileReader.CreateImage(result, bitImageCopy);
 
-            var imagePageViewModel = (ImageViewModel) this.DataContext;
+            var imagePageViewModel = (ImageViewModel) DataContext;
 
             if (imagePageViewModel.SetMonoImageCommand.CanExecute(imageMono))
             {
@@ -70,12 +72,15 @@ namespace GroupKStegafy.View
         {
             var result = await FileReader.SelectSourceImageFile();
 
-            if (result == null) return;
+            if (result == null)
+            {
+                return;
+            }
 
             var bitImageCopy = await FileReader.MakeACopyOfTheFileToWorkOn(result);
             var imageHidden = await FileReader.CreateImage(result, bitImageCopy);
 
-            var imagePageViewModel = (ImageViewModel) this.DataContext;
+            var imagePageViewModel = (ImageViewModel) DataContext;
 
             if (imagePageViewModel.SetEmbeddedImageCommand.CanExecute(imageHidden))
             {
@@ -88,5 +93,7 @@ namespace GroupKStegafy.View
             var navigationFrame = Window.Current.Content as Frame;
             navigationFrame?.Navigate(typeof(MainPage));
         }
+
+        #endregion
     }
 }

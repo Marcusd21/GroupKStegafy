@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Media.Imaging;
-using GroupKStegafy.Controller;
-using GroupKStegafy.DataTier;
-using GroupKStegafy.Model;
-using GroupKStegafy.ViewModel;
+﻿using Windows.UI.Xaml;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -19,13 +11,19 @@ namespace GroupKStegafy.View
     {
         #region Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="MainPage" /> class.</summary>
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="MainPage" /> class.
+        ///     Precondition: none
+        ///     Postcondition: none
+        /// </summary>
         public MainPage()
         {
             this.InitializeComponent();
         }
 
         #endregion
+
+        #region Methods
 
         private void ImageStegafyButton_Click(object sender, RoutedEventArgs e)
         {
@@ -36,5 +34,7 @@ namespace GroupKStegafy.View
         {
             Frame.Navigate(typeof(StegafyTextPage));
         }
+
+        #endregion
     }
 }

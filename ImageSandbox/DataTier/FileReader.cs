@@ -1,9 +1,4 @@
-﻿using GroupKStegafy.Model;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Security;
-using System.Security.Permissions;
+﻿using System;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -11,17 +6,21 @@ using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Media.Imaging;
+using GroupKStegafy.Model;
 
 namespace GroupKStegafy.DataTier
 {
     /// <summary>Creates instance of a file reader</summary>
     public static class FileReader
     {
+        #region Methods
 
         /// <summary>
         ///     Selects the source image file.
+        ///     Precondition: none
+        ///     Postcondition: none
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Source Image file</returns>
         public static async Task<StorageFile> SelectSourceImageFile()
         {
             var openPicker = new FileOpenPicker {
@@ -35,15 +34,18 @@ namespace GroupKStegafy.DataTier
             return file;
         }
 
-        /// <summary>Selects the source text file.</summary>
-        /// <returns></returns>
+        /// <summary>
+        ///     Selects the source text file.
+        ///     Precondition: none
+        ///     Postcondition: none
+        /// </summary>
+        /// <returns>Text file</returns>
         public static async Task<StorageFile> SelectSourceTextFile()
         {
-            var openPicker = new FileOpenPicker
-            {
+            var openPicker = new FileOpenPicker {
                 ViewMode = PickerViewMode.Thumbnail,
                 SuggestedStartLocation = PickerLocationId.PicturesLibrary,
-                FileTypeFilter = { ".txt"}
+                FileTypeFilter = {".txt"}
             };
 
             var file = await openPicker.PickSingleFileAsync();
@@ -53,9 +55,11 @@ namespace GroupKStegafy.DataTier
 
         /// <summary>
         ///     Makes a copy of the file to work on.
+        ///     Precondition: none
+        ///     Postcondition: none
         /// </summary>
         /// <param name="imageFile">The image file.</param>
-        /// <returns></returns>
+        /// <returns>BitmapImage copy of source image file</returns>
         public static async Task<BitmapImage> MakeACopyOfTheFileToWorkOn(StorageFile imageFile)
         {
             IRandomAccessStream inputStream = await imageFile.OpenReadAsync();
@@ -64,9 +68,14 @@ namespace GroupKStegafy.DataTier
             return newImage;
         }
 
-        /// <summary>Creates the image.</summary>
+        /// <summary>
+        ///     Creates the image.
+        ///     Precondition: none
+        ///     Postcondition: none
+        /// </summary>
         /// <param name="file">The file.</param>
-        /// <returns></returns>
+        /// <param name="bitImage"></param>
+        /// <returns>Image object from file and bit image</returns>
         public static async Task<Image> CreateImage(StorageFile file, BitmapImage bitImage)
         {
             var image = new Image();
@@ -76,16 +85,20 @@ namespace GroupKStegafy.DataTier
                 await image.SetSourceImage(file, bitImage);
             }
 
-            return image;     
+            return image;
         }
 
-        /// <summary>Creates the text string.</summary>
+        /// <summary>
+        ///     Creates the text string.
+        ///     Precondition: none
+        ///     Postcondition: none
+        /// </summary>
         /// <param name="file">The file.</param>
-        /// <returns></returns>
+        /// <returns>string contents of text file</returns>
         public static async Task<string> CreateTextString(StorageFile file)
         {
             var sb = new StringBuilder();
-            
+
             using (var fileStream = await file.OpenAsync(FileAccessMode.Read))
             {
                 var lines = await FileIO.ReadLinesAsync(file);
@@ -102,7 +115,9 @@ namespace GroupKStegafy.DataTier
                 }
             }
 
-            return Convert.ToString(sb);           
+            return Convert.ToString(sb);
         }
+
+        #endregion
     }
 }

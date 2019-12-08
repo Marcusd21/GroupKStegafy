@@ -5,18 +5,23 @@ using GroupKStegafy.Model;
 namespace GroupKStegafy.Controller
 {
     /// <summary>
+    ///     Handles Image Embedding and Extraction
     /// </summary>
     public static class ImageManager
     {
         #region Methods
 
-        /// <summary>Gets the pixel bgra8.</summary>
+        /// <summary>
+        ///     Gets the pixel bgra8.
+        ///     Precondition: none
+        ///     Postcondition: none
+        /// </summary>
         /// <param name="pixels">The pixels.</param>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        /// <returns></returns>
+        /// <returns>Color object from pixel bgra8</returns>
         private static Color getPixelBgra8(byte[] pixels, int x, int y, uint width, uint height)
         {
             var offset = (x * (int) width + y) * 4;
@@ -32,7 +37,11 @@ namespace GroupKStegafy.Controller
             return Color.FromArgb(0, r, g, b);
         }
 
-        /// <summary>Sets the pixel bgra8.</summary>
+        /// <summary>
+        ///     Sets the pixel bgra8.
+        ///     Precondition: none
+        ///     Postcondition: pixel bgra8 is setup
+        /// </summary>
         /// <param name="pixels">The pixels.</param>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
@@ -48,6 +57,9 @@ namespace GroupKStegafy.Controller
         }
 
         /// <summary>
+        ///     Embeds the source image with the monochrome image.
+        ///     Precondition: none
+        ///     Postcondition: mono image embedded into source
         /// </summary>
         /// <param name="sourcePixels"></param>
         /// <param name="imageWidth"></param>
@@ -80,7 +92,11 @@ namespace GroupKStegafy.Controller
             }
         }
 
-        /// <summary>Determines whether [is image exceed source] [the specified image width].</summary>
+        /// <summary>
+        ///     Determines whether [is image exceed source] [the specified image width].
+        ///     Precondition: none
+        ///     Postcondition: none
+        /// </summary>
         /// <param name="imageWidth">Width of the image.</param>
         /// <param name="imageHeight">Height of the image.</param>
         /// <param name="monoImage"></param>
@@ -92,19 +108,27 @@ namespace GroupKStegafy.Controller
             return monoImage.ImageHeight > imageHeight && monoImage.ImageWidth > imageWidth;
         }
 
-        /// <summary>Determines whether [is image secret message] [the specified source pixels].</summary>
+        /// <summary>
+        ///     Determines whether [is image secret message] [the specified source pixels].
+        ///     Precondition: none
+        ///     Postcondition: none
+        /// </summary>
         /// <param name="sourcePixels">The source pixels.</param>
         /// <param name="imageWidth">Width of the image.</param>
         /// <param name="imageHeight">Height of the image.</param>
         /// <returns>
-        ///   <c>true</c> if [is image secret message] [the specified source pixels]; otherwise, <c>false</c>.</returns>
+        ///     <c>true</c> if [is image secret message] [the specified source pixels]; otherwise, <c>false</c>.
+        /// </returns>
         public static bool IsImageSecretMessage(byte[] sourcePixels, uint imageWidth, uint imageHeight)
         {
             var pixelColor = getPixelBgra8(sourcePixels, 0, 0, imageWidth, imageHeight);
-            return (pixelColor.B == 212 && pixelColor.R == 212 && pixelColor.G == 212);
+            return pixelColor.B == 212 && pixelColor.R == 212 && pixelColor.G == 212;
         }
 
         /// <summary>
+        ///     Extracts the image message from embedded image.
+        ///     Precondition: none
+        ///     Postcondition: secret image is extracted
         /// </summary>
         /// <param name="sourcePixels"></param>
         /// <param name="imageWidth"></param>
