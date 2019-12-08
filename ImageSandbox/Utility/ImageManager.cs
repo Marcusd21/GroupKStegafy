@@ -2,7 +2,7 @@
 using Windows.UI;
 using GroupKStegafy.Model;
 
-namespace GroupKStegafy.Controller
+namespace GroupKStegafy.Utility
 {
     /// <summary>
     ///     Handles Image Embedding and Extraction

@@ -5,7 +5,6 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.UI.Xaml.Media.Imaging;
 using GroupKStegafy.Annotations;
-using GroupKStegafy.Controller;
 using GroupKStegafy.DataTier;
 using GroupKStegafy.Model;
 using GroupKStegafy.Utility;

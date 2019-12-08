@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Windows.UI;
 
-namespace GroupKStegafy.Controller
+namespace GroupKStegafy.Utility
 {
     /// <summary>Handles Text Embedding and Extraction.</summary>
     public static class TextManager
