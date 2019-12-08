@@ -70,14 +70,13 @@ namespace GroupKStegafy.Utility
             var current = 0;
             var byteAmount = Convert.ToByte(bpcc);
             var bitChecked = 0;
-            
+
             var channel = 0;
-            
+
             for (var i = 0; i < imageHeight; i++)
             {
                 for (var j = 0; j < imageWidth; j++)
                 {
-                    
                     var pixelColor = getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
                     var bitR = Convert.ToString(pixelColor.R, 2).PadLeft(8, '0');
                     var bitG = Convert.ToString(pixelColor.G, 2).PadLeft(8, '0');
@@ -107,29 +106,7 @@ namespace GroupKStegafy.Utility
                             {
                                 bit = Convert.ToString(textBytesValue[current], 2).PadLeft(8, '0');
 
-                                var result = "";
-                                var amount = bitChecked;
-                                for (var k = 0; k < bitR.Length - bpcc; k++)
-                                {
-                                    pixel += bitR[k];
-                                }
-
-                                for (var k = 0; k < bit.Length; k++)
-                                {
-                                    if (k > amount - 1 && k < amount + bpcc)
-                                    {
-                                        result += bit[k];
-                                        count++;
-                                        bitChecked++;
-
-                                        if (bitChecked == 8)
-                                        {
-                                            current++;
-
-                                            bitChecked = 0;
-                                        }
-                                    }
-                                }
+                                var result = extractBitInformation(bpcc, bitB, bit, ref bitChecked, ref pixel, ref count, ref current);
 
                                 if (count != bpcc && current < textBytesValue.Length)
                                 {
@@ -250,30 +227,7 @@ namespace GroupKStegafy.Utility
                             else if (channel == 1)
                             {
                                 bit = Convert.ToString(textBytesValue[current], 2).PadLeft(8, '0');
-                                var result = "";
-
-                                var amount = bitChecked;
-                                for (var k = 0; k < bitG.Length - bpcc; k++)
-                                {
-                                    pixel += bitG[k];
-                                }
-
-                                for (var k = 0; k < bit.Length; k++)
-                                {
-                                    if (k > amount - 1 && k < amount + bpcc)
-                                    {
-                                        result += bit[k];
-                                        count++;
-                                        bitChecked++;
-
-                                        if (bitChecked == 8)
-                                        {
-                                            current++;
-
-                                            bitChecked = 0;
-                                        }
-                                    }
-                                }
+                                var result = extractBitInformation(bpcc, bitB, bit, ref bitChecked, ref pixel, ref count, ref current);
 
                                 if (count != bpcc && current < textBytesValue.Length)
                                 {
@@ -396,28 +350,7 @@ namespace GroupKStegafy.Utility
                             {
                                 bit = Convert.ToString(textBytesValue[current], 2).PadLeft(8, '0');
 
-                                var amount = bitChecked;
-                                var result = "";
-                                for (var k = 0; k < bitB.Length - bpcc; k++)
-                                {
-                                    pixel += bitB[k];
-                                }
-
-                                for (var k = 0; k < bit.Length; k++)
-                                {
-                                    if (k > amount - 1 && k < amount + bpcc)
-                                    {
-                                        result += bit[k];
-                                        count++;
-                                        bitChecked++;
-
-                                        if (bitChecked == 8)
-                                        {
-                                            current++;
-                                            bitChecked = 0;
-                                        }
-                                    }
-                                }
+                                var result = extractBitInformation(bpcc, bitB, bit, ref bitChecked, ref pixel, ref count, ref current);
 
                                 if (count != bpcc && current < textBytesValue.Length)
                                 {
@@ -543,6 +476,35 @@ namespace GroupKStegafy.Utility
             }
         }
 
+        private static string extractBitInformation(int bpcc, string bitB, string bit, ref int bitChecked, ref string pixel,
+            ref int count, ref int current)
+        {
+            var amount = bitChecked;
+            var result = "";
+            for (var k = 0; k < bitB.Length - bpcc; k++)
+            {
+                pixel += bitB[k];
+            }
+
+            for (var k = 0; k < bit.Length; k++)
+            {
+                if (k > amount - 1 && k < amount + bpcc)
+                {
+                    result += bit[k];
+                    count++;
+                    bitChecked++;
+
+                    if (bitChecked == 8)
+                    {
+                        current++;
+                        bitChecked = 0;
+                    }
+                }
+            }
+
+            return result;
+        }
+
         /// <summary>
         ///     Extracts the secret text.
         ///     Precondition: none
@@ -572,87 +534,19 @@ namespace GroupKStegafy.Utility
                     {
                         if (channel == 0)
                         {
-                            for (var k = 0; k < bitR.Length; k++)
-                            {
-                                if (k > bitR.Length - bpcc - 1 && k < bitR.Length)
-                                {
-                                    message += bitR[k];
-                                    bitChecked++;
-
-                                    if (bitChecked == 8)
-                                    {
-                                        count++;
-                                        var value = Convert.ToInt32(message, 2);
-                                        var bite = Convert.ToByte(value);
-                                        answer.Add(bite);
-                                        message = "";
-                                        bitChecked = 0;
-                                        if (count == bpcc)
-                                        {
-                                            count = 0;
-                                            break;
-                                        }
-                                    }
-                                }
-                            }
+                            message = getMessgaeFromRedPixel(bpcc, bitR, message, answer, ref bitChecked, ref count);
 
                             channel++;
                         }
                         else if (channel == 1)
                         {
-                           
-                            for (var k = 0; k < bitG.Length; k++)
-                            {
-                                if (k > bitG.Length - bpcc - 1 && k < bitG.Length)
-                                {
-                                    message += bitG[k];
-                                    bitChecked++;
-
-                                    if (bitChecked == 8)
-                                    {
-                                        count++;
-                                        var value = Convert.ToInt32(message, 2);
-                                        var bite = Convert.ToByte(value);
-                                        answer.Add(bite);
-                                        message = "";
-                                        bitChecked = 0;
-                                        if (count == bpcc)
-                                        {
-                                            count = 0;
-                                            break;
-                                        }
-                                    }
-                                }
-                            }
+                            message = getMessgaeFromGreenPixel(bpcc, bitG, message, answer, ref bitChecked, ref count);
 
                             channel++;
                         }
                         else
                         {
-                            
-                            for (var k = 0; k < bitB.Length; k++)
-                            {
-                                if (k > bitG.Length - bpcc - 1 && k < bitG.Length)
-                                {
-                                    message += bitB[k];
-                                    bitChecked++;
-
-                                    if (bitChecked == 8)
-                                    {
-                                        count++;
-                                        var value = Convert.ToInt32(message, 2);
-                                        var bite = Convert.ToByte(value);
-                                        answer.Add(bite);
-                                        message = "";
-                                        bitChecked = 0;
-                                        if (count == bpcc)
-                                        {
-                                            count = 0;
-                                            break;
-                                        }
-                                    }
-                                }
-                            }
+                            message = getMessgaeFromBluePixel(bpcc, bitB, bitG, message, answer, ref bitChecked, ref count);
 
                             channel++;
                         }
@@ -664,6 +558,94 @@ namespace GroupKStegafy.Utility
 
             var current = convertBytesToText(answer);
             return current;
+        }
+
+        private static string getMessgaeFromRedPixel(int bpcc, string bitR, string message, List<byte> answer, ref int bitChecked,
+            ref int count)
+        {
+            for (var k = 0; k < bitR.Length; k++)
+            {
+                if (k > bitR.Length - bpcc - 1 && k < bitR.Length)
+                {
+                    message += bitR[k];
+                    bitChecked++;
+
+                    if (bitChecked == 8)
+                    {
+                        count++;
+                        var value = Convert.ToInt32(message, 2);
+                        var bite = Convert.ToByte(value);
+                        answer.Add(bite);
+                        message = "";
+                        bitChecked = 0;
+                        if (count == bpcc)
+                        {
+                            count = 0;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return message;
+        }
+
+        private static string getMessgaeFromGreenPixel(int bpcc, string bitG, string message, List<byte> answer, ref int bitChecked,
+            ref int count)
+        {
+            for (var k = 0; k < bitG.Length; k++)
+            {
+                if (k > bitG.Length - bpcc - 1 && k < bitG.Length)
+                {
+                    message += bitG[k];
+                    bitChecked++;
+
+                    if (bitChecked == 8)
+                    {
+                        count++;
+                        var value = Convert.ToInt32(message, 2);
+                        var bite = Convert.ToByte(value);
+                        answer.Add(bite);
+                        message = "";
+                        bitChecked = 0;
+                        if (count == bpcc)
+                        {
+                            count = 0;
+                        }
+                    }
+                }
+            }
+
+            return message;
+        }
+
+        private static string getMessgaeFromBluePixel(int bpcc, string bitB, string bitG, string message, List<byte> answer,
+            ref int bitChecked, ref int count)
+        {
+            for (var k = 0; k < bitB.Length; k++)
+            {
+                if (k > bitG.Length - bpcc - 1 && k < bitG.Length)
+                {
+                    message += bitB[k];
+                    bitChecked++;
+
+                    if (bitChecked == 8)
+                    {
+                        count++;
+                        var value = Convert.ToInt32(message, 2);
+                        var bite = Convert.ToByte(value);
+                        answer.Add(bite);
+                        message = "";
+                        bitChecked = 0;
+                        if (count == bpcc)
+                        {
+                            count = 0;
+                        }
+                    }
+                }
+            }
+
+            return message;
         }
 
         private static byte[] convertTextToBytes(string text)
