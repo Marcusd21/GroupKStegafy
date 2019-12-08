@@ -127,6 +127,18 @@ namespace GroupKStegafy.Controller
                                         }
                                     }
                                 }
+                                if (count != bpcc && current < textBytesValue.Length)
+                                {
+                                    bit = Convert.ToString(textBytesValue[current], 2).PadLeft(8, '0');
+                                    
+                                    var countLeft = bpcc - count;
+                                    for (var k = 0; k < countLeft; k++)
+                                    {
+                                        result += bit[k];
+                                        count++;
+                                        bitChecked++;
+                                    }
+                                }
 
                                 if (count == bpcc)
                                 {
@@ -207,6 +219,19 @@ namespace GroupKStegafy.Controller
 
                                             bitChecked = 0;
                                         }
+                                    }
+                                }
+
+                                if (count != bpcc && current < textBytesValue.Length)
+                                {
+                                    bit = Convert.ToString(textBytesValue[current], 2).PadLeft(8, '0');
+                                    
+                                    var countLeft = bpcc - count;
+                                    for (var k = 0; k < countLeft; k++)
+                                    {
+                                        result += bit[k];
+                                        count++;
+                                        bitChecked++;
                                     }
                                 }
 
@@ -291,7 +316,18 @@ namespace GroupKStegafy.Controller
                                         }
                                     }
                                 }
-
+                                if (count != bpcc && current < textBytesValue.Length)
+                                {
+                                    bit = Convert.ToString(textBytesValue[current], 2).PadLeft(8, '0');
+                                    
+                                    var countLeft = bpcc - count;
+                                    for (var k = 0; k < countLeft; k++)
+                                    {
+                                        result += bit[k];
+                                        count++;
+                                        bitChecked++;
+                                    }
+                                }
                                 if (count == bpcc)
                                 {
                                     var value = "";
