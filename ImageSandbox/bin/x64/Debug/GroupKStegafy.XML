@@ -168,7 +168,6 @@
             <param name="y">The y.</param>
             <param name="color">The color.</param>
             <param name="width">The width.</param>
-            <param name="height">The height.</param>
         </member>
         <member name="M:GroupKStegafy.Utility.TextManager.EmbedText(System.Byte[],System.UInt32,System.UInt32,System.String,System.Int32)">
             <summary>
@@ -180,6 +179,7 @@
             <param name="imageWidth">Width of the image.</param>
             <param name="imageHeight">Height of the image.</param>
             <param name="text">The text.</param>
+            <param name="bpcc"></param>
         </member>
         <member name="M:GroupKStegafy.Utility.TextManager.ExtractSecretText(System.Byte[],System.UInt32,System.UInt32,System.Int32)">
             <summary>
@@ -190,6 +190,7 @@
             <param name="sourcePixels">The source pixels.</param>
             <param name="imageWidth">Width of the image.</param>
             <param name="imageHeight">Height of the image.</param>
+            <param name="bpcc"></param>
         </member>
         <member name="T:GroupKStegafy.Utility.CipherTextManager">
             <summary>
